@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import OrderArea from './OrderArea';
 
 const CheckoutArea = () => {

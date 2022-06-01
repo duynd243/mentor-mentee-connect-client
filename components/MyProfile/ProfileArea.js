@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import useAuth from "../../hooks/useAuth";
 import Link from 'next/link'
-import { useEffect } from "react";
-import { getTotal } from "../../redux/features/cartSlice";
+import {useEffect} from "react";
+import {getTotal} from "../../redux/features/cartSlice";
 
 
 const ProfileArea = () => {
@@ -12,6 +12,7 @@ const ProfileArea = () => {
    const myOrders = useSelector(state => state.order.myOrders);
    // user
    const { user } = useAuth();
+   console.log(user);
    // dispatch
    const dispatch = useDispatch();
    // dispatch getTotal
@@ -27,7 +28,7 @@ const ProfileArea = () => {
                      <div className="col-xxl-6 col-md-6">
                         <div className="profile__basic d-md-flex align-items-center">
                            <div className="profile__basic-thumb mr-30">
-                              <img src="assets/img/profile/profile-img.jpg" alt="" />
+                              <img src={user?.photoURL} alt="" />
                            </div>
                            <div className="profile__basic-content">
                               <h3 className="profile__basic-title">

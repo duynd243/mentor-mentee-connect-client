@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
 import links from "../../data/linkData";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
-import { searchText } from "../../redux/features/coursesSlice";
-import { useRouter } from 'next/router';
+import {searchText} from "../../redux/features/coursesSlice";
+import {useRouter} from 'next/router';
 import LoginData from "../../data/LoginMenuData";
 import Sidebar from "../common/SideBar";
 

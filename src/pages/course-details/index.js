@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import BreadCrumb from '../../../components/common/BreadCrumb';
 import Footer from '../../../components/common/Footer';
 import CourseDetailsArea from '../../../components/CourseDetails/CourseDetailsArea';
 import Header from '../../../components/Home/Header';
-import { singleCourse } from '../../../redux/features/coursesSlice';
+import {singleCourse} from '../../../redux/features/coursesSlice';
 
 
 const CourseDetails = () => {

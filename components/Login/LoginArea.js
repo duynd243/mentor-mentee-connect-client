@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useForm } from "react-hook-form";
-import { useRouter } from 'next/router';
+import {useForm} from "react-hook-form";
+import {useRouter} from 'next/router';
 
 const LoginArea = () => {
    // useAuth

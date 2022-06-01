@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import SwiperCore, { Navigation, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRouter } from 'next/router';
-import { searchText } from '../../redux/features/coursesSlice';
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import SwiperCore, {EffectFade, Navigation} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {useRouter} from 'next/router';
+import {searchText} from '../../redux/features/coursesSlice';
+
 SwiperCore.use([Navigation]);
 
 const HomeThreeHeroArea = () => {

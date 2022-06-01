@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import DynamicPageHeader from '../../../components/common/DynamicPageHeader';
 import DynamicEventArea from '../../../components/EventDetails/DynamicEventArea';
 import DynamicPageEventRightSide from '../../../components/EventDetails/DynamicPageEventRightSide';
 import HomeTwoFooter from '../../../components/HomeTwo/HomeTwoFooter';
-import { singleEvent } from '../../../redux/features/eventSlice';
+import {singleEvent} from '../../../redux/features/eventSlice';
 
 
 const DetailsEvent = () => {

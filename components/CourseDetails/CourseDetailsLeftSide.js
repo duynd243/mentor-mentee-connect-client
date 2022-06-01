@@ -1,9 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper';
-import { useSelector } from 'react-redux';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import SwiperCore, {Pagination} from 'swiper';
+import {useSelector} from 'react-redux';
 import DetailsTabItems from './DetailsTabItems';
-SwiperCore.use([Pagination]);
 import Link from 'next/link';
+
+SwiperCore.use([Pagination]);
 
 
 const CourseDetailsLeftSide = ({ courseData }) => {

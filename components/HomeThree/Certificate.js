@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useState } from 'react';
-import { Modal } from 'react-responsive-modal';
+import {useState} from 'react';
+import {Modal} from 'react-responsive-modal';
 import ReactPlayer from "react-player";
 
 const Certificate = () => {

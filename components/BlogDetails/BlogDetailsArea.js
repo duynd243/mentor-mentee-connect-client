@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { singleBlog } from '../../redux/features/blogSlice';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {singleBlog} from '../../redux/features/blogSlice';
 import BlogRightSide from '../Blog/BlogRightSide';
 import FormArea from './FormArea';
 

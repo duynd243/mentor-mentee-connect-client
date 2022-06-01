@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 import Head from 'next/head';
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import BlogRightSide from "../../../components/Blog/BlogRightSide";
 import FormArea from "../../../components/BlogDetails/FormArea";
 import DynamicPageHeader from "../../../components/common/DynamicPageHeader";
-import { singleBlog } from "../../../redux/features/blogSlice";
+import {singleBlog} from "../../../redux/features/blogSlice";
 
 const BlogDetails = () => {
    // blogs

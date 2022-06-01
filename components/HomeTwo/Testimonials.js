@@ -1,5 +1,6 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import SwiperCore, {Pagination} from 'swiper';
+
 SwiperCore.use([ Pagination]);
 
 const Testimonials = () => {

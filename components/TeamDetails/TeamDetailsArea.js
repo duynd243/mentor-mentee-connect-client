@@ -1,7 +1,7 @@
-import { Container, Spinner } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import {Container, Spinner} from "react-bootstrap";
+import {useSelector} from "react-redux";
 import Link from 'next/link';
-import { useEffect } from "react";
+import {useEffect} from "react";
 
 const TeamDetailsArea = ({ singleTeam, coursesItems }) => {
    const status = useSelector(state => state.teams.status);

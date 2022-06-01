@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import Swal from 'sweetalert2';
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
 
 export const cartSlice = createSlice({
     name: 'cart',

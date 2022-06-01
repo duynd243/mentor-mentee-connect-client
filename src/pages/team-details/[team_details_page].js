@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import {useRouter} from 'next/router';
+import React, {useEffect} from 'react';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import DynamicPageHeader from '../../../components/common/DynamicPageHeader';
 import Footer from '../../../components/common/Footer';
-import { singleTeam } from '../../../redux/features/teamSlice';
+import {singleTeam} from '../../../redux/features/teamSlice';
 import Link from 'next/link';
 
 const DetialsPage = () => {

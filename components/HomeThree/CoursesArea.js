@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 const CoursesArea = () => {
    // coursesItems

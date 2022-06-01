@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import EventSingle from './EventSingle';
 
 const Events = () => {
