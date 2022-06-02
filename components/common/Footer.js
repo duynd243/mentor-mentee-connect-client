@@ -5,7 +5,7 @@ const Footer = ({ white_bg = '' }) => {
       <>
          <footer>
             <div className="footer__area">
-               <div className={`footer__top grey-bg-4 pt-95 pb-45 ${white_bg && white_bg}`}>
+               <div className={`footer__top grey-bg-4 pt-95 pb-45 px-4 ${white_bg && white_bg}`}>
                   <div className="container">
                      <div className="row">
                         <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-7">

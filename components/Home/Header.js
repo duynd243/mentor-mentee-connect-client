@@ -41,12 +41,12 @@ const Header = () => {
       <>
          <header>
             <div className="header__area">
-               <div className="header__top header__border d-none d-md-block">
+               <div className="header__top header__border d-block p-2">
                   <div className="container">
                      <div className="row align-items-center">
                         <div className="col-xxl-6 col-xl-8 col-lg-8 col-md-8">
                            <div className="header__info">
-                              <ul>
+                              <ul className="d-none d-md-block">
                                  <li>
                                     <a href="mailto:info@educal.com">
                                        <svg viewBox="0 0 15 13">
@@ -69,7 +69,7 @@ const Header = () => {
                         </div>
                         <div className="col-xxl-6 col-xl-4 col-lg-4 col-md-4">
                            <div className="header__top-right d-flex justify-content-end align-items-center">
-                              <div className="header__login">
+                              <div className="header__login fw-bold">
                                  {
                                     user?.email ? <a onClick={logout} style={{ cursor: 'pointer' }}>
                                        <svg viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
