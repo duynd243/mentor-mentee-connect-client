@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import {useState} from 'react';
+import {useSelector} from 'react-redux';
 import useAuth from '../../hooks/useAuth';
 import EditModal from '../common/EditModal';
 import Link from 'next/link';
@@ -58,11 +58,11 @@ const ProfileMenuArea = () => {
                                     </div>
                                     <div className="profile__info-item">
                                        <p>Phone</p>
-                                       <h4>(325) 463-5693</h4>
+                                       <h4>-- load from db --</h4>
                                     </div>
                                     <div className="profile__info-item">
                                        <p>Address</p>
-                                       <h4>Abingdon, Maryland(MD), 21009</h4>
+                                       <h4>-- load from db --</h4>
                                     </div>
                                  </div>
                               </div>

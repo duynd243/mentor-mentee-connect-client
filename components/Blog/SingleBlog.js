@@ -1,9 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, EffectFade } from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import SwiperCore, {EffectFade, Navigation} from 'swiper';
 import Link from 'next/link';
-import { Modal } from 'react-responsive-modal';
+import {Modal} from 'react-responsive-modal';
 import ReactPlayer from "react-player";
-import { useState } from 'react';
+import {useState} from 'react';
+
 SwiperCore.use([Navigation]);
 
 const SingleBlog = ({ blog }) => {

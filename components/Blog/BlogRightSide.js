@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { searchText } from '../../redux/features/coursesSlice';
-import { useRouter } from 'next/router';
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {searchText} from '../../redux/features/coursesSlice';
+import {useRouter} from 'next/router';
 
 const BlogRightSide = ({ blogs, dynamicPage = false }) => {
    // searchValue

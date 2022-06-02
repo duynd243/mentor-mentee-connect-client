@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { categoryData } from '../../redux/features/categorySlice';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {categoryData} from '../../redux/features/categorySlice';
 import Pagination from '../common/Pagination';
 import Link from 'next/link';
 

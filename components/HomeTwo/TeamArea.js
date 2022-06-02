@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Container, Spinner } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import React, {useEffect} from 'react';
+import {Container, Spinner} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 import Link from 'next/link';
 
 const TeamArea = () => {

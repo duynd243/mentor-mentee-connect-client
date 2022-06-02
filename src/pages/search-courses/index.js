@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import BreadCrumb from '../../../components/common/BreadCrumb';
 import Footer from '../../../components/common/Footer';
 import Header from '../../../components/Home/Header';

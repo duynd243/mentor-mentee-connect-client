@@ -1,4 +1,4 @@
-import { Modal } from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const EditModal = ({ show, handleClose }) => {

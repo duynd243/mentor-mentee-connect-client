@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import {useState} from 'react';
 import links from '../../data/linkData';
 import LoginData from '../../data/LoginMenuData';
 import useAuth from '../../hooks/useAuth';
-import useSticky from '../../hooks/useSticky';
 import Sidebar from '../common/SideBar';
 import StickyHeader from './StickyHeader';
 

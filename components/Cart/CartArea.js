@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, clearCart, decreaseCartQuantity, getTotal, removeFromCart } from '../../redux/features/cartSlice';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart, clearCart, decreaseCartQuantity, getTotal, removeFromCart} from '../../redux/features/cartSlice';
 import Swal from 'sweetalert2';
 import Link from 'next/link';
 

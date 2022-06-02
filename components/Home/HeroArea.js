@@ -1,6 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import Link from 'next/link'
-import SwiperCore, { Navigation, EffectFade } from 'swiper';
+import SwiperCore, {EffectFade, Navigation} from 'swiper';
+
 SwiperCore.use([Navigation]);
 
 const HeroArea = () => {

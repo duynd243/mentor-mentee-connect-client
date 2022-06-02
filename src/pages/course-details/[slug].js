@@ -1,21 +1,22 @@
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import Head from 'next/head';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper';
-SwiperCore.use([Pagination]);;
-import { useDispatch, useSelector } from 'react-redux';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import SwiperCore, {Pagination} from 'swiper';
+import {useDispatch, useSelector} from 'react-redux';
 import Link from 'next/link';
 import Footer from '../../../components/common/Footer';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import EnrolledModal from '../../../components/common/EnrolledModal';
 import DynamicPageHeader from '../../../components/common/DynamicPageHeader';
-import { singleCourse } from '../../../redux/features/coursesSlice';
+import {singleCourse} from '../../../redux/features/coursesSlice';
 import useAuth from '../../../hooks/useAuth';
 import SidebarRelatedCourse from '../../../components/CourseDetails/SidebarRelatedCourse';
 import DetailsTabItems from '../../../components/CourseDetails/DetailsTabItems';
-import { addToCart } from '../../../redux/features/cartSlice';
-import { Modal } from 'react-responsive-modal';
+import {addToCart} from '../../../redux/features/cartSlice';
+import {Modal} from 'react-responsive-modal';
 import ReactPlayer from "react-player";
+
+SwiperCore.use([Pagination]);;
 
 
 const CourseDetails = () => {

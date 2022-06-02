@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useForm } from "react-hook-form";
-import { useRouter } from 'next/router';
+import {useForm} from "react-hook-form";
+import {useRouter} from 'next/router';
 
 const LoginArea = () => {
    // useAuth
@@ -47,7 +47,7 @@ const LoginArea = () => {
                      <div className="sign__wrapper white-bg">
                         <div className="sign__header mb-35">
                            <div onClick={() => handleGoogleSignIn(router)} className="sign__in text-center">
-                              <a style={{ cursor: 'pointer' }} className="sign__social g-plus text-start mb-15"><i className="fab fa-google-plus-g"></i>Sign Up with Google</a>
+                              <a style={{ cursor: 'pointer' }} className="sign__social g-plus text-start mb-15"><i className="fab fa-google-plus-g"></i>Sign in with Google</a>
                               <p> <span>........</span> Or, <Link href="/sign-up"><a >sign up</a></Link> with your email<span> ........</span> </p>
                            </div>
                         </div>

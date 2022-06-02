@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 const EventSingle = ({ event }) => {
    // dispatch

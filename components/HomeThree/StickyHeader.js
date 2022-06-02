@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import links from "../../data/linkData";
 import LoginData from "../../data/LoginMenuData";
 import useSticky from "../../hooks/useSticky";

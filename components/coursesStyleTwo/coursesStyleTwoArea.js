@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { categoryData } from '../../redux/features/categorySlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {categoryData} from '../../redux/features/categorySlice';
 import Pagination from '../common/Pagination';
 
 

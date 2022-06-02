@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import coursesSlice from '../redux/features/coursesSlice';
 import blogSlice from './features/blogSlice';
 import eventSlice from './features/eventSlice';

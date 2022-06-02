@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import {useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
 import BlogPagination from '../common/BlogPagination';
 import BlogRightSide from './BlogRightSide';
 import SingleBlog from './SingleBlog';

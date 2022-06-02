@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Offcanvas } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Offcanvas} from 'react-bootstrap';
 import Link from 'next/link';
 import Collapsible from 'react-collapsible';
 import useAuth from '../../hooks/useAuth';
-import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
-import { searchText } from '../../redux/features/coursesSlice';
+import {useDispatch} from 'react-redux';
+import {useRouter} from 'next/router';
+import {searchText} from '../../redux/features/coursesSlice';
 
 const Sidebar = ({ show, handleClose, dynammicPageHeader = false }) => {
    const { user, logout } = useAuth();
@@ -143,7 +143,7 @@ const Sidebar = ({ show, handleClose, dynammicPageHeader = false }) => {
                                     </div>
 
                                     <div className='single_link iconAdd '>
-                                       <li><Link href="/my-profile"><a>My Prifile</a></Link></li>
+                                       <li><Link href="/my-profile"><a>My Profile</a></Link></li>
                                     </div>
 
                                  </>
