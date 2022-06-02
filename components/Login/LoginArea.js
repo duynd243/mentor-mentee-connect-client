@@ -82,7 +82,7 @@ const LoginArea = () => {
                               <button className="tp-btn  w-100"> <span></span> Sign In</button>
                               <div className="sign__new text-center mt-20">
                                  <p>New to Eduker ? <Link href="/sign-up">
-                                    <a >Sign Up</a>
+                                    <a>Sign Up</a>
                                  </Link> </p>
                               </div>
                            </form>
