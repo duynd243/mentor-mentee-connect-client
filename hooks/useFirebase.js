@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 import {useDispatch} from "react-redux";
 import {MyOrder} from "../redux/features/myOrderSlice";
 import {useRouter} from 'next/router';
+import axios from "axios";
 
 // initializeFirebaseApp()
 
@@ -30,17 +31,34 @@ const useFirebase = () => {
     // handle google sign in
     const handleGoogleSignIn = (router) => {
         signInWithPopup(auth, googleProvider)
-            .then((result) => {
+            .then(async (result) => {
                 const user = result.user;
                 if (user.email.split("@")[1] !== "fpt.edu.vn") {
                     Swal.fire({
                         title: 'Error',
-                        text: 'Please use your FPT email to login',
+                        text: 'Please use your FPT email to login.',
                         icon: 'error'
                     })
                     signOut(auth);
                     return;
                 }
+                axios.post(`http://mentor-mentee-connect-api.tk/api/v1/authenticate/login`, {
+                    idToken: await user.getIdToken(),
+                })
+                    .then(res => {
+                        if (res.status === 200) {
+                            localStorage.setItem('accessToken', res.data.data.accessToken);
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Something went wrong. Please try again later.',
+                            icon: 'error'
+                        });
+                        signOut(auth);
+                    });
                 setUser(user);
                 usersCollection(user.displayName, user.email, 'PUT')
                 Swal.fire({
@@ -50,11 +68,11 @@ const useFirebase = () => {
                     timer: 1500,
                 })
                 router.push('/')
-            }).catch((error) => {
-            // Handle Errors here.
-            const errorMessage = error.message;
+            })
+            .catch((error) => {
+                console.log(error)
 
-        });
+            })
     }
 
 

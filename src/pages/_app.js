@@ -15,40 +15,39 @@ import {initializeApp} from "firebase/app";
 import {getTotal} from '../../redux/features/cartSlice';
 
 if (typeof window !== "undefined") {
-  require("bootstrap/dist/js/bootstrap");
+    require("bootstrap/dist/js/bootstrap");
 }
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyANiqMFoRwZUN4iuVfZjZ2vPAsiQBW_ELg",
-  authDomain: "test-project-2403.firebaseapp.com",
-  projectId: "test-project-2403",
-  storageBucket: "test-project-2403.appspot.com",
-  messagingSenderId: "52075358286",
-  appId: "1:52075358286:web:900ed881740efc6fe8bb1f",
-  measurementId: "G-5829C7YMKN"
+    apiKey: "AIzaSyBdkKaULWLY3JI3DGL_H-Z5nSMybojDC90",
+    authDomain: "mentor-mentee-connecting.firebaseapp.com",
+    projectId: "mentor-mentee-connecting",
+    storageBucket: "mentor-mentee-connecting.appspot.com",
+    messagingSenderId: "322678416517",
+    appId: "1:322678416517:web:5c09c4c963c8a8771535ec",
 };
 initializeApp(firebaseConfig);
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
 
-  useEffect(() => {
-    store.dispatch(coursesData());
-    store.dispatch(blogData());
-    store.dispatch(eventData());
-    store.dispatch(teamData());
-    store.dispatch(categoryData());
-    store.dispatch(getTotal());
-  }, [store]);
+    useEffect(() => {
+        store.dispatch(coursesData());
+        store.dispatch(blogData());
+        store.dispatch(eventData());
+        store.dispatch(teamData());
+        store.dispatch(categoryData());
+        store.dispatch(getTotal());
+    }, [store]);
 
-  return (
-    <React.Fragment>
-      <Provider store={store}>
-        <Component {...pageProps} />
-        <ToastContainer />
-      </Provider>
-    </React.Fragment>
-  )
+    return (
+        <React.Fragment>
+            <Provider store={store}>
+                <Component {...pageProps} />
+                <ToastContainer/>
+            </Provider>
+        </React.Fragment>
+    )
 }
 
 export default MyApp
