@@ -42,7 +42,7 @@ const useFirebase = () => {
                     signOut(auth);
                     return;
                 }
-                axios.post(`http://mentor-mentee-connect-api.tk/api/v1/authenticate/login`, {
+                axios.post(`https://mentor-mentee-connect-api.tk/api/v1/authenticate/login`, {
                     idToken: await user.getIdToken(),
                 })
                     .then(res => {
