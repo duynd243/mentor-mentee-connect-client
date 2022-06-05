@@ -32,7 +32,7 @@ const Header = () => {
     if (!searchValue) {
     } else {
       //  dispatch(searchText(searchValue))
-      router.push("/search-courses");
+      router.push(`/search-courses/${searchValue}`);
     }
   };
   return (
