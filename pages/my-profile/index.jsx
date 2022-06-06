@@ -6,6 +6,7 @@ import ProfileArea from "../../components/MyProfile/ProfileArea";
 import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
 
 const MyProfile = () => {
+
     return (
         <>
             <Head>
