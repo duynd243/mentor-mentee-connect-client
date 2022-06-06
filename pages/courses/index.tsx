@@ -1,8 +1,8 @@
 import Head from "next/head";
-import BreadCrumb from "../../components/common/BreadCrumb";
-import Footer from "../../components/common/Footer";
-import CourseArea from "../../components/Courses/CoursesArea";
-import Header from "../../components/Home/Header";
+import BreadCrumb from "components/common/BreadCrumb";
+import Footer from "components/common/Footer";
+import CourseArea from "components/Courses/CoursesArea";
+import Header from "components/Home/Header";
 
 const Courses = () => {
   return (

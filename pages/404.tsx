@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import DynamicPageHeader from "../components/common/DynamicPageHeader";
-import Footer from "../components/common/Footer";
+import DynamicPageHeader from "components/common/DynamicPageHeader";
+import Footer from "components/common/Footer";
 
 const ErroPage = () => {
   return (
