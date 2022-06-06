@@ -6,10 +6,10 @@ import eventApi from "../../apis/event";
 
 const Events = () => {
   // allEventsItems
-  // const allEventsItems = useSelector(state => state.events.allEvents);
+  // const allEventsItems = useSelector(state => state.Events.allEvents);
   const { data: allEventsItems } = useQuery("events", eventApi.getAllEventApis);
   // status
-  // const status = useSelector((state) => state.events.status);
+  // const status = useSelector((state) => state.Events.status);
   // loader
   // useEffect(() => {
   //   if (status === "pending") {
