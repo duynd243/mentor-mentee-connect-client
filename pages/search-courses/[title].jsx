@@ -1,12 +1,12 @@
-import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb";
 import Footer from "../../components/common/Footer";
 import Header from "../../components/Home/Header";
 import Link from "next/link";
 import courseApi from "../../apis/course";
-import {useQuery} from "react-query";
+import { useQuery } from "react-query";
 
 const SearchCourses = () => {
   // searchItems

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 // import {useSelector} from 'react-redux';
-import {useQuery} from "react-query";
+import { useQuery } from "react-query";
 import courseApi from "../../apis/course";
 
 const CourseArea = () => {

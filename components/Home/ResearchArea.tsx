@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ResearchArea = () => {
   // researchData
   const researchData = [

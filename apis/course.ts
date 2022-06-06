@@ -1,4 +1,5 @@
 import request from "./utils";
+import { TCourse } from "../types/course";
 
 const getAllCourses = (params?: any) =>
   request.get("/courses", { params }).then((res) => res.data);

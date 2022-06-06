@@ -1,7 +1,7 @@
-import {Modal} from "react-bootstrap";
-import {loadStripe} from "@stripe/stripe-js";
+import { Modal } from "react-bootstrap";
+import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
-import {Elements} from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import useAuth from "../../hooks/useAuth";
 
 // stripePromise

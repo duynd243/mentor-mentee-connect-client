@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {Offcanvas} from "react-bootstrap";
+import React, { useState } from "react";
+import { Offcanvas } from "react-bootstrap";
 import Link from "next/link";
 import Collapsible from "react-collapsible";
 import useAuth from "../../hooks/useAuth";
 // import {useDispatch} from 'react-redux';
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 // import { searchText } from "../../redux/features/coursesSlice";
 
 const Sidebar = ({ show, handleClose, dynammicPageHeader = false }) => {

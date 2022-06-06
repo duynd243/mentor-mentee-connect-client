@@ -1,4 +1,6 @@
 // import {useSelector} from 'react-redux';
+import Link from "next/link";
+import Image from "next/image";
 
 const HomeBlog = () => {
   // blogItems

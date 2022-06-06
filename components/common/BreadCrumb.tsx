@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const BreadCrumb = ({ title, subtitle }) => {
+const BreadCrumb = ({ title, subtitle }: any) => {
   return (
     <>
       <section

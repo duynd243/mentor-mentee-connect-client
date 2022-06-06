@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import {Modal} from "react-responsive-modal";
+import Image from "next/image";
+import { Modal } from "react-responsive-modal";
 import ReactPlayer from "react-player";
 
 const Campus = () => {

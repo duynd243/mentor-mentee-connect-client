@@ -1,5 +1,6 @@
-import {useState} from "react";
-import {Spinner} from "react-bootstrap";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 // import {useSelector} from 'react-redux';
 
 const HomeCourses = () => {

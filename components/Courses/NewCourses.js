@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-const NewCourses = ({ allCourseItems }:any) => {
+const NewCourses = ({ allCourseItems }) => {
   return (
     <>
       <div className="course__sidebar-widget white-bg">
         <div className="course__sidebar-course">
           <h3 className="course__sidebar-title">New courses</h3>
           <ul>
-            {allCourseItems?.slice(7, 10).map((course:any, index:any) => {
+            {allCourseItems?.slice(7, 10).map((course, index) => {
               return (
                 <li key={index}>
                   <div className="course__sm d-flex align-items-center mb-30">
