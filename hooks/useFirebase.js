@@ -168,6 +168,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         setUser({});
+        localStorage.removeItem("accessToken");
         Swal.fire({
           icon: "success",
           title: "Logout Successfully",
