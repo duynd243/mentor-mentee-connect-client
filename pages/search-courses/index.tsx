@@ -35,7 +35,7 @@ const SearchCourses = () => {
         <div className="container">
           <div className="row">
             {searchItems && <h2>Not Found</h2>}
-            {searchesCourse?.map((course) => {
+            {searchesCourse?.map((course: any) => {
               const { _id, img_bg, title, category, price } = course;
               return (
                 <div
