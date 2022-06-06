@@ -1,6 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 import Link from "next/link";
-import SwiperCore, { EffectFade, Navigation } from "swiper";
+import SwiperCore, {EffectFade, Navigation} from "swiper";
 
 SwiperCore.use([Navigation]);
 
@@ -57,7 +57,7 @@ const HeroArea = () => {
                     <div className="row">
                       <div className="col-xxl-7 col-xl-8 col-lg-8 col-md-10 col-sm-10">
                         <div className="slider__content p-relative z-index-1">
-                          <span>Educal University</span>
+                          <span>FPT University</span>
                           <h2 className="slider__title">{slider.title}</h2>
                           <p>
                             We believe everyone should have the opportunity to

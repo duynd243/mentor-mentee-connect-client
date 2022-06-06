@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 // import {useSelector} from 'react-redux';
 import EventSingle from "./EventSingle";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import eventApi from "../../apis/event";
 
 const Events = () => {

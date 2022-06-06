@@ -1,15 +1,11 @@
 import Link from "next/link";
 
-const Footer = ({ white_bg = "" }) => {
+const ContactFooter = () => {
   return (
     <>
       <footer>
-        <div className="footer__area">
-          <div
-            className={`footer__top grey-bg-4 pt-95 pb-45 ${
-              white_bg && white_bg
-            }`}
-          >
+        <div className="footer__area footer__black ">
+          <div className="footer__top black-bg-5 pt-95 pb-45 px-4">
             <div className="container">
               <div className="row">
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-7">
@@ -18,7 +14,7 @@ const Footer = ({ white_bg = "" }) => {
                       <div className="logo">
                         <Link href="/">
                           <a>
-                            <img src="assets/img/logo/logo.png" alt="" />
+                            <img src="assets/img/logo/logo-white.png" alt="" />
                           </a>
                         </Link>
                       </div>
@@ -34,18 +30,18 @@ const Footer = ({ white_bg = "" }) => {
 
                           <ul>
                             <li>
-                              <a href="#">
+                              <a href="#" className="fb">
                                 <i className="fa-brands fa-facebook-f"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="#">
+                              <a href="#" className="tw">
                                 <i className="fa-brands fa-twitter"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="#">
-                                <i className="fa-brands fa-linkedin-in"></i>
+                              <a href="#" className="pin">
+                                <i className="fa-brands fa-pinterest-p"></i>
                               </a>
                             </li>
                           </ul>
@@ -116,9 +112,7 @@ const Footer = ({ white_bg = "" }) => {
                 </div>
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-7">
                   <div className="footer__widget footer-col-4 mb-50">
-                    <h3 className="footer__widget-title">
-                      Sign up for our newsletter
-                    </h3>
+                    <h3 className="footer__widget-title">Newsletter</h3>
 
                     <div className="footer__subscribe">
                       <p>
@@ -139,13 +133,13 @@ const Footer = ({ white_bg = "" }) => {
               </div>
             </div>
           </div>
-          <div className={`footer__bottom grey-bg-4 ${white_bg && white_bg}`}>
+          <div className="footer__bottom black-bg-5">
             <div className="container">
               <div className="footer__bottom-inner">
                 <div className="row">
                   <div className="col-xxl-12">
                     <div className="footer__copyright text-center">
-                      <p>© 2022 Educal. All Rights Reserved</p>
+                      <p>© {new Date().getFullYear()} Multiverse. All Rights Reserved</p>
                     </div>
                   </div>
                 </div>
@@ -158,4 +152,4 @@ const Footer = ({ white_bg = "" }) => {
   );
 };
 
-export default Footer;
+export default ContactFooter;

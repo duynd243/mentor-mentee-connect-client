@@ -1,10 +1,10 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination } from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
+import SwiperCore, {Pagination} from "swiper";
 // import {useSelector} from 'react-redux';
 import DetailsTabItems from "./DetailsTabItems";
 import Link from "next/link";
 import courseApi from "../../apis/course";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 
 SwiperCore.use([Pagination]);
 

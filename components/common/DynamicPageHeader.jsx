@@ -1,38 +1,38 @@
 import Link from "next/link";
-import {useState} from "react";
-// import {useDispatch} from "react-redux";
+import React, {useState} from "react";
+// import {useDispatch} from 'react-redux';
 import links from "../../data/linkData";
 import useAuth from "../../hooks/useAuth";
-import useSticky from "../../hooks/useSticky";
-// import {searchText} from "../../redux/features/coursesSlice";
 import {useRouter} from "next/router";
+import useSticky from "../../hooks/useSticky";
 import LoginData from "../../data/LoginMenuData";
-import Sidebar from "../common/SideBar";
+// import {searchText} from '../../redux/features/coursesSlice';
+import Sidebar from "./SideBar";
 
-const Header = () => {
-  // sticky
-  const { headerSticky } = useSticky();
-  // user
-  const { user, logout } = useAuth();
-  // searchValue
-  const [searchValue, setSearchValue] = useState("");
-  // dispatch
-  //    const dispatch = useDispatch();
-  // router
-  const router = useRouter();
+const DynamicPageHeader = () => {
   // handle sidebar show
   const [show, setShow] = useState(false);
   // handle close
   const handleClose = () => setShow(false);
   // handle sidebar show
   const handleShow = () => setShow(true);
+  //   sticky
+  const { headerSticky } = useSticky();
+  // user info
+  const { user, logout } = useAuth();
+  // searchValue
+  const [searchValue, setSearchValue] = useState("");
+  // dispatch
+  //   const dispatch = useDispatch();
+  // router
+  const router = useRouter();
   // handleSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchValue) {
     } else {
-      //  dispatch(searchText(searchValue))
-      router.push(`/search-courses/${searchValue}`);
+      //   dispatch(searchText(searchValue));
+      router.push("/search-courses");
     }
   };
   return (
@@ -138,7 +138,10 @@ const Header = () => {
                   <div className="logo">
                     <Link href="/">
                       <a>
-                        <img src="assets/img/logo/logo.png" alt="logo" />
+                        <img
+                          src={"/" + "assets/img/logo/logo.png"}
+                          alt="logo"
+                        />
                       </a>
                     </Link>
                   </div>
@@ -256,9 +259,13 @@ const Header = () => {
         </div>
       </header>
 
-      <Sidebar show={show} handleClose={handleClose} />
+      <Sidebar
+        show={show}
+        handleClose={handleClose}
+        dynammicPageHeader={true}
+      />
     </>
   );
 };
 
-export default Header;
+export default DynamicPageHeader;

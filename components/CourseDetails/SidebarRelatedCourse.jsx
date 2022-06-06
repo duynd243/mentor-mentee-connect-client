@@ -1,7 +1,7 @@
 // import {useSelector} from 'react-redux';
 import Link from "next/link";
 import courseApi from "../../apis/course";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 
 const SidebarRelatedCourse = () => {
   // courses items

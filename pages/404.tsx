@@ -8,7 +8,7 @@ const ErroPage = () => {
     <>
       <DynamicPageHeader />
 
-      <section className="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay error_breadcrumb">
+      <section className="breadcrumb__area include-bg pt-100 pb-100 breadcrumb__overlay error_breadcrumb">
         <div className="container">
           <div className="row">
             <div className="col-xxl-12">

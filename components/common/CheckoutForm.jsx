@@ -1,5 +1,5 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js";
+import React, {useEffect, useState} from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 

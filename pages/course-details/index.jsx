@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import Head from "next/head";
 // import {useDispatch, useSelector} from 'react-redux';
 import BreadCrumb from "../../components/common/BreadCrumb";
@@ -7,7 +7,7 @@ import CourseDetailsArea from "../../components/CourseDetails/CourseDetailsArea"
 import Header from "../../components/Home/Header";
 // import { singleCourse } from "../../../redux/features/coursesSlice";
 import courseApi from "../../apis/course";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 
 const CourseDetails = () => {
   const [singleCourse, setSingleCourse] = useState("622037c6ea7975d304b6b4ef");
