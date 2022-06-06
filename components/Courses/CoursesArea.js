@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 // import {useDispatch, useSelector} from 'react-redux';
 // import {categoryData} from '../../redux/features/categorySlice';
-import { Container, Spinner } from "react-bootstrap";
+import {Container, Spinner} from "react-bootstrap";
 import Pagination from "../common/Pagination";
 import NewCourses from "./NewCourses";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 // import {searchText} from '../../redux/features/coursesSlice';
 import courseApi from "../../apis/course";
 import categoryApi from "../../apis/category";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 
 const CourseArea = () => {
   // categoryFilter

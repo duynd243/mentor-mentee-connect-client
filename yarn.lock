@@ -1971,6 +1971,11 @@
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz"
   "version" "1.2.6"
 
+"module-name@^0.0.1-security":
+  "integrity" "sha512-yuuTU5MhBuxtUPjTIqBz3AR2z3yrBr7yjPvpHbKLu5N3iWBRji2RnNAysonzft26mMUO+vA2tB3uiAqbZ6jXAQ=="
+  "resolved" "https://registry.npmjs.org/module-name/-/module-name-0.0.1-security.tgz"
+  "version" "0.0.1-security"
+
 "ms@^2.1.1":
   "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"

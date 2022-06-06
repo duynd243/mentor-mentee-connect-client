@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const AboutArea = ({ about_pt = "" }) => {
   return (

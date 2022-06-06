@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Container, Spinner } from "react-bootstrap";
+import React from "react";
+import {Container, Spinner} from "react-bootstrap";
 // import {useSelector} from 'react-redux';
 import Link from "next/link";
 import teamApi from "../../apis/team";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 
 const TeamArea = () => {
   // allTeamMembers

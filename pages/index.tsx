@@ -2,7 +2,6 @@ import Head from "next/head";
 import CounterArea from "components/Home/CounterArea";
 import CategoryArea from "components/Home/CategoryArea";
 import CourseArea from "components/Home/CourseArea";
-import Events from "components/Events/Events";
 import Header from "components/Home/Header";
 import HeroArea from "components/Home/HeroArea";
 import ResearchArea from "components/Home/ResearchArea";
@@ -11,6 +10,7 @@ import TeamArea from "components/Home/TeamArea";
 import Faq from "components/Home/Faq";
 import BrandArea from "components/Home/BrandArea";
 import Campus from "../components/Home/Campus";
+import Events from "../components/Events/Events";
 
 export default function Home() {
   return (

@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 // import initializeFirebaseApp from "../components/Firebase/firebase.init";
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
+    createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
 } from "firebase/auth";
 import Swal from "sweetalert2";
 // import { useDispatch } from "react-redux";
 // import { MyOrder } from "../redux/features/myOrderSlice";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import axios from "axios";
 
 // initializeFirebaseApp()
