@@ -33,36 +33,36 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then(async (result) => {
         const user = result.user;
-        if (user.email?.split("@")[1] !== "fpt.edu.vn") {
-          Swal.fire({
-            title: "Error",
-            text: "Please use your FPT email to login",
-            icon: "error",
-          });
-          signOut(auth);
-          return;
-        }
-        // axios
-        //   .post(
-        //     `https://mentor-mentee-connect-api.tk/api/v1/authenticate/login`,
-        //     {
-        //       idToken: await user.getIdToken(),
-        //     }
-        //   )
-        //   .then((res) => {
-        //     if (res.status === 200) {
-        //       localStorage.setItem("accessToken", res.data.data.accessToken);
-        //     }
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //     Swal.fire({
-        //       title: "Error",
-        //       text: "Something went wrong. Please try again later.",
-        //       icon: "error",
-        //     });
-        //     signOut(auth);
+        // if (user.email?.split("@")[1] !== "fpt.edu.vn") {
+        //   Swal.fire({
+        //     title: "Error",
+        //     text: "Please use your FPT email to login",
+        //     icon: "error",
         //   });
+        //   signOut(auth);
+        //   return;
+        // }
+        axios
+          .post(
+            `https://mentor-mentee-connect-api.tk/api/v1/authenticate/login`,
+            {
+              idToken: await user.getIdToken(),
+            }
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              localStorage.setItem("accessToken", res.data.data.accessToken);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            Swal.fire({
+              title: "Error",
+              text: "Something went wrong. Please try again later.",
+              icon: "error",
+            });
+            signOut(auth);
+          });
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         console.log({ credential, token, user });
