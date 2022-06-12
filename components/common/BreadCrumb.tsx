@@ -6,7 +6,7 @@ const BreadCrumb = ({ title, subtitle }: any) => {
       <section
         className="breadcrumb__area include-bg pt-100 pb-100 breadcrumb__overlay"
         style={{
-          background: `url(assets/img/breadcrumb/breadcrumb-bg.jpg)`,
+          background: `url(../assets/img/breadcrumb/breadcrumb-bg.jpg)`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

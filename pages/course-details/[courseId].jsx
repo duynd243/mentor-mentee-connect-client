@@ -29,9 +29,8 @@ const CourseDetails = () => {
   const handleShow = () => setShow(true);
   // paymentInformation
   const [paymentInformation, setPaymentInformation] = useState({});
-  // allCourseItems
-  //   const allCourseItems = useSelector(state => state.courses.allCourses);
-  const { data: allCourseItems } = useQuery("courses", courseApi.getAllCourses);
+  // Related Courses
+  const { data: relatedCourses } = useQuery("related-courses", courseApi.getAllCourses);
   //courseStatus
   //   const courseStatus = useSelector(state => state.courses.courseStatus);
 
@@ -40,7 +39,7 @@ const CourseDetails = () => {
   // router
   const router = useRouter();
   // query id
-  const id = router.query.slug;
+  const id = router.query.id;
   // courseData
   //   const courseData = useSelector(state => state.courses.course);
   const { data: courseData } = useQuery(["course", id], () =>
