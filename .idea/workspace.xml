@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/course.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/course.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CourseDetails/DetailsTabItems.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/DetailsTabItems.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CourseDetails/SidebarRelatedCourse.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/SidebarRelatedCourse.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Home/CourseArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/CourseArea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Home/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/course-details/[courseId].jsx.temp_removed" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search-courses/[title].js.temp_removed" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search-courses/[title].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search-courses/index.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +76,7 @@
       <workItem from="1655027414829" duration="3961000" />
       <workItem from="1655034313300" duration="1505000" />
       <workItem from="1655036008088" duration="19934000" />
-      <workItem from="1655131404401" duration="21600000" />
+      <workItem from="1655131404401" duration="22238000" />
     </task>
     <servers />
   </component>
