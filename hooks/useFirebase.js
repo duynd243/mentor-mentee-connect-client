@@ -1,217 +1,199 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 // import initializeFirebaseApp from "../components/Firebase/firebase.init";
 import {
-    createUserWithEmailAndPassword,
-    getAuth,
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    sendPasswordResetEmail,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
-    updateProfile,
+   getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword,
+   updateProfile, signInWithEmailAndPassword, sendPasswordResetEmail, signOut
 } from "firebase/auth";
-import Swal from "sweetalert2";
-// import { useDispatch } from "react-redux";
-// import { MyOrder } from "../redux/features/myOrderSlice";
-import {useRouter} from "next/router";
-import axios from "axios";
+import Swal from 'sweetalert2';
+import { useDispatch } from "react-redux";
+import { MyOrder } from "../redux/features/myOrderSlice";
+import { useRouter } from 'next/router';
 
 // initializeFirebaseApp()
 
 const useFirebase = () => {
-    const [user, setUser] = useState({});
-    //   const dispatch = useDispatch();
-    const router = useRouter();
-
-    // googleProvider
-    const googleProvider = new GoogleAuthProvider();
-    // auth
-    const auth = getAuth();
-    // handle google sign in
-    const handleGoogleSignIn = (router) => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const resultUser = result.user;
-                setUser(resultUser);
-                // if (user.email?.split("@")[1] !== "fpt.edu.vn") {
-                //   Swal.fire({
-                //     title: "Error",
-                //     text: "Please use your FPT email to login",
-                //     icon: "error",
-                //   });
-                //   signOut(auth);
-                //   return;
-                // }
-                axios
-                    .post(
-                        `https://mentor-mentee-connect-api.tk/api/v1/authenticate/login`,
-                        {
-                            idToken: resultUser.accessToken,
-                        }
-                    )
-                    .then((res) => {
-                        if (res.status === 200) {
-                            localStorage.setItem("accessToken", res.data.data.accessToken);
-                            Swal.fire({
-                                position: "top-center",
-                                icon: "success",
-                                title: "Login Successfully",
-                                timer: 1500,
-                            });
-                            router.push("/");
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        Swal.fire({
-                            title: "Error",
-                            text: "Something went wrong. Please try again later.",
-                            icon: "error",
-                        });
-                        setUser({});
-                        signOut(auth);
-                    });
-
+   const [user, setUser] = useState({});
+   const dispatch = useDispatch();
+   const router = useRouter();
+  
+   // googleProvider
+   const googleProvider = new GoogleAuthProvider();
+   // auth
+   const auth = getAuth();
+   // handle google sign in
+   const handleGoogleSignIn = (router) => {
+      signInWithPopup(auth, googleProvider)
+         .then((result) => {
+            const user = result.user;
+            setUser(user);
+            usersCollection(user.displayName,user.email,'PUT')
+            Swal.fire({
+               position: 'top-center',
+               icon: 'success',
+               title: 'Register Successfully',
+               timer: 1500,
             })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorMessage = error.message;
+            router.push('/')
+         }).catch((error) => {
+            // Handle Errors here.
+            const errorMessage = error.message;
+            
+         });
+   }
+
+
+   // register user
+   const handleRegister = (name, email, password,reset,router) => {
+      createUserWithEmailAndPassword(auth, email, password)
+         .then((result) => {
+            const user = result.user;
+            setUser({ displayName: name, email })
+            usersCollection(name,email,'POST')
+            // update user profile
+            updateProfile(auth.currentUser, {
+               displayName: name,
+            }).then(() => {
+
+            }).catch((error) => {
+
             });
-    };
 
-    // register user
-    const handleRegister = (name, email, password, reset, router) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                const user = result.user;
-                setUser({displayName: name, email});
-                // update user profile
-                updateProfile(auth.currentUser, {
-                    displayName: name,
-                })
-                    .then(() => {
-                    })
-                    .catch((error) => {
-                    });
-
-                Swal.fire({
-                    position: "top-center",
-                    icon: "success",
-                    title: "Register Successfully",
-                    timer: 1500,
-                });
-                reset();
-                router.push("/");
+            Swal.fire({
+               position: 'top-center',
+               icon: 'success',
+               title: 'Register Successfully',
+               timer: 1500,
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorMessage,
-                    timer: 1500,
-                });
-            });
-    };
-
-    // login user
-    const loginUser = (email, password, reset, router) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
-                Swal.fire({
-                    position: "top-center",
-                    icon: "success",
-                    title: "Login Successfully",
-                    timer: 1500,
-                });
-                reset();
-                router.push("/");
+            reset()
+            router.push('/')
+         })
+         .catch((error) => {
+            const errorMessage = error.message;
+            Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: errorMessage,
+               timer: 1500,
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorMessage,
-                    timer: 1500,
-                });
-            });
-    };
+         });
+   }
 
-    // password reset email
-    const passwordResetEmail = (email) => {
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                Swal.fire({
-                    position: "top-center",
-                    icon: "success",
-                    title: "Password reset email sent",
-                });
+   // login user
+   const loginUser = (email, password,reset,router) => {
+      signInWithEmailAndPassword(auth, email, password)
+         .then((result) => {
+            const user = result.user;
+            setUser(user)
+            Swal.fire({
+               position: 'top-center',
+               icon: 'success',
+               title: 'Login Successfully',
+               timer: 1500
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorMessage,
-                    timer: 1500,
-                });
-            });
-    };
-
-    // logout
-    const logout = () => {
-        signOut(auth)
-            .then(() => {
-                setUser({});
-                localStorage.removeItem("accessToken");
-                Swal.fire({
-                    icon: "success",
-                    title: "Logout Successfully",
-                });
-                router.push("/");
+            reset()
+            router.push('/')
+         })
+         .catch((error) => {
+            const errorMessage = error.message;
+            Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: errorMessage,
+               timer: 1500
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorMessage,
-                    timer: 1500,
-                });
-            });
-    };
+         });
+   }
 
-    // on auth state change
+   // password reset email
+   const passwordResetEmail = (email) => {
+      sendPasswordResetEmail(auth, email)
+         .then(() => {
+            Swal.fire({
+               position: 'top-center',
+               icon: 'success',
+               title: 'Password reset email sent',
+            })
+         })
+         .catch((error) => {
+            const errorMessage = error.message;
+            Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: errorMessage,
+               timer: 1500
+            })
+         });
+
+   }
+
+   // logout
+   const logout = () => {
+      signOut(auth).then(() => {
+         setUser({})
+         Swal.fire({
+            icon: 'success',
+            title: 'Logout Successfully',
+         })
+         router.push('/')
+      }).catch((error) => {
+         const errorMessage = error.message;
+         Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: errorMessage,
+            timer: 1500
+         })
+      });
+   }
+
+
+   // on auth state change
+   useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+         if (user) {
+            setUser(user)
+         } else {
+            setUser({})
+         }
+      });
+      return () => unsubscribe()
+   }, [auth]);
+
+   // use collection
+   const usersCollection = (name,email,userMethod) => {
+      const userData = {
+         displayName:name,
+         email,
+      }
+      const url = `https://obscure-shelf-38503.herokuapp.com/users`
+      fetch(url,{
+         method:userMethod,
+         headers:{
+            'content-type':'application/json'
+         },
+         body:JSON.stringify(userData)
+      })
+      .then(res => res.json())
+      .then(result => console.log(result))
+   }
+
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser({});
-            }
-        });
-        return () => unsubscribe();
-    }, [auth]);
+      if(!user?.email){
+        
+      }
+      else{
+         dispatch(MyOrder(user?.email))
+      }
+   },[user,dispatch])
 
-    //   useEffect(() => {
-    //     if (!user?.email) {
-    //     } else {
-    //       dispatch(MyOrder(user?.email));
-    //     }
-    //   }, [user, dispatch]);
-
-    return {
-        user,
-        handleGoogleSignIn,
-        handleRegister,
-        loginUser,
-        passwordResetEmail,
-        logout,
-    };
-};
+   return {
+      user,
+      handleGoogleSignIn,
+      handleRegister,
+      loginUser,
+      passwordResetEmail,
+      logout,
+   }
+}
 
 export default useFirebase;
