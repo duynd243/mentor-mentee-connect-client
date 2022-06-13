@@ -3,7 +3,7 @@ import Link from "next/link";
 import DynamicPageHeader from "components/common/DynamicPageHeader";
 import Footer from "components/common/Footer";
 
-const ErroPage = () => {
+const ErrorPage = () => {
   return (
     <>
       <DynamicPageHeader />
@@ -62,4 +62,4 @@ const ErroPage = () => {
   );
 };
 
-export default ErroPage;
+export default ErrorPage;
