@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/course.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/course.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Home/CourseArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/CourseArea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Home/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/BreadCrumb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/BreadCrumb.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/course-details/[slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/course-details/index.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search-courses/[title].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search-courses/[title].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +73,7 @@
       <workItem from="1654935182679" duration="72000" />
       <workItem from="1655027414829" duration="3961000" />
       <workItem from="1655034313300" duration="1505000" />
-      <workItem from="1655036008088" duration="18955000" />
+      <workItem from="1655036008088" duration="19099000" />
     </task>
     <servers />
   </component>
