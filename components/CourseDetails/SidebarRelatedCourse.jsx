@@ -8,7 +8,7 @@ const SidebarRelatedCourse = ({courses}) => {
                 <div className="course__sidebar-course">
                     <h3 className="course__sidebar-title">Related courses</h3>
                     <ul>
-                        {courses.map((course) => {
+                        {courses?.map((course) => {
                             return (
                                 <li key={course.id}>
                                     <div className="course__sm d-flex align-items-start mb-30">
