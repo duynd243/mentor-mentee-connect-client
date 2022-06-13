@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Footer = (props) => {
     const theme = props.theme;
     const backgroundClass = theme === 'dark' ? 'black-bg-5' : 'grey-bg-4';
-    const logoUrl = theme === 'dark' ? 'assets/img/logo/logo-white.png' : 'assets/img/logo/logo.png';
+    const logoUrl = theme === 'dark' ? '../assets/img/logo/logo-white.png' : '../assets/img/logo/logo.png';
 
     return (
         <>
