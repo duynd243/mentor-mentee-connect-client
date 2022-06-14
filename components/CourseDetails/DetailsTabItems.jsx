@@ -1,4 +1,4 @@
-const DetailsTabItems = ({ dynamicPage, courseDate }) => {
+const DetailsTabItems = ({ dynamicPage, courseData }) => {
   return (
     <>
       <div className="course__tab-2 mb-45">
@@ -76,7 +76,7 @@ const DetailsTabItems = ({ dynamicPage, courseDate }) => {
             <div className="course__description">
               <h3>Course Overview</h3>
               <p>
-                {courseDate?.description}
+                {courseData?.description}
               </p>
 
               <div className="course__tag-4 mb-35 mt-35">

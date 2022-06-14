@@ -1,5 +1,7 @@
 import useAuth from "../../hooks/useAuth";
 import Link from 'next/link';
+import {useQuery} from "react-query";
+import userApi from "../../apis/user";
 
 
 const ProfileArea = () => {
@@ -9,6 +11,11 @@ const ProfileArea = () => {
     const myOrders = [];
     // user
     const {user} = useAuth();
+
+    // User Data from API
+    const {data: userData, isLoading} = useQuery('userData',
+        () => userApi.getUserInfo(),
+    );
     return (
         <>
             <section className="profile__area pt-120 pb-50 grey-bg-2">
@@ -22,7 +29,7 @@ const ProfileArea = () => {
                                     </div>
                                     <div className="profile__basic-content">
                                         <h3 className="profile__basic-title">
-                                            Welcome Back <span>{user?.displayName}</span>
+                                            Welcome Back <span>{userData?.fullName}</span>
                                         </h3>
                                         <p>{myOrders?.length} Running Courses
                                             <Link href="/my-courses">

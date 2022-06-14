@@ -6,6 +6,8 @@ import ProfileArea from "../../components/MyProfile/ProfileArea";
 import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
 
 const MyProfile = () => {
+    // User from Firebase Auth
+
 
     return (
         <>
@@ -15,6 +17,7 @@ const MyProfile = () => {
 
             <Header/>
             <BreadCrumb title="My Profile" subtitle="My Profile"/>
+
             <ProfileArea/>
             <ProfileMenuArea/>
             <Footer/>

@@ -2,10 +2,19 @@ import {useState} from 'react';
 import useAuth from '../../hooks/useAuth';
 import EditModal from '../common/EditModal';
 import Link from 'next/link';
+import {useQuery} from "react-query";
+import userApi from "../../apis/user";
 
 const ProfileMenuArea = () => {
+
+    const Gender = {
+        1: 'Male',
+        2: 'Female'
+    }
     // setShow
     const [show, setShow] = useState(false);
+
+    console.log("show" + show)
     // handleClose
     const handleClose = () => setShow(false);
     // handleShow
@@ -14,6 +23,14 @@ const ProfileMenuArea = () => {
     const {logout, user} = useAuth();
     // myOrders
     const myOrders = [];
+
+    // User Data from API
+    const {data: userData, isLoading} = useQuery('userData',
+        () => userApi.getUserInfo(),
+        {
+            refetchInterval: 1000,
+        }
+    );
 
     return (
         <>
@@ -63,20 +80,34 @@ const ProfileMenuArea = () => {
 
                                             <div className="profile__info-wrapper white-bg">
                                                 <div className="profile__info-item">
-                                                    <p>Name</p>
-                                                    <h4>{user?.displayName}</h4>
-                                                </div>
-                                                <div className="profile__info-item">
                                                     <p>Email</p>
                                                     <h4>{user?.email}</h4>
                                                 </div>
                                                 <div className="profile__info-item">
+                                                    <p>Name</p>
+                                                    <h4>{userData?.fullName}</h4>
+                                                </div>
+                                                <div className="profile__info-item">
+                                                    <p>Gender</p>
+                                                    <h4>{Gender[userData?.gender] ||
+                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
+                                                </div>
+                                                <div className="profile__info-item">
+                                                    <p>Day of Birth</p>
+                                                    {userData?.dayOfBirth ?
+                                                        <h4>{new Date(userData?.dayOfBirth).toLocaleDateString()}</h4> :
+                                                        <h4><span style={{opacity: 0.7}}>Not set yet</span></h4>
+                                                    }
+                                                </div>
+                                                <div className="profile__info-item">
                                                     <p>Phone</p>
-                                                    <h4>-- load from db --</h4>
+                                                    <h4>{userData?.phone ||
+                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Address</p>
-                                                    <h4>-- load from db --</h4>
+                                                    <h4>{userData?.address ||
+                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,8 +167,9 @@ const ProfileMenuArea = () => {
                     </div>
                 </div>
             </section>
-
-            <EditModal show={show} handleClose={handleClose}/>
+            {!isLoading && userData &&
+                <EditModal show={show} handleClose={handleClose} userData={userData}/>
+            }
         </>
     );
 };
