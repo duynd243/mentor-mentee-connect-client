@@ -3,7 +3,6 @@ import useAuth from '../../hooks/useAuth';
 import EditModal from '../common/EditModal';
 import Link from 'next/link';
 import {useQuery} from "react-query";
-import userApi from "../../apis/user";
 
 const ProfileMenuArea = () => {
 

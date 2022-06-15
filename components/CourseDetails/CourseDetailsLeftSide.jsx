@@ -3,10 +3,12 @@ import SwiperCore, {Pagination} from "swiper";
 // import {useSelector} from 'react-redux';
 import DetailsTabItems from "./DetailsTabItems";
 import Link from "next/link";
+import RatingStars from "../common/RatingStars";
 
 SwiperCore.use([Pagination]);
 
 const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
+
     return (
         <>
             <div className="col-xxl-8 col-xl-8 col-lg-8">
@@ -46,34 +48,8 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
                         <div className="course__rating-2 mb-30">
                             <h5>Review:</h5>
                             <div className="course__rating-inner d-flex align-items-center">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i className="fa-solid fa-star"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i className="fa-solid fa-star"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i className="fa-solid fa-star"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i className="fa-solid fa-star"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i className="fa-solid fa-star"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <p>{courseData?.totalRating}</p>
+                                <RatingStars rating={courseData?.totalRating || 0}/>
+                                <p>{courseData?.totalRating || 0}</p>
                             </div>
                         </div>
                     </div>

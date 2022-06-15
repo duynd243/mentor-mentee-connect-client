@@ -1,48 +1,50 @@
-const RatingStars = ({rating}) => {
+import {Star, StarHalf, StarOutline} from "react-ionicons";
 
+const RatingStars = ({rating}) => {
+    console.log(rating)
     const roundedRating = Math.round(rating * 2) / 2;
-    console.log(roundedRating);
     const filledStars = Math.floor(roundedRating);
     const hasHalfStar = roundedRating % 1 !== 0;
     const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0);
 
-    const filledStarsArray = new Array(filledStars).fill(1);
-    const halfStarArray = hasHalfStar ? [0.5] : [];
-    const emptyStarsArray = new Array(emptyStars).fill(0);
 
-    console.log(filledStarsArray.length, halfStarArray.length, emptyStarsArray.length);
+    const filledStarsArray = new Array(filledStars).fill(<li>
+        <a href="#">
+            <Star
+                width="18px"
+                color={'#f5b455'}
+            />
+        </a>
+    </li>);
+    const halfStar = <li>
+        <a href="#">
+            <StarHalf
+                width="18px"
+                color={'#f5b455'}
+            />
+        </a>
+    </li>;
+    const emptyStarsArray = new Array(emptyStars).fill(<li>
+        <a className="empty" href="#">
+            <StarOutline
+                width="18px"
+                color={'#f5b455'}
+            />
+        </a>
+    </li>);
+
 
     return (
         <>
             <ul>
-                {filledStarsArray.map((star, index) => {
-                    return (
-                        <li key={index}>
-                            <a href="#">
-                                <ion-icon name="star"></ion-icon>
-                            </a>
-                        </li>
-                    );
+                {filledStarsArray.map((star) => {
+                    return star;
                 })}
 
-                {halfStarArray.map((star, index) => {
-                    return (
-                        <li key={index}>
-                            <a href="#">
-                                <ion-icon name="star-half"></ion-icon>
-                            </a>
-                        </li>
-                    );
-                })}
+                {hasHalfStar ? halfStar : null}
 
-                {emptyStarsArray.map((star, index) => {
-                    return (
-                        <li key={index}>
-                            <a className="empty" href="#">
-                                <ion-icon name="star"></ion-icon>
-                            </a>
-                        </li>
-                    );
+                {emptyStarsArray.map((star) => {
+                    return star;
                 })}
             </ul>
         </>

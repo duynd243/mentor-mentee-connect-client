@@ -1,8 +1,7 @@
 // import {useSelector} from 'react-redux';
 import {useQuery} from "react-query";
 import courseApi from "../../apis/course";
-import {Spinner} from "react-bootstrap";
-import CourseCard from "../../components/Courses/CourseCard";
+import CourseAreaTab from "../../components/Home/CourseAreaTab";
 
 const CourseArea = () => {
     // all courses
@@ -120,21 +119,7 @@ const CourseArea = () => {
                                     role="tabpanel"
                                     aria-labelledby="nav-all-tab"
                                 >
-                                    <div className="course__tab-wrapper">
-                                        <div className="row">
-                                            {loading1 ? (
-                                                <div className="text-center">
-                                                    <Spinner animation="border"/>
-                                                </div>
-                                            ) : (
-                                                allCourses.data.map((course: any) => {
-                                                    return (
-                                                        <CourseCard key={course.id} course={course}/>
-                                                    );
-                                                })
-                                            )}
-                                        </div>
-                                    </div>
+                                    <CourseAreaTab courses={allCourses} loading={loading1}/>
                                 </div>
 
                                 {/*Newest*/}
@@ -144,19 +129,7 @@ const CourseArea = () => {
                                     role="tabpanel"
                                     aria-labelledby="nav-newest-tab"
                                 >
-                                    <div className="row">
-                                        {loading2 ? (
-                                            <div className="text-center">
-                                                <Spinner animation="border"/>
-                                            </div>
-                                        ) : (
-                                            allNewestCourses.data.map((course: any) => {
-                                                return (
-                                                    <CourseCard key={course.id} course={course}/>
-                                                );
-                                            })
-                                        )}
-                                    </div>
+                                    <CourseAreaTab courses={allNewestCourses} loading={loading2}/>
                                 </div>
 
                                 {/*Most Popular*/}
@@ -167,19 +140,7 @@ const CourseArea = () => {
                                     role="tabpanel"
                                     aria-labelledby="nav-popular-tab"
                                 >
-                                    <div className="row">
-                                        {loading3 ? (
-                                            <div className="text-center">
-                                                <Spinner animation="border"/>
-                                            </div>
-                                        ) : (
-                                            allPopularCourses.data.map((course: any) => {
-                                                return (
-                                                    <CourseCard key={course.id} course={course}/>
-                                                );
-                                            })
-                                        )}
-                                    </div>
+                                    <CourseAreaTab courses={allPopularCourses} loading={loading3}/>
 
                                 </div>
 
@@ -190,19 +151,7 @@ const CourseArea = () => {
                                     role="tabpanel"
                                     aria-labelledby="nav-most-rated-tab"
                                 >
-                                    <div className="row">
-                                        {loading4 ? (
-                                            <div className="text-center">
-                                                <Spinner animation="border"/>
-                                            </div>
-                                        ) : (
-                                            allMostRatedCourses.data.map((course: any) => {
-                                                return (
-                                                    <CourseCard key={course.id} course={course}/>
-                                                );
-                                            })
-                                        )}
-                                    </div>
+                                    <CourseAreaTab courses={allMostRatedCourses} loading={loading4}/>
                                 </div>
                             </div>
                         </div>

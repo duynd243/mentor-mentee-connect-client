@@ -31,7 +31,7 @@ const CourseDetails = () => {
     );
 
     // Related Courses (have the same subjectId)
-    const {data: relatedCourses} = useQuery("relatedCourses", () => courseApi.getAllCourses({
+    const {data: relatedCourses} = useQuery(["relatedCourses", courseData?.subject.id], () => courseApi.getAllCourses({
         "subject-id": courseData?.subject.id,
         size: 6
     }),);
