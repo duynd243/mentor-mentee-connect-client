@@ -10,6 +10,7 @@ import Header from "../../components/Home/Header";
 import Footer from "../../components/common/Footer";
 import CourseDetailsLeftSide from "../../components/CourseDetails/CourseDetailsLeftSide";
 import CourseDetailsRightSide from "../../components/CourseDetails/CourseDetailsRightSide";
+import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 
 SwiperCore.use([Pagination]);
 
@@ -44,18 +45,7 @@ const CourseDetails = () => {
 
             <Header/>
             {loading &&
-                <div id="loading">
-                    <div id="loading-center">
-                        <div id="loading-center-absolute">
-                            <svg id="loader">
-                                <path
-                                    id="corners"
-                                    d="m 0 12.5 l 0 -12.5 l 50 0 l 0 50 l -50 0 l 0 -37.5"
-                                />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                <LoadingSkeleton/>
             }
             <section className="course__area pt-70 pb-25">
                 <div className="container">
