@@ -13,8 +13,6 @@ const ProfileMenuArea = () => {
     }
     // setShow
     const [show, setShow] = useState(false);
-
-    console.log("show" + show)
     // handleClose
     const handleClose = () => setShow(false);
     // handleShow
@@ -25,12 +23,7 @@ const ProfileMenuArea = () => {
     const myOrders = [];
 
     // User Data from API
-    const {data: userData, isLoading} = useQuery('userData',
-        () => userApi.getUserInfo(),
-        {
-            refetchInterval: 1000,
-        }
-    );
+    const {data: userData, isLoading} = useQuery('userData');
 
     return (
         <>

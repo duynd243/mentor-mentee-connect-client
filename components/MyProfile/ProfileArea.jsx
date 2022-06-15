@@ -15,6 +15,9 @@ const ProfileArea = () => {
     // User Data from API
     const {data: userData, isLoading} = useQuery('userData',
         () => userApi.getUserInfo(),
+        {
+            refetchInterval: 1000,
+        }
     );
     return (
         <>

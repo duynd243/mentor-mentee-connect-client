@@ -3,14 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CourseDetails/DetailsTabItems.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/DetailsTabItems.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/team.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsRightSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsRightSide.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MyProfile/ProfileArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/ProfileArea.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/common/EditModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/EditModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/my-profile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/my-profile/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +94,8 @@
       <workItem from="1655034313300" duration="1505000" />
       <workItem from="1655036008088" duration="19934000" />
       <workItem from="1655131404401" duration="22873000" />
-      <workItem from="1655172034975" duration="22980000" />
+      <workItem from="1655172034975" duration="25796000" />
+      <workItem from="1655289309227" duration="5289000" />
     </task>
     <servers />
   </component>
