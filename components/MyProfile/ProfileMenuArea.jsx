@@ -3,7 +3,6 @@ import useAuth from '../../hooks/useAuth';
 import EditModal from '../common/EditModal';
 import Link from 'next/link';
 import {useQuery} from "react-query";
-import userApi from "../../apis/user";
 
 const ProfileMenuArea = () => {
 
@@ -13,8 +12,6 @@ const ProfileMenuArea = () => {
     }
     // setShow
     const [show, setShow] = useState(false);
-
-    console.log("show" + show)
     // handleClose
     const handleClose = () => setShow(false);
     // handleShow
@@ -25,12 +22,7 @@ const ProfileMenuArea = () => {
     const myOrders = [];
 
     // User Data from API
-    const {data: userData, isLoading} = useQuery('userData',
-        () => userApi.getUserInfo(),
-        {
-            refetchInterval: 1000,
-        }
-    );
+    const {data: userData, isLoading} = useQuery('userData');
 
     return (
         <>

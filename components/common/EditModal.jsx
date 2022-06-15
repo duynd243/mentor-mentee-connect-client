@@ -16,7 +16,9 @@ const EditModal = ({show, handleClose, userData}) => {
     const [enteredPhone, setEnteredPhone] = useState(userData?.phone || "");
     const [enteredAddress, setEnteredAddress] = useState(userData?.address || "");
     const [selectedGender, setSelectedGender] = useState(userData?.gender || 1);
-    const [selectedDOB, setSelectedDOB] = useState(moment(new Date(userData?.dayOfBirth)).format("YYYY-MM-DD") || "");
+    const [selectedDOB, setSelectedDOB] = useState(() => {
+       return (userData?.dayOfBirth) ? moment(new Date(userData?.dayOfBirth)).format("YYYY-MM-DD") : "";
+    });
     const handleGenderChange = (event) => {
         setSelectedGender(event.target.value);
     };
@@ -40,6 +42,11 @@ const EditModal = ({show, handleClose, userData}) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
+
+        if (!selectedDOB) {
+            toast.error("Please select your date of birth");
+            return;
+        }
         if (new Date(selectedDOB) > new Date()) {
             toast.error("Date of birth must be in the past");
             return;

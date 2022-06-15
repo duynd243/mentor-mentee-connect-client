@@ -7,8 +7,6 @@ import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
 
 const MyProfile = () => {
     // User from Firebase Auth
-
-
     return (
         <>
             <Head>
