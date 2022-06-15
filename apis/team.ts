@@ -1,4 +1,4 @@
-import {request} from "./utils";
+import request from "./utils";
 
 const getAllTeams = (params?: any) =>
   request.get("/teams", { params }).then((res) => res.data);

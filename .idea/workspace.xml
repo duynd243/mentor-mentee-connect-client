@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/Home/CourseAreaTab.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Home/CourseArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/CourseArea.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Home/CourseArea_m.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/common/RatingStars.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/RatingStars.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -90,7 +92,7 @@
       <workItem from="1655036008088" duration="19934000" />
       <workItem from="1655131404401" duration="22873000" />
       <workItem from="1655172034975" duration="25796000" />
-      <workItem from="1655289309227" duration="9368000" />
+      <workItem from="1655289309227" duration="9694000" />
     </task>
     <servers />
   </component>
