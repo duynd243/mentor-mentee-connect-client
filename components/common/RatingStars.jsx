@@ -1,7 +1,6 @@
 import {Star, StarHalf, StarOutline} from "react-ionicons";
 
 const RatingStars = ({rating}) => {
-    console.log(rating)
     const roundedRating = Math.round(rating * 2) / 2;
     const filledStars = Math.floor(roundedRating);
     const hasHalfStar = roundedRating % 1 !== 0;

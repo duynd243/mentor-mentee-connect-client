@@ -348,7 +348,10 @@
             margin-bottom: 15px;
         }
         & a{
-            display: inline-block;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
             padding: 5px;
             padding-right: 20px;
             border: 2px solid rgba($color: #4356FF, $alpha: .1);
@@ -392,8 +395,11 @@
             color: var(--tp-theme-1)
         }
         & a{
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
             color: var(--tp-text-1);
-            display: inline-block;
         }
         & i{
             font-size: 16px;
@@ -619,6 +625,10 @@
     &__summary{
         & p{
             font-size: 18px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
     &__sidebar{

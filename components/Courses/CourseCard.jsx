@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-const CourseCard = ({course}) => {
+const CourseCard = ({course, courseSidebar}) => {
+    const wrapperClass = courseSidebar ? "col-xxl-6 col-xl-6 col-lg-6 col-md-6" : "col-xxl-4 col-xl-4 col-lg-4 col-md-6";
     return (
         <div
             key={course.id}
-            className="col-xxl-4 col-xl-4 col-lg-4 col-md-6"
+            className={wrapperClass}
         >
             <div className="course__item-2 transition-3 white-bg mb-30 fix">
                 <div className="course__thumb-2 w-img fix course_thumb_height">
