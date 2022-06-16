@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const NewCourses = ({ allCourseItems }) => {
+const NewCourses = ({ courses }) => {
   return (
     <>
       <div className="course__sidebar-widget white-bg">

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 // import {useDispatch, useSelector} from 'react-redux';
 import Link from "next/link";
-import SidebarRelatedCourse from "./SidebarRelatedCourse";
+import SmallCourseSidebar from "../Courses/SmallCourseSidebar";
 import {Modal} from "react-responsive-modal";
 import ReactPlayer from "react-player";
 import useAuth from "../../hooks/useAuth";
@@ -261,8 +261,8 @@ const CourseDetailsRightSide = ({courseData, relatedCourses}) => {
                 </div>
               </div>
             </div>
-            <SidebarRelatedCourse
-                courses={relatedCourses?.data?.filter(course => course?.id !== courseData?.id)}/>
+            <SmallCourseSidebar title="Related Courses"
+                                courses={relatedCourses?.data?.filter(course => course?.id !== courseData?.id)}/>
           </div>
         </div>
       </>
