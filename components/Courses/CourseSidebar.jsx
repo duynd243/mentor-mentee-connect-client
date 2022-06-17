@@ -311,7 +311,8 @@ const CourseSidebar = () => {
                                                         checked={currentSubjectId === ""}
                                                     />
                                                     <label className="m-check-label">
-                                                        All subjects
+                                                        All
+                                                        subjects {currentSubjectId === "" && `(${courseItems?.metadata.total})`}
                                                     </label>
                                                 </div>
                                             </li>
@@ -331,7 +332,7 @@ const CourseSidebar = () => {
                                                                 }
                                                             />
                                                             <label className="m-check-label">
-                                                                {subject?.name}
+                                                                {subject?.name} {currentSubjectId === subject?.id && `(${courseItems?.metadata.total})`}
                                                             </label>
                                                         </div>
                                                     </li>
