@@ -183,7 +183,7 @@ const CourseSidebar = () => {
                                     </div>
                                     <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                         <div className="course__view text-end">
-                                            {!courseItemsLoading && courseItems &&
+                                            {!courseItemsLoading && courseItems && courseItems?.metadata.total > 0 &&
                                                 <h4>{`Showing ${fromIndex} to ${(fromIndex + coursePerPage - 1) < courseItems?.metadata.total ? (fromIndex + coursePerPage - 1) : courseItems?.metadata.total} of ${courseItems?.metadata.total}`}</h4>
                                             }
                                         </div>
@@ -193,7 +193,7 @@ const CourseSidebar = () => {
 
                             <div className="row">
                                 <div className="col-xxl-12">
-                                    <div className="course__tab-conent">
+                                    <div className="course__tab-content">
                                         <div className="tab-content" id="courseTabContent">
                                             <div
                                                 className="tab-pane fade show active"
@@ -209,10 +209,16 @@ const CourseSidebar = () => {
                                                         </Container>
                                                     )}
                                                     {/*Course Cards (Grid)*/}
-                                                    {!courseItemsLoading && courseItems &&
+                                                    {!courseItemsLoading && courseItems && courseItems?.metadata.total > 0 &&
                                                         (courseItems?.data.map((courseItem) => <CourseCard
                                                             key={courseItem?.id} course={courseItem}
                                                             courseSidebar={true}/>))
+                                                    }
+                                                    {/*No Courses*/}
+                                                    {!courseItemsLoading && courseItems && courseItems?.metadata.total === 0 &&
+                                                        <Container className="my-5 text-center">
+                                                            <h4>No courses found for this subject</h4>
+                                                        </Container>
                                                     }
                                                 </div>
                                             </div>
@@ -312,7 +318,7 @@ const CourseSidebar = () => {
                                                     />
                                                     <label className="m-check-label">
                                                         All
-                                                        subjects {currentSubjectId === "" && `(${courseItems?.metadata.total})`}
+                                                        subjects {!courseItemsLoading && currentSubjectId === "" && `(${courseItems?.metadata.total})`}
                                                     </label>
                                                 </div>
                                             </li>
@@ -332,7 +338,7 @@ const CourseSidebar = () => {
                                                                 }
                                                             />
                                                             <label className="m-check-label">
-                                                                {subject?.name} {currentSubjectId === subject?.id && `(${courseItems?.metadata.total})`}
+                                                                {subject?.name} {!courseItemsLoading && currentSubjectId === subject?.id && `(${courseItems?.metadata.total})`}
                                                             </label>
                                                         </div>
                                                     </li>
