@@ -40,7 +40,7 @@ const CourseArea = () => {
                     </div>
 
                     <div className="row">
-                        <div className="col-xxl-12">
+                        <div className="col-xxl-12 course__menu">
                             <div className="portfolio-filter mb-40">
                                 <nav>
                                     <div

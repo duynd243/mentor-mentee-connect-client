@@ -476,3 +476,33 @@
         }
     }
 }
+
+
+.course__menu .nav-link {
+    padding: 0;
+}
+.course__menu .nav-tabs {
+    border-radius: 30px !important;
+    overflow: hidden;
+    margin: 0 auto;
+    width: fit-content;
+    background: #f0f0f0;
+    border-bottom: 0;
+}
+.course__menu .nav-tabs .nav-link.active {
+    color: white;
+    background-color: #0C65C7;
+    border: 0;
+}
+.course__menu .nav-tabs .nav-link:hover{
+    border: 0;
+}
+.course__menu .nav-tabs .nav-link {
+    font-weight: 500;
+    font-size: 1rem !important;
+    border-radius: 30px !important;
+    color: #5a5c5e;
+    padding: 10px 24px !important;
+    border: 0;
+    transition: all 0.3s ease-in-out;
+}
