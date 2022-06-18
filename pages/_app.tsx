@@ -2,8 +2,6 @@ import React from "react";
 // import { Provider } from "react-redux";
 import "swiper/css/bundle";
 import "react-responsive-modal/styles.css";
-import ScrollToTop from "react-scroll-to-top";
-import ScrollTopSVG from "components/common/ScrollTopSVG";
 // import { coursesData } from "../../redux/features/coursesSlice";
 // import { store } from "../../redux/store";
 import {ToastContainer} from "react-toastify";
@@ -52,7 +50,6 @@ function MyApp({Component, pageProps}: any) {
         <QueryClientProvider client={queryClient}>
             <React.Fragment>
                 {/* <Provider store={store}> */}
-                <ScrollToTop style={{borderRadius: "50%", padding: "4px"}} smooth component={<ScrollTopSVG/>}/>
                 <Component {...pageProps} />
                 <ToastContainer/>
                 {/* </Provider> */}
