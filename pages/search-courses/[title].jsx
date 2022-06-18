@@ -50,7 +50,7 @@ const SearchCourses = () => {
                 <div className="container">
                     <div className="row">
 
-                        {!isLoading && (!searchedCourses || searchedCourses?.data.length === 0) && <>
+                        {!isLoading && (!searchedCourses || searchedCourses?.metadata.total === 0) && <>
                             <img
                                 src="../assets/img/magnifying-glass.webp"
                                 alt=""
@@ -81,7 +81,7 @@ const SearchCourses = () => {
                                 Please try searching with another keyword
                             </div>
                         </>}
-                        {!isLoading && searchedCourses && searchedCourses?.data.length > 0 && <>
+                        {!isLoading && searchedCourses && searchedCourses?.metadata.total > 0 && <>
                             <div className="course__tab-inner white-bg mb-50">
                                 <div className="row align-items-center">
                                     <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
@@ -190,7 +190,7 @@ const SearchCourses = () => {
                                         <div className="course__view text-end">
                                             {!isLoading && searchedCourses && searchedCourses?.data.length > 0 &&
                                                 <h4 style={{fontWeight: 400}}>Found <span
-                                                    className="fw-bold">{`${searchedCourses.data.length} ${searchedCourses.data.length > 1 ? 'matches' : 'match'}`}</span> for <span
+                                                    className="fw-bold">{`${searchedCourses?.metadata.total} ${searchedCourses?.metadata.total > 1 ? 'matches' : 'match'}`}</span> for <span
                                                     className="fw-bold">{title}</span></h4>
                                             }
                                         </div>
