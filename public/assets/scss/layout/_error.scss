@@ -6,11 +6,11 @@
 
 .error{
     &__title{
-        font-size: 70px;
+        font-size: 55px;
         line-height: .9;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         @media #{$sm}{
-            font-size: 60px;
+            font-size: 40px;
         }
         @media #{$xs}{
             font-size: 37px;
@@ -18,7 +18,7 @@
     }
     &__content{
         & p{
-            font-size: 20px;
+            font-size: 18px;
             color: var(--tp-text-1);
             margin-bottom: 45px;
         }

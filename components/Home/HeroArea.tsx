@@ -1,94 +1,55 @@
-import {Swiper, SwiperSlide} from "swiper/react";
 import Link from "next/link";
-import SwiperCore, {EffectFade, Navigation} from "swiper";
-
-SwiperCore.use([Navigation]);
 
 const HeroArea = () => {
-  const sliderData = [
-    {
-      id: 1,
-      title: "Together We'll Explore New Things",
-      img: "assets/img/slider/slider-1.jpg",
-    },
-    {
-      id: 2,
-      title: (
-        <>
-          Institution of <br /> Higher Education
-        </>
-      ),
-      img: "assets/img/slider/slider-2.jpg",
-    },
-  ];
-  return (
-    <>
-      <section className="slider__area">
-        <div className="slider__active swiper-container">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 5000 }}
-            effect={"fade"}
-            className="swiper-wrapper"
-            modules={[EffectFade]}
-            navigation={{
-              nextEl: ".slider-button-next",
-              prevEl: ".slider-button-prev",
-            }}
-          >
-            {sliderData.map((slider) => {
-              return (
-                <SwiperSlide
-                  key={slider.id}
-                  className="slider__item swiper-slide p-relative slider__height d-flex align-items-center z-index-1"
-                >
-                  <div
-                    className="slider__bg slider__overlay include-bg"
-                    style={{
-                      background: `url(${slider.img})`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                    }}
-                  ></div>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xxl-7 col-xl-8 col-lg-8 col-md-10 col-sm-10">
-                        <div className="slider__content p-relative z-index-1">
-                          <span>FPT University</span>
-                          <h2 className="slider__title">{slider.title}</h2>
-                          <p>
-                            We believe everyone should have the opportunity to
-                            create progress through technolog.
-                          </p>
-                          <div className="slider__btn">
-                            <Link href="/courses">
-                              <a className="tp-btn">Find Courses</a>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-
-          <div className="main-slider-paginations">
-            <button className="slider-button-next">
-              <i className="fa-regular fa-arrow-right"></i>
-            </button>
-            <button className="slider-button-prev">
-              <i className="fa-regular fa-arrow-left"></i>
-            </button>
-          </div>
+    return <section style={{backgroundColor: "#edeef3"}}
+                    className="hero__area hero__height d-flex align-items-center grey-bg-2 p-relative">
+        <div className="hero__shape">
+            <img className="hero-1-circle" src="../../assets/img/shape/hero/hero-1-circle.png" alt=""/>
+            <img className="hero-1-circle-2" src="../../assets/img/shape/hero/hero-1-circle-2.png" alt=""/>
+            <img className="hero-1-dot-2" src="../../assets/img/shape/hero/hero-1-dot-2.png" alt=""/>
         </div>
-      </section>
-    </>
-  );
+        <div className="container">
+            <div className="hero__content-wrapper mt-90">
+                <div className="row align-items-center">
+                    <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                        <div className="hero__content p-relative z-index-1">
+                            <h3 className="hero__title">
+                                <span>Access 2700+</span>
+                                <span className="yellow-shape">Online
+                                    <img style={{height: "22%"}} src="../../assets/img/shape/yellow-bg.png"
+                                         alt="yellow-shape"/> </span>
+                                Tutorial From Top Instructor.</h3>
+                            <p>Meet university,and cultural institutions, who'll share their experience.</p>
+                            <Link href="/courses">
+                                <a className="e-btn">View all course</a>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                        <div className="hero__thumb d-flex p-relative">
+                            <div className="hero__thumb-shape">
+                                <img className="hero-1-dot" src="../../assets/img/shape/hero/hero-1-dot.png" alt=""/>
+                                <img className="hero-1-circle-3" src="../../assets/img/shape/hero/hero-1-circle-3.png"
+                                     alt=""/>
+                                <img className="hero-1-circle-4" src="../../assets/img/shape/hero/hero-1-circle-4.png"
+                                     alt=""/>
+                            </div>
+                            <div className="hero__thumb-big mr-30">
+                                <img src="../../assets/img/hero/hero-1.jpg" alt=""/>
+                                <div className="hero__quote hero__quote-animation">
+                                    <span>Tomorrow is our</span>
+                                    <h4>“When I Grow Up” Spirit Day!</h4>
+                                </div>
+                            </div>
+                            <div className="hero__thumb-sm mt-50 d-none d-lg-block">
+                                <img src="../../assets/img/hero/hero-sm-1.jpg" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 };
 
 export default HeroArea;

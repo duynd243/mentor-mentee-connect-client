@@ -21,7 +21,7 @@ const CourseCardList = ({course}) => {
                                 <a>{course.subject.name}</a>
                             </Link>
                         </div>
-                        <h3 className="course__title">
+                        <h3 className="course__title" title={course.name}>
                             <Link href={`/course-details/${course.id}`}>
                                 <a>{course.name}</a>
                             </Link>
@@ -31,14 +31,14 @@ const CourseCardList = ({course}) => {
                         </div>
 
                         <div className="course__bottom d-sm-flex align-items-center justify-content-between">
-                            <div className="course__tutor">
+                            <div className="course__tutor" title={course.mentor.fullName}>
                                 <Link href={`/course-details/${course.id}`}>
                                     <a>
                                         <img src={course.mentor.imageUrl} alt=""/>{course.mentor.fullName}
                                     </a>
                                 </Link>
                             </div>
-                            <div className="course__lesson">
+                            <div className="course__lesson" title={"Số Lesseons"}>
                                 <a href="#">
                                     <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">

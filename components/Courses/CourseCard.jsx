@@ -26,7 +26,7 @@ const CourseCard = ({course, courseSidebar}) => {
                             <span>${course.price}</span>
                         </div>
                     </div>
-                    <h3 className="course__title-2">
+                    <h3 className="course__title-2" title={course.name}>
                         <Link href={`/course-details/${course.id}`}>
                             <a>{course.name}</a>
                         </Link>
@@ -119,7 +119,7 @@ const CourseCard = ({course, courseSidebar}) => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="course__tutor-2">
+                        <div className="course__tutor-2" title={course.mentor.fullName}>
                             <a href="#">
                                 <img src={course.mentor.imageUrl} alt=""/>
                             </a>

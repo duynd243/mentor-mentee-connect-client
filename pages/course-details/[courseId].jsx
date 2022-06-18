@@ -8,9 +8,10 @@ import {useQuery} from "react-query";
 import Head from "next/head";
 import Header from "../../components/Home/Header";
 import Footer from "../../components/common/Footer";
-import CourseDetailsLeftSide from "../../components/CourseDetails/CourseDetailsLeftSide";
-import CourseDetailsRightSide from "../../components/CourseDetails/CourseDetailsRightSide";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
+import CourseDetailsArea from "../../components/CourseDetails/CourseDetailsArea";
+import React from "react";
+import Link from "next/link";
 
 SwiperCore.use([Pagination]);
 
@@ -32,7 +33,10 @@ const CourseDetails = () => {
     );
 
     // Related Courses (have the same subjectId)
-    const {data: relatedCourses} = useQuery(["relatedCourses", courseData?.subject.id], () => courseApi.getAllCourses({
+    const {
+        data: relatedCourses,
+        isLoading: relatedCoursesLoading
+    } = useQuery(["relatedCourses", courseData?.subject.id], () => courseApi.getAllCourses({
         "subject-id": courseData?.subject.id,
         size: 6
     }),);
@@ -50,39 +54,29 @@ const CourseDetails = () => {
             <section className="course__area pt-70 pb-25">
                 <div className="container">
                     <div className="row">
-                        {(!loading && !courseData) && <>
-                            <img
-                                src="../assets/img/magnifying-glass.webp"
-                                alt=""
-                                style={{
-                                    width: "320px",
-                                    maxWidth: "70%",
-                                    margin: "0 auto",
-                                }}
-                            />
-                            <h2
-                                style={{
-                                    textAlign: "center",
-                                    fontWeight: 400,
-                                    opacity: 0.75,
-                                }}
-                            >We couldn't find any matches with this given link</h2>
-                            <div
-                                style={{
-                                    fontSize: "1.2rem",
-                                    textAlign: "center",
-                                    fontWeight: 400,
-                                    opacity: 0.75,
-                                    marginBottom: "45px",
-                                }}
-                            >
-                                Please try searching with another keyword
+                        {(!loading && !courseData) &&
+                            <div className="col-12" style={{margin: "0 auto"}}>
+                                <div className="error__content text-center">
+                                    <div className="error__thumb m-img">
+                                        <img style={{maxWidth: "65vw"}}
+                                             src={"/" + "assets/img/lap-magnifying-glass.png"} alt=""/>
+                                    </div>
+                                    <div className="error__content">
+                                        <h3 className="error__title" style={{fontSize: "40px", marginBottom: "35px"}}>We
+                                            couldn't find any matches with this given link</h3>
+                                        <div className="error__btn">
+                                            <Link href="/courses">
+                                                <a className="tp-btn">Back to Courses</a>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </>}
+                        }
                         {(!loading && courseData) &&
                             <>
-                                <CourseDetailsLeftSide courseData={courseData} relatedCourses={relatedCourses}/>
-                                <CourseDetailsRightSide courseData={courseData} relatedCourses={relatedCourses}/>
+                                <CourseDetailsArea courseData={courseData} relatedCourses={relatedCourses}
+                                                   relatedCoursesLoading={relatedCoursesLoading}/>
                             </>
                         }
                     </div>

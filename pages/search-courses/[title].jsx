@@ -50,37 +50,23 @@ const SearchCourses = () => {
                 <div className="container">
                     <div className="row">
 
-                        {!isLoading && (!searchedCourses || searchedCourses?.metadata.total === 0) && <>
-                            <img
-                                src="../assets/img/magnifying-glass.webp"
-                                alt=""
-                                style={{
-                                    width: "320px",
-                                    maxWidth: "70%",
-                                    margin: "0 auto",
-                                }}
-                            />
-                            <h2
-                                style={{
-                                    textAlign: "center",
-                                    fontWeight: 400,
-                                    opacity: 0.75,
-                                }}
-                            >
-                                We couldn't find any matches for{" "}
-                                <span style={{fontWeight: 500}}>{title}</span>
-                            </h2>
-                            <div
-                                style={{
-                                    fontSize: "1.2rem",
-                                    textAlign: "center",
-                                    fontWeight: 400,
-                                    opacity: 0.75,
-                                }}
-                            >
-                                Please try searching with another keyword
+                        {!isLoading && (!searchedCourses || searchedCourses?.metadata.total === 0) &&
+                            <div className="col-12" style={{margin: "0 auto"}}>
+                                <div className="error__content text-center">
+                                    <div className="error__thumb m-img">
+                                        <img style={{maxWidth: "65vw"}}
+                                             src={"/" + "assets/img/lap-magnifying-glass.png"} alt=""/>
+                                    </div>
+                                    <div className="error__content">
+                                        <h3 className="error__title" style={{fontSize: "40px", marginBottom: "35px"}}>We
+                                            couldn't find any matches for {title}</h3>
+                                        <p style={{fontSize: "20px"}}>
+                                            Please try searching with another keyword.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </>}
+                        }
                         {!isLoading && searchedCourses && searchedCourses?.metadata.total > 0 && <>
                             <div className="course__tab-inner white-bg mb-50">
                                 <div className="row align-items-center">
@@ -212,7 +198,7 @@ const SearchCourses = () => {
                                                     {/*Loading*/}
                                                     {isLoading && (
                                                         <Container className="my-5 text-center">
-                                                            <Spinner animation="grow"/>
+                                                            <Spinner style={{color: "#ace0fa"}} animation="grow"/>
                                                         </Container>
                                                     )}
                                                     {/*Course Cards (Grid)*/}
@@ -234,7 +220,7 @@ const SearchCourses = () => {
                                                         {/*Loading*/}
                                                         {isLoading && (
                                                             <Container className="my-5 text-center">
-                                                                <Spinner animation="grow"/>
+                                                                <Spinner style={{color: "#ace0fa"}} animation="grow"/>
                                                             </Container>
                                                         )}
                                                         {/*Course Cards (List)*/}

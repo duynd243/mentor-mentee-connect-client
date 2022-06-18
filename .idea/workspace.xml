@@ -3,8 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsArea.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsRightSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsRightSide.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Courses/CourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Courses/CourseCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseCardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Courses/CourseSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseSidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Courses/SmallCourseSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/SmallCourseSidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Home/CourseAreaTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/CourseAreaTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Home/HeroArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home/HeroArea.tsx.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search-courses/[title].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search-courses/[title].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_error.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_error.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,27 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/FPTU/TERM 7/SWD/Projects/Group/mentor-mentee-connect-client/components/Home&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\FPTU\\TERM 7\\SWD\\Projects\\Group\\mentor-mentee-connect-client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/FPTU/TERM 7/SWD/Projects/Group/mentor-mentee-connect-client/public/assets/scss/components",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\FPTU\\TERM 7\\SWD\\Projects\\Group\\mentor-mentee-connect-client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\public\assets\scss\components" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components\Home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\public\assets\scss\layout" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components\Courses" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components" />
     </key>
@@ -113,6 +134,7 @@
       <workItem from="1655307798954" duration="276000" />
       <workItem from="1655391864904" duration="17273000" />
       <workItem from="1655432102638" duration="7599000" />
+      <workItem from="1655546360483" duration="19079000" />
     </task>
     <servers />
   </component>

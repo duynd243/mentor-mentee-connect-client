@@ -4,10 +4,11 @@ import SwiperCore, {Pagination} from "swiper";
 import DetailsTabItems from "./DetailsTabItems";
 import Link from "next/link";
 import RatingStars from "../common/RatingStars";
+import {Spinner} from "react-bootstrap";
 
 SwiperCore.use([Pagination]);
 
-const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
+const CourseDetailsLeftSide = ({courseData, relatedCourses, relatedCoursesLoading}) => {
 
     return (
         <>
@@ -21,7 +22,7 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
                             <span className="dvdr">
                                             <i className="fa-regular fa-angle-right"></i>
                                         </span>
-                            <span>Courses</span>
+                            <span><Link href="/courses">Courses</Link></span>
                         </div>
                         <span className="breadcrumb__title-pre">
                                         {courseData?.subject.name}
@@ -73,6 +74,11 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
                         <div className="row">
                             <div className="col-xxl-12">
                                 <div className="course__slider swiper-container pb-60">
+                                    {relatedCoursesLoading &&
+                                        <div className="text-center">
+                                            <Spinner style={{color: "#ace0fa"}} animation="grow"/>
+                                        </div>
+                                    }
                                     <Swiper
                                         spaceBetween={30}
                                         slidesPerView={1}
@@ -91,7 +97,7 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses}) => {
                                             },
                                         }}
                                     >
-                                        {relatedCourses?.data?.filter(course => course?.id !== courseData?.id).map((course) => {
+                                        {!relatedCoursesLoading && relatedCourses?.data?.filter(course => course?.id !== courseData?.id).map((course) => {
                                             return (
                                                 <SwiperSlide key={course.id}>
                                                     <div

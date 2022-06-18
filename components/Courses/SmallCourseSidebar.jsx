@@ -1,13 +1,19 @@
 // import {useSelector} from 'react-redux';
 import Link from "next/link";
 import RatingStars from "../common/RatingStars";
+import {Spinner} from "react-bootstrap";
 
-const SmallCourseSidebar = ({title, courses}) => {
+const SmallCourseSidebar = ({title, courses, loading}) => {
     return (
         <>
             <div className="course__sidebar-widget-2 white-bg mb-20">
                 <div className="course__sidebar-course">
                     <h3 className="course__sidebar-title">{title}</h3>
+                    {loading &&
+                        <div className="text-center">
+                            <Spinner style={{color: "#ace0fa"}} animation="grow"/>
+                        </div>
+                    }
                     <ul>
                         {courses?.map((course) => {
                             return (
@@ -20,7 +26,7 @@ const SmallCourseSidebar = ({title, courses}) => {
                                         </div>
                                         <div className="course__sm-content">
 
-                                            <h5 style={{opacity: 0.8}}>
+                                            <h5 style={{opacity: 0.8}} title={course?.name}>
                                                 <Link href={`/course-details/${course?._id}`}>
                                                     <a>{course?.name}</a>
                                                 </Link>

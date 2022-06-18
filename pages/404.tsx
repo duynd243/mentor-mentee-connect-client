@@ -8,36 +8,13 @@ const ErrorPage = () => {
     <>
       <DynamicPageHeader />
 
-      <section className="breadcrumb__area include-bg pt-100 pb-100 breadcrumb__overlay error_breadcrumb">
-        <div className="container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb__content text-center p-relative z-index-1">
-                <h3 className="breadcrumb__title">Error Page</h3>
-                <div className="breadcrumb__list">
-                  <span>
-                    <Link href="/">
-                      <a>Home</a>
-                    </Link>
-                  </span>
-                  <span className="dvdr">
-                    <i className="fa-regular fa-angle-right"></i>
-                  </span>
-                  <span>Error Page</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="error__area pt-120 pb-120">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xxl-8">
               <div className="error__content text-center">
                 <div className="error__thumb m-img mb-45">
-                  <img src={"/" + "assets/img/error/error.png"} alt="" />
+                  <img src={"/" + "assets/img/error/not-found.jpg"} alt="" />
                 </div>
                 <div className="error__content">
                   <h3 className="error__title">Page Not Found</h3>

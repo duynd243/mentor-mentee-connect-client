@@ -6,7 +6,7 @@ const CourseAreaTab = ({courses, loading}) => {
         <div className="row">
             {loading ? (
                 <div className="text-center">
-                    <Spinner animation="border"/>
+                    <Spinner style={{color: "#ace0fa"}} animation="grow"/>
                 </div>
             ) : (
                 courses.data.map((course) => {
