@@ -316,13 +316,13 @@ input[type="color"] {
 -----------------------------------------*/
 
 .basic-pagination{
+	width: fit-content;
+	margin: 0 auto;
+	border-radius: 18px;
 	& ul{
 		& li{
 			display: inline-block;
-			margin-right: 10px;
-			@media #{$xs}{
-				margin-right: 5px;
-			}
+			margin: 5px;
 			&.active{
 				& button{
 					color: var(--tp-common-white);
@@ -345,10 +345,10 @@ input[type="color"] {
 				height: 40px;
 				line-height: 36px;
 				text-align: center;
-				@include border-radius(4px);
+				@include border-radius(10px);
 				font-weight: 500;
 				font-size: 16px;
-				border: 2px solid #eef0f6;
+				//border: 2px solid #eef0f6;
 				color: var(--tp-common-black);
 				&:hover,
 				&.current{

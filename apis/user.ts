@@ -17,9 +17,15 @@ const updateUserInfo = async (payload: any) => {
     });
 }
 
+const getMentorInfo = async (_id: string) => {
+    const {data} = await request.get(`/users/${_id}`);
+    return data;
+}
+
 const userApi = {
     getUserInfo,
     updateUserInfo,
+    getMentorInfo
 }
 
 export default userApi;

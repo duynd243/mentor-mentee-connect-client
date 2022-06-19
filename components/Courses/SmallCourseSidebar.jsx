@@ -17,17 +17,19 @@ const SmallCourseSidebar = ({title, courses, loading}) => {
                     <ul>
                         {courses?.map((course) => {
                             return (
-                                <li key={course.id}>
+                                <li key={course?.id}>
                                     <div className="course__sm d-flex align-items-start mb-30">
                                         <div className="course__sm-thumb mr-20">
-                                            <a href={`/course-details/${course.id}`}>
+                                            <Link href={`/course-details/${course?.id}`}>
+                                            <a>
                                                 <img src={course?.imageUrl} alt=""/>
                                             </a>
+                                            </Link>
                                         </div>
                                         <div className="course__sm-content">
 
                                             <h5 style={{opacity: 0.8}} title={course?.name}>
-                                                <Link href={`/course-details/${course?._id}`}>
+                                                <Link href={`/course-details/${course?.id}`}>
                                                     <a>{course?.name}</a>
                                                 </Link>
                                             </h5>

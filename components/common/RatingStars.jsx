@@ -8,7 +8,7 @@ const RatingStars = ({rating}) => {
 
 
     const filledStarsArray = new Array(filledStars).fill(<li>
-        <a href="#">
+        <a>
             <Star
                 width="18px"
                 color={'#f5b455'}
@@ -16,7 +16,7 @@ const RatingStars = ({rating}) => {
         </a>
     </li>);
     const halfStar = <li>
-        <a href="#">
+        <a>
             <StarHalf
                 width="18px"
                 color={'#f5b455'}
@@ -24,7 +24,7 @@ const RatingStars = ({rating}) => {
         </a>
     </li>;
     const emptyStarsArray = new Array(emptyStars).fill(<li>
-        <a className="empty" href="#">
+        <a className="empty">
             <StarOutline
                 width="18px"
                 color={'#f5b455'}

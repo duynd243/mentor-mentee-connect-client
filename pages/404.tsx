@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import DynamicPageHeader from "components/common/DynamicPageHeader";
 import Footer from "components/common/Footer";
+import Header from "../components/Home/Header";
 
 const ErrorPage = () => {
   return (
     <>
-      <DynamicPageHeader />
+      <Header />
 
       <section className="error__area pt-120 pb-120">
         <div className="container">

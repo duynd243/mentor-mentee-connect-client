@@ -32,7 +32,7 @@ const CourseCardList = ({course}) => {
 
                         <div className="course__bottom d-sm-flex align-items-center justify-content-between">
                             <div className="course__tutor" title={course.mentor.fullName}>
-                                <Link href={`/course-details/${course.id}`}>
+                                <Link href={`/mentor-details/${course.mentor.id}`}>
                                     <a>
                                         <img src={course.mentor.imageUrl} alt=""/>{course.mentor.fullName}
                                     </a>

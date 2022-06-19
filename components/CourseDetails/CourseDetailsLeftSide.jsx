@@ -38,7 +38,7 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses, relatedCoursesLoadin
                             <div className="course__teacher-info-3">
                                 <h5>Mentor</h5>
                                 <p>
-                                    <a href="#">{courseData?.mentor.fullName}</a>
+                                    <a href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
                                 </p>
                             </div>
                         </div>
@@ -234,7 +234,7 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses, relatedCoursesLoadin
                                                                     </ul>
                                                                 </div>
                                                                 <div className="course__tutor-2">
-                                                                    <a href="#">
+                                                                    <a href={`/mentor-details/${course.mentor.id}`}>
                                                                         <img
                                                                             src={course.mentor.imageUrl}
                                                                             alt=""/>

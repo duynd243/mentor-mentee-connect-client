@@ -369,7 +369,8 @@ const CourseSidebar = () => {
                             </div>
 
                             {/*New Courses*/}
-                            <SmallCourseSidebar title="New Courses" loading={newCourseItemsLoading} courses={newCourseItems?.data}/>
+                            <SmallCourseSidebar title="New Courses" loading={newCourseItemsLoading}
+                                                courses={newCourseItems?.data}/>
 
                         </div>
                     </div>
