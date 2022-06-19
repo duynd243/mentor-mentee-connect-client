@@ -7,7 +7,6 @@ import BreadCrumb from "../../components/common/BreadCrumb";
 import Footer from "../../components/common/Footer";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 import React, {useState} from "react";
-import {Container, Spinner} from "react-bootstrap";
 import CourseCard from "../../components/Courses/CourseCard";
 import CourseCardList from "../../components/Courses/CourseCardList";
 import Pagination from "../../components/common/Pagination";
@@ -19,7 +18,7 @@ const SearchCourses = () => {
     // currentPage
     const [currentPage, setCurrentPage] = useState(1);
     // coursePerPage
-    const [coursePerPage, setCoursePerPage] = useState(4);
+    const [coursePerPage, setCoursePerPage] = useState(6);
 
     const {data: searchedCourses, isLoading} = useQuery(["searchedCourses", title, currentPage, coursePerPage], () =>
         courseApi.getAllCourses(
@@ -55,7 +54,7 @@ const SearchCourses = () => {
                                 <div className="error__content text-center">
                                     <div className="error__thumb m-img">
                                         <img style={{maxWidth: "65vw"}}
-                                             src={"/" + "assets/img/lap-magnifying-glass.png"} alt=""/>
+                                             src={"../assets/img/lap-magnifying-glass.png"} alt=""/>
                                     </div>
                                     <div className="error__content">
                                         <h3 className="error__title" style={{fontSize: "40px", marginBottom: "35px"}}>We
@@ -195,17 +194,9 @@ const SearchCourses = () => {
                                                 aria-labelledby="grid-tab"
                                             >
                                                 <div className="row">
-                                                    {/*Loading*/}
-                                                    {isLoading && (
-                                                        <Container className="my-5 text-center">
-                                                            <Spinner style={{color: "#ace0fa"}} animation="grow"/>
-                                                        </Container>
-                                                    )}
                                                     {/*Course Cards (Grid)*/}
-                                                    {!isLoading && searchedCourses &&
-                                                        (searchedCourses?.data.map((courseItem) => <CourseCard
-                                                            key={courseItem?.id} course={courseItem}/>))
-                                                    }
+                                                    {searchedCourses?.data.map((courseItem) => <CourseCard
+                                                        key={courseItem?.id} course={courseItem}/>)}
                                                 </div>
                                             </div>
 
@@ -217,17 +208,9 @@ const SearchCourses = () => {
                                             >
                                                 <div className="row">
                                                     <div className="col-xxl-12">
-                                                        {/*Loading*/}
-                                                        {isLoading && (
-                                                            <Container className="my-5 text-center">
-                                                                <Spinner style={{color: "#ace0fa"}} animation="grow"/>
-                                                            </Container>
-                                                        )}
                                                         {/*Course Cards (List)*/}
-                                                        {!isLoading && searchedCourses &&
-                                                            (searchedCourses?.data.map((courseItem) => <CourseCardList
-                                                                key={courseItem?.id} course={courseItem}/>))
-                                                        }
+                                                        {(searchedCourses?.data.map((courseItem) => <CourseCardList
+                                                            key={courseItem?.id} course={courseItem}/>))}
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,14 +221,12 @@ const SearchCourses = () => {
 
                             {/*Pagination*/}
                             <div className="row">
-                                {!isLoading && searchedCourses &&
-                                    <Pagination
-                                        coursePerPage={coursePerPage}
-                                        totalCourse={searchedCourses?.metadata.total}
-                                        paginate={paginate}
-                                        currentPage={currentPage}
-                                    />
-                                }
+                                <Pagination
+                                    coursePerPage={coursePerPage}
+                                    totalCourse={searchedCourses?.metadata.total}
+                                    paginate={paginate}
+                                    currentPage={currentPage}
+                                />
                             </div>
                         </>}
                     </div>

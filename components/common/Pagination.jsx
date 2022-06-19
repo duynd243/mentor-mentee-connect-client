@@ -11,7 +11,7 @@ const Pagination = ({coursePerPage, totalCourse, paginate, currentPage}) => {
         <>
             {pageNumbers.length > 1 &&
                 <div className="col-xxl-12">
-                    <div className="basic-pagination text-center mt-20">
+                    <div className="basic-pagination text-center white-bg mt-20 p-2">
                         <ul>
                             {pageNumbers.map((number) => (
                                 <li key={number}>

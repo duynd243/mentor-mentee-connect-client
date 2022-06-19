@@ -120,7 +120,7 @@ const CourseCard = ({course, courseSidebar}) => {
                             </ul>
                         </div>
                         <div className="course__tutor-2" title={course.mentor.fullName}>
-                            <a href="#">
+                            <a href={`/mentor-details/${course.mentor.id}`}>
                                 <img src={course.mentor.imageUrl} alt=""/>
                             </a>
                         </div>
