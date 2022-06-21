@@ -5,6 +5,14 @@
 /*----------------------------------------*/
 
 .course{
+    &__detail{
+        &-right{
+            display: none;
+            @media (min-width: 992px){
+                display: block;
+            }
+        }
+    }
     &__item{
         padding: 25px 25px;
         @include box-shadow(0px 1px 2px rgba(26, 31, 35, 0.07));
@@ -643,6 +651,8 @@
         }
     }
     &__sidebar{
+        position: sticky;
+        top: 70px;
         @media #{$lg}{
             padding-left: 0;
         }
@@ -1031,11 +1041,15 @@
                         text-align: center;
                         @include border-radius(0);
                         & i{
+                            opacity: 0.8;
                             padding-right: 5px;
                         }
                         &.active{
                             background: var(--tp-theme-1);
                             color: var(--tp-common-white);
+                            & i{
+                                opacity: 1;
+                            }
                             & svg{
                                 & path{
                                     fill: var(--tp-common-white);

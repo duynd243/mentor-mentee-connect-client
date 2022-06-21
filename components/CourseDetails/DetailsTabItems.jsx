@@ -14,7 +14,7 @@ const DetailsTabItems = ({ dynamicPage, courseData }) => {
               aria-controls="description"
               aria-selected="true"
             >
-              <i className="fa-regular fa-medal"></i> <span>Discription</span>{" "}
+              <i className="fa fa-medal"></i> <span>Discription</span>{" "}
             </button>
           </li>
           <li className="nav-item" role="presentation">
@@ -28,7 +28,7 @@ const DetailsTabItems = ({ dynamicPage, courseData }) => {
               aria-controls="curriculum"
               aria-selected="false"
             >
-              <i className="fa-regular fa-book-blank"></i>{" "}
+              <i className="fa fa-book"></i>{" "}
               <span>Curriculum</span>{" "}
             </button>
           </li>
@@ -44,7 +44,7 @@ const DetailsTabItems = ({ dynamicPage, courseData }) => {
               aria-selected="false"
             >
               {" "}
-              <i className="fa-regular fa-star"></i> <span>Reviews</span>{" "}
+              <i className="fa fa-star"></i> <span>Reviews</span>{" "}
             </button>
           </li>
           <li className="nav-item" role="presentation">
@@ -59,7 +59,7 @@ const DetailsTabItems = ({ dynamicPage, courseData }) => {
               aria-selected="false"
             >
               {" "}
-              <i className="fal fa-user"></i> <span>Members</span>{" "}
+              <i className="fa fa-user"></i> <span>Members</span>{" "}
             </button>
           </li>
         </ul>

@@ -39,7 +39,11 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses, relatedCoursesLoadin
                             <div className="course__teacher-info-3">
                                 <h5>Mentor</h5>
                                 <p>
-                                    <a href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
+                                    <a style={{
+                                        color: '#566eda',
+                                        fontWeight: '500',
+                                        textDecoration: 'underline'
+                                    }} href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
                                 </p>
                             </div>
                         </div>

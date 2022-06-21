@@ -7,8 +7,7 @@ const CourseDetailsArea = ({courseData, relatedCourses, relatedCoursesLoading}) 
         <>
             <CourseDetailsLeftSide courseData={courseData} relatedCourses={relatedCourses}
                                    relatedCoursesLoading={relatedCoursesLoading}/>
-            <CourseDetailsRightSide courseData={courseData} relatedCourses={relatedCourses}
-                                    relatedCoursesLoading={relatedCoursesLoading}/>
+            <CourseDetailsRightSide courseData={courseData}/>
         </>
     );
 };

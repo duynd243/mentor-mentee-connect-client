@@ -7,7 +7,7 @@ import ReactPlayer from "react-player";
 import useAuth from "../../hooks/useAuth";
 // import { addToCart } from "../../redux/features/cartSlice";
 
-const CourseDetailsRightSide = ({courseData, relatedCourses, relatedCoursesLoading}) => {
+const CourseDetailsRightSide = ({courseData}) => {
     const {user} = useAuth();
     //sidebar show
     const [show, setShow] = useState(false);
@@ -50,7 +50,7 @@ const CourseDetailsRightSide = ({courseData, relatedCourses, relatedCoursesLoadi
                 />
             </Modal>
 
-            <div className="col-xxl-4 col-xl-4 col-lg-4">
+            <div className="course__detail-right col-xxl-4 col-xl-4 col-lg-4">
                 <div className="course__sidebar pl-70 p-relative">
                     <div className="course__shape">
                         <img
@@ -261,10 +261,6 @@ const CourseDetailsRightSide = ({courseData, relatedCourses, relatedCoursesLoadi
                             </div>
                         </div>
                     </div>
-                    <SmallCourseSidebar
-                        loading={relatedCoursesLoading}
-                        title="Related Courses"
-                        courses={relatedCourses?.data?.filter(course => course?.id !== courseData?.id)}/>
                 </div>
             </div>
         </>
