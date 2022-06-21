@@ -4,26 +4,18 @@
     <list default="true" id="04ce5c9f-4144-459c-9638-4533dc14e159" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CourseDetails/CourseDetailsLeftSide.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/CourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/CourseCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/CourseSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseSidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/SmallCourseSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/SmallCourseSidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Pagination.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/RatingStars.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/RatingStars.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search-courses/[title].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search-courses/[title].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/components/_section-title.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/components/_section-title.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/components/_theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/components/_theme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_blog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_course.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_hero.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_hero.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apis/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyProfile/ProfileArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/ProfileArea.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/ProfileMenuArea.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/EditModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyProfile/EditModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/course-details/[courseId].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my-profile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/my-profile/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/layout/_teacher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/layout/_teacher.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/utils/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/utils/_typography.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -58,6 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/FPTU/TERM 7/SWD/Projects/Group/mentor-mentee-connect-client/public/assets/scss/components&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
@@ -74,6 +68,8 @@
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components\Home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components\MyProfile" />
+      <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\public\css" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\public\assets\scss\layout" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components\Courses" />
       <recent name="D:\FPTU\TERM 7\SWD\Projects\Group\mentor-mentee-connect-client\components" />
@@ -87,6 +83,7 @@
         <script value="build" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="yarn" />
       <envs />
       <method v="2" />
     </configuration>
@@ -97,10 +94,14 @@
         <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
-      <package-manager value="npm" />
+      <package-manager value="yarn" />
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.next dev" />
+      <item itemvalue="npm.build" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.build" />
@@ -136,7 +137,12 @@
       <workItem from="1655391864904" duration="17273000" />
       <workItem from="1655432102638" duration="7599000" />
       <workItem from="1655546360483" duration="25800000" />
-      <workItem from="1655626841010" duration="16221000" />
+      <workItem from="1655626841010" duration="18739000" />
+      <workItem from="1655691740677" duration="687000" />
+      <workItem from="1655751345094" duration="3973000" />
+      <workItem from="1655821619469" duration="15472000" />
+      <workItem from="1655839531402" duration="217000" />
+      <workItem from="1655839818240" duration="1517000" />
     </task>
     <servers />
   </component>

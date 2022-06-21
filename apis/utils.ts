@@ -5,6 +5,15 @@ const request = axios.create({
     baseURL: process.env.baseUrl,
 });
 
+request.interceptors.request.use(function (config) {
+        let accessToken = localStorage.getItem("accessToken");
+        config.headers = {
+            'Authorization': 'Bearer ' + accessToken
+        }
+        return config;
+    }
+)
+
 request.interceptors.response.use(
     (response) => response,
     (error) =>

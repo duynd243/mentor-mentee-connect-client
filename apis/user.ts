@@ -1,20 +1,12 @@
 import request from "./utils";
 
 const getUserInfo = async () => {
-    const {data} = await request.get(`/users/me`, {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        }
-    });
+    const {data} = await request.get(`/users/me`);
     return data;
 }
 
 const updateUserInfo = async (payload: any) => {
-    return await request.put(`/users`, payload, {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        }
-    });
+    return await request.put(`/users`, payload);
 }
 
 const getMentorInfo = async (_id: string) => {

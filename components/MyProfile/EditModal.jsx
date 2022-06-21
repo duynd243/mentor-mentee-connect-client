@@ -1,15 +1,26 @@
 import {Modal} from 'react-bootstrap';
-import {MenuItem, Select} from "@mui/material";
 import {useState} from "react";
 import moment from "moment";
 import {toast} from "react-toastify";
 import userApi from "../../apis/user";
+import Select from "react-dropdown-select";
 
-const EditModal = ({show, handleClose, userData}) => {
+const EditModal = ({show, handleClose, userData, onChange}) => {
 
-    const Gender = {
-        1: "Male",
-        2: "Female"
+    const Gender = [
+        {value: 1, text: 'Male'},
+        {value: 2, text: 'Female'},
+    ];
+
+    const closeModal = () => {
+        setEnteredName(userData?.fullName || "");
+        setEnteredAddress(userData?.address || "");
+        setEnteredPhone(userData?.phone || "");
+        setSelectedDOB(() => {
+            return (userData?.dayOfBirth) ? moment(new Date(userData?.dayOfBirth)).format("YYYY-MM-DD") : "";
+        });
+        setSelectedGender(userData?.gender || 1);
+        handleClose();
     }
 
     const [enteredName, setEnteredName] = useState(userData?.fullName || "");
@@ -17,10 +28,10 @@ const EditModal = ({show, handleClose, userData}) => {
     const [enteredAddress, setEnteredAddress] = useState(userData?.address || "");
     const [selectedGender, setSelectedGender] = useState(userData?.gender || 1);
     const [selectedDOB, setSelectedDOB] = useState(() => {
-       return (userData?.dayOfBirth) ? moment(new Date(userData?.dayOfBirth)).format("YYYY-MM-DD") : "";
+        return (userData?.dayOfBirth) ? moment(new Date(userData?.dayOfBirth)).format("YYYY-MM-DD") : "";
     });
-    const handleGenderChange = (event) => {
-        setSelectedGender(event.target.value);
+    const handleGenderChange = (gender) => {
+        setSelectedGender(() => gender.value);
     };
 
     const handleDOBChange = (event) => {
@@ -43,6 +54,11 @@ const EditModal = ({show, handleClose, userData}) => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
+        if (enteredName.trim().length === 0) {
+            toast.error("Name cannot be empty");
+            return;
+        }
+
         if (!selectedDOB) {
             toast.error("Please select your date of birth");
             return;
@@ -51,22 +67,27 @@ const EditModal = ({show, handleClose, userData}) => {
             toast.error("Date of birth must be in the past");
             return;
         }
+
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(enteredPhone)) {
+            toast.error("Phone number must be 10 digits");
+            return;
+        }
         const payload = {
-            fullName: enteredName,
+            fullName: enteredName.trim(),
             gender: selectedGender,
-            phone: enteredPhone,
-            address: enteredAddress,
+            phone: enteredPhone.trim(),
+            address: enteredAddress.trim(),
             dayOfBirth: selectedDOB,
         }
-
-        console.log(payload)
         userApi.updateUserInfo(payload)
             .then(res => {
                 if (res.status === 200) {
                     toast.success("Update successfully", {
                         autoClose: 2000,
                     });
-                    handleClose();
+                    onChange(payload);
+                    closeModal();
                 }
             })
             .catch(err => {
@@ -75,11 +96,11 @@ const EditModal = ({show, handleClose, userData}) => {
     }
     return (
         <>
-            <Modal show={show} onHide={handleClose} animation={false} centered>
+            <Modal show={show} onHide={closeModal} animation={false} centered>
 
                 <Modal.Body>
                     <div className="profile__edit-close">
-                        <button onClick={handleClose} type="button" className="profile__edit-close-btn">
+                        <button onClick={closeModal} type="button" className="profile__edit-close-btn">
                             <i className="fa-light fa-xmark"></i></button>
                     </div>
 
@@ -89,22 +110,31 @@ const EditModal = ({show, handleClose, userData}) => {
                             <input value={enteredName} onChange={handleEnterName} type="text"
                                    placeholder="Your Name"/>
                         </div>
-                        <div className="profile__edit-input">
-                            <p>Gender</p>
-                            <Select
-                                style={{width: "100%", backgroundColor: "#F5F6F8"}}
-                                value={selectedGender}
-                                onChange={handleGenderChange}
-                                displayEmpty
-                                inputProps={{"aria-label": "Without label"}}
-                            >
-                                <MenuItem value={1}>{Gender["1"]}</MenuItem>
-                                <MenuItem value={2}>{Gender["2"]}</MenuItem>
-                            </Select>
+                        <div style={{marginBottom: '25px'}}>
+                            <p style={{
+                                "fontSize": "16px",
+                                "fontWeight": "500",
+                                "marginBottom": "0",
+                                "color": "var(--tp-text-5)"
+                            }}>Gender</p>
+                            <Select style={{
+                                fontWeight: '500',
+                                color: 'black',
+                                backgroundColor: '#f5f6f8',
+                                border: 'none',
+                                height: '60px',
+                                paddingLeft: '30px',
+                                paddingRight: '30px'
+                            }}
+                                    placeholder="Select you gender ..."
+                                    values={Gender.filter(g => g.value === userData?.gender) || []}
+                                    options={Gender} valueField="value" labelField="text"
+                                    onChange={(genders) => handleGenderChange(genders[0])}/>
                         </div>
                         <div className="profile__edit-input">
                             <p>Day of Birth</p>
-                            <input onChange={handleDOBChange} value={selectedDOB} type="date"/>
+                            <input onChange={handleDOBChange} value={selectedDOB} type="date"
+                                   max={moment().format("YYYY-MM-DD")}/>
                         </div>
                         <div className="profile__edit-input">
                             <p>Phone</p>
