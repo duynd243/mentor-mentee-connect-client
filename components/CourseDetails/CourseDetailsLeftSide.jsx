@@ -5,6 +5,7 @@ import DetailsTabItems from "./DetailsTabItems";
 import Link from "next/link";
 import RatingStars from "../common/RatingStars";
 import {Spinner} from "react-bootstrap";
+import moment from "moment";
 
 SwiperCore.use([Pagination]);
 
@@ -44,7 +45,7 @@ const CourseDetailsLeftSide = ({courseData, relatedCourses, relatedCoursesLoadin
                         </div>
                         <div className="course__update mr-80 mb-30">
                             <h5>Last Update:</h5>
-                            <p>{new Date(courseData?.updateDate).toLocaleDateString()}</p>
+                            <p>{moment(new Date(courseData?.updateDate)).format("DD/MM/YYYY")}</p>
                         </div>
                         <div className="course__rating-2 mb-30">
                             <h5>Review:</h5>
