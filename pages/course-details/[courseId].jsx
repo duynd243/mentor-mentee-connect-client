@@ -59,7 +59,7 @@ const CourseDetails = () => {
                                 <div className="error__content text-center">
                                     <div className="error__thumb m-img">
                                         <img style={{maxWidth: "65vw"}}
-                                             src={"/" + "assets/img/lap-magnifying-glass.png"} alt=""/>
+                                             src={"/assets/img/lap-magnifying-glass.png"} alt=""/>
                                     </div>
                                     <div className="error__content">
                                         <h3 className="error__title" style={{fontSize: "40px", marginBottom: "35px"}}>We

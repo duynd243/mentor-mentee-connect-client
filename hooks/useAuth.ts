@@ -1,8 +1,7 @@
 import useFirebase from "./useFirebase";
 
 const useAuth = () => {
-  const auth = useFirebase();
-  return auth;
+  return useFirebase();
 };
 
 export default useAuth;

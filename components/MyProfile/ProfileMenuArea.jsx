@@ -1,15 +1,16 @@
 import {useState} from 'react';
 import useAuth from '../../hooks/useAuth';
-import EditModal from '../common/EditModal';
+import EditModal from './EditModal';
 import Link from 'next/link';
-import {useQuery} from "react-query";
+import moment from "moment";
 
-const ProfileMenuArea = () => {
+const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
 
     const Gender = {
         1: 'Male',
         2: 'Female'
     }
+    const notSetYet = <span style={{opacity: 0.7}}>Not set yet</span>;
     // setShow
     const [show, setShow] = useState(false);
     // handleClose
@@ -17,12 +18,14 @@ const ProfileMenuArea = () => {
     // handleShow
     const handleShow = () => setShow(true);
     // useAuth
-    const {logout, user} = useAuth();
+    const {logout} = useAuth();
     // myOrders
     const myOrders = [];
 
-    // User Data from API
-    const {data: userData, isLoading} = useQuery('userData');
+
+    const onChange = (updatedUser) => {
+        onUserUpdated(updatedUser);
+    }
 
     return (
         <>
@@ -73,7 +76,7 @@ const ProfileMenuArea = () => {
                                             <div className="profile__info-wrapper white-bg">
                                                 <div className="profile__info-item">
                                                     <p>Email</p>
-                                                    <h4>{user?.email}</h4>
+                                                    <h4>{firebaseUser?.email || userData?.email}</h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Name</p>
@@ -81,25 +84,22 @@ const ProfileMenuArea = () => {
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Gender</p>
-                                                    <h4>{Gender[userData?.gender] ||
-                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
+                                                    <h4>{Gender[userData?.gender] || notSetYet} </h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Day of Birth</p>
-                                                    {userData?.dayOfBirth ?
-                                                        <h4>{new Date(userData?.dayOfBirth).toLocaleDateString()}</h4> :
-                                                        <h4><span style={{opacity: 0.7}}>Not set yet</span></h4>
-                                                    }
+                                                    <h4>{userData?.dayOfBirth ?
+                                                        moment(new Date(userData?.dayOfBirth)).format("DD/MM/YYYY") :
+                                                        notSetYet
+                                                    }</h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Phone</p>
-                                                    <h4>{userData?.phone ||
-                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
+                                                    <h4>{userData?.phone.trim() || notSetYet}</h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Address</p>
-                                                    <h4>{userData?.address ||
-                                                        <span style={{opacity: 0.7}}>Not set yet</span>}</h4>
+                                                    <h4>{userData?.address.trim() || notSetYet}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,9 +159,8 @@ const ProfileMenuArea = () => {
                     </div>
                 </div>
             </section>
-            {!isLoading && userData &&
-                <EditModal show={show} handleClose={handleClose} userData={userData}/>
-            }
+
+            <EditModal show={show} handleClose={handleClose} userData={userData} onChange={onChange}/>
         </>
     );
 };

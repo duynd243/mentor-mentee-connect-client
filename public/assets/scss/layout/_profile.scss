@@ -214,6 +214,7 @@
                 color: var(--tp-text-5);
             }
             & input, select{
+                font-weight: 500;
                 width: 100%;
                 height: 60px;
                 line-height: 56px;
@@ -222,7 +223,7 @@
                 border: 2px solid var(--tp-grey-2);
                 @include border-radius(4px);
                 padding-left: 30px;
-                padding-right: 45px;
+                padding-right: 30px;
                 &::placeholder{
                     color: #8d8e9a;
                     font-weight: 500;
