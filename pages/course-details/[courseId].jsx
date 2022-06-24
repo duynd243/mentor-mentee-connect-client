@@ -12,6 +12,7 @@ import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 import CourseDetailsArea from "../../components/CourseDetails/CourseDetailsArea";
 import React from "react";
 import Link from "next/link";
+import sessionApi from "../../apis/session";
 
 SwiperCore.use([Pagination]);
 
@@ -24,13 +25,20 @@ const CourseDetails = () => {
     const courseId = router.query.courseId;
 
     // courseData
-    const {data: courseData, isLoading: loading} = useQuery(
+    const {data: courseData, isLoading: courseDataLoading} = useQuery(
         ["courseData", courseId],
         () => courseApi.getCourseById(courseId),
         {
             refetchOnWindowFocus: false,
         }
     );
+
+    // courseSessions
+    const {data: courseSessions, isLoading: courseSessionsLoading} = useQuery(
+        ["courseSessions", courseId],
+        () => sessionApi.getSessions({"course-id": courseId}),
+    );
+
 
     // Related Courses (have the same subjectId)
     const {
@@ -48,13 +56,13 @@ const CourseDetails = () => {
 
 
             <Header/>
-            {loading &&
+            {courseDataLoading &&
                 <LoadingSkeleton/>
             }
             <section className="course__area pt-70 pb-25">
                 <div className="container">
                     <div className="row">
-                        {(!loading && !courseData) &&
+                        {(!courseDataLoading && !courseData) &&
                             <div className="col-12" style={{margin: "0 auto"}}>
                                 <div className="error__content text-center">
                                     <div className="error__thumb m-img">
@@ -73,9 +81,10 @@ const CourseDetails = () => {
                                 </div>
                             </div>
                         }
-                        {(!loading && courseData) &&
+                        {(!courseDataLoading && courseData && courseSessions) &&
                             <>
-                                <CourseDetailsArea courseData={courseData} relatedCourses={relatedCourses}
+                                <CourseDetailsArea courseData={courseData} courseSessions={courseSessions?.data}
+                                                   relatedCourses={relatedCourses}
                                                    relatedCoursesLoading={relatedCoursesLoading}/>
                             </>
                         }

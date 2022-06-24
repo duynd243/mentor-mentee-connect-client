@@ -173,15 +173,20 @@
         }
         &-2{
             & a{
+
+                border-left: 6px solid #00acff;
                 display: inline-block;
                 height: 26px;
                 line-height: 26px;
                 padding: 0 14px;
                 font-size: 13px;
                 font-weight: 500;
-                color: var(--tp-common-blue-3);
-                background-color: rgba($color: #3C66ED, $alpha: .08);
-                @include border-radius(4px);
+                //color: var(--tp-common-blue-3);
+                //background-color: rgba($color: #3C66ED, $alpha: .08);
+
+                color: white;
+                background-color: #2950d3;
+                //@include border-radius(4px);
             }
 
             &.pink-bg{
@@ -650,9 +655,12 @@
             overflow: hidden;
         }
     }
-    &__sidebar{
+    &__sidebar__sticky{
         position: sticky;
-        top: 70px;
+        top: 10px;
+        z-index: 100;
+    }
+    &__sidebar{
         @media #{$lg}{
             padding-left: 0;
         }
@@ -675,7 +683,8 @@
             margin-bottom: 10px;
             &-2{
                 padding: 30px;
-                @include box-shadow(0px 30px 50px 0px rgba(1, 11, 60, 0.1));
+                //@include box-shadow(0px 30px 50px 0px rgba(1, 11, 60, 0.1));
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 @include border-radius(4px);
 
                 & ul{
@@ -1461,6 +1470,9 @@
             position: relative;
             overflow: hidden;
             @include border-radius(4px);
+            height: 140px;
+            background-size: cover;
+            background-position: center;
             &::after{
                 position: absolute;
                 content: '';

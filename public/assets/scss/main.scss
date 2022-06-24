@@ -4,6 +4,7 @@
 @forward 'components/buttons';
 @forward 'components/carousel';
 @forward 'components/modal';
+@forward 'components/FixedBottomEnroll';
 @forward 'components/section-title';
 @forward 'components/breadcrumb';
 @forward 'components/animation';
@@ -55,4 +56,8 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555
+}
+
+.z-index-0{
+  z-index: 0;
 }

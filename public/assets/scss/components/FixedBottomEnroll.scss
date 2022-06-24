@@ -1,0 +1,54 @@
+@use '../utils' as *;
+
+.bottom {
+  &__course {
+    &__wrapper {
+      transition: all 0.3s ease-in-out;
+      animation: __slideInUp 0.5s ease-in-out;
+      background-color: rgb(43 58 89 / 97%);
+    }
+
+    &__title {
+      color: white;
+    }
+
+    &__teacher img {
+      width: 38px;
+      height: 38px;
+    }
+
+    &__info__label {
+      font-weight: 500;
+      color: #c4c4c4;
+      font-size: 0.9rem;
+    }
+
+    &__price {
+      color: white;
+    }
+
+    &__rating__stars {
+      ul {
+        list-style: none;
+
+        li {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__enroll {
+      font-weight: 600;
+    }
+  }
+
+}
+
+@keyframes __slideInUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

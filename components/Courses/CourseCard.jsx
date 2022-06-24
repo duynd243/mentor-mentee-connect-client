@@ -1,42 +1,39 @@
 import Link from "next/link";
 
-const CourseCard = ({course, courseSidebar}) => {
+const CourseCard = ({course, courseSidebar, swiperSlide}) => {
     const wrapperClass = courseSidebar ? "col-xxl-6 col-xl-6 col-lg-6 col-md-6" : "col-xxl-4 col-xl-4 col-lg-4 col-md-6";
-    return (
-        <div
-            key={course.id}
-            className={wrapperClass}
-        >
-            <div className="course__item-2 transition-3 white-bg mb-30 fix">
-                <div className="course__thumb-2 w-img fix course_thumb_height">
+
+    const courseItem = <div
+        className={`course__item-2 ${swiperSlide && 'swiper-slide'} transition-3 white-bg mb-30 fix`}>
+        <div className="course__thumb-2 w-img fix course_thumb_height">
+            <Link href={`/course-details/${course.id}`}>
+                <a>
+                    <img src={course.imageUrl} alt=""/>
+                </a>
+            </Link>
+        </div>
+        <div className="course__content-2">
+            <div className="course__top-2 d-flex align-items-center justify-content-between">
+                <div className="course__tag-2">
                     <Link href={`/course-details/${course.id}`}>
-                        <a>
-                            <img src={course.imageUrl} alt=""/>
-                        </a>
+                        <a>{course.subject.name}</a>
                     </Link>
                 </div>
-                <div className="course__content-2">
-                    <div className="course__top-2 d-flex align-items-center justify-content-between">
-                        <div className="course__tag-2">
-                            <Link href={`/course-details/${course.id}`}>
-                                <a>{course.subject.name}</a>
-                            </Link>
-                        </div>
-                        <div className="course__price-2">
-                            <span>${course.price}</span>
-                        </div>
-                    </div>
-                    <h3 className="course__title-2" title={course.name}>
-                        <Link href={`/course-details/${course.id}`}>
-                            <a>{course.name}</a>
-                        </Link>
-                    </h3>
-                    <div className="course__bottom-2 d-flex align-items-center justify-content-between">
-                        <div className="course__action">
-                            <ul>
-                                <li>
-                                    <div className="course__action-item d-flex align-items-center">
-                                        <div className="course__action-icon mr-5">
+                <div className="course__price-2">
+                    <span>${course.price}</span>
+                </div>
+            </div>
+            <h3 className="course__title-2" title={course.name}>
+                <Link href={`/course-details/${course.id}`}>
+                    <a>{course.name}</a>
+                </Link>
+            </h3>
+            <div className="course__bottom-2 d-flex align-items-center justify-content-between">
+                <div className="course__action">
+                    <ul>
+                        <li>
+                            <div className="course__action-item d-flex align-items-center">
+                                <div className="course__action-icon mr-5">
                                       <span>
                                         <svg
                                             width="10"
@@ -61,15 +58,15 @@ const CourseCard = ({course, courseSidebar}) => {
                                           />
                                         </svg>
                                       </span>
-                                        </div>
-                                        <div className="course__action-content">
-                                            <span>{"Số người"}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="course__action-item d-flex align-items-center">
-                                        <div className="course__action-icon mr-5">
+                                </div>
+                                <div className="course__action-content">
+                                    <span>{course?.currentNumberMentee || 0}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="course__action-item d-flex align-items-center">
+                                <div className="course__action-icon mr-5">
                                       <span>
                                         <svg
                                             width="12"
@@ -87,15 +84,15 @@ const CourseCard = ({course, courseSidebar}) => {
                                           />
                                         </svg>
                                       </span>
-                                        </div>
-                                        <div className="course__action-content">
-                                            <span>{course.totalRating}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="course__action-item d-flex align-items-center">
-                                        <div className="course__action-icon mr-5">
+                                </div>
+                                <div className="course__action-content">
+                                    <span>{course.totalRating}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="course__action-item d-flex align-items-center">
+                                <div className="course__action-icon mr-5">
                                       <span>
                                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -111,24 +108,30 @@ const CourseCard = ({course, courseSidebar}) => {
                                             strokeLinejoin="round"/>
                                     </svg>
                                       </span>
-                                        </div>
-                                        <div className="course__action-content">
-                                            <span>{`Lessons`}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="course__tutor-2" title={course.mentor.fullName}>
-                            <a href={`/mentor-details/${course.mentor.id}`}>
-                                <img src={course.mentor.imageUrl} alt=""/>
-                            </a>
-                        </div>
-                    </div>
+                                </div>
+                                <div className="course__action-content">
+                                    <span>{`Lessons`}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div className="course__tutor-2" title={course.mentor.fullName}>
+                    <a href={`/mentor-details/${course.mentor.id}`}>
+                        <img src={course.mentor.imageUrl} alt=""/>
+                    </a>
                 </div>
             </div>
         </div>
-    )
+    </div>
+
+
+    return <>{swiperSlide ? courseItem : <div
+        key={course.id}
+        className={wrapperClass}
+    >{courseItem}</div>}</>
+
+
 }
 
 export default CourseCard;

@@ -5,9 +5,11 @@ import SmallCourseSidebar from "../Courses/SmallCourseSidebar";
 import {Modal} from "react-responsive-modal";
 import ReactPlayer from "react-player";
 import useAuth from "../../hooks/useAuth";
+import useSticky from "../../hooks/useSticky";
+import moment from "moment";
 // import { addToCart } from "../../redux/features/cartSlice";
 
-const CourseDetailsRightSide = ({courseData}) => {
+const CourseDetailsRightSide = ({courseData, totalSessions}) => {
     const {user} = useAuth();
     //sidebar show
     const [show, setShow] = useState(false);
@@ -21,6 +23,8 @@ const CourseDetailsRightSide = ({courseData}) => {
     const [open, setOpen] = useState(false);
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
+
+    const {behindHeader} = useSticky();
 
     return (
         <>
@@ -44,14 +48,14 @@ const CourseDetailsRightSide = ({courseData}) => {
                 center
             >
                 <ReactPlayer
-                    url="https://youtu.be/XBoZPCgdnm8"
+                    url="https://youtu.be/SyEwLZs2W9k"
                     width="100%"
                     height="calc(100vh - 100px)"
                 />
             </Modal>
 
             <div className="course__detail-right col-xxl-4 col-xl-4 col-lg-4">
-                <div className="course__sidebar pl-70 p-relative">
+                <div className={`course__sidebar course__sidebar__sticky pl-70 ${behindHeader?'z-index-0': ''}`}>
                     <div className="course__shape">
                         <img
                             className="course-dot"
@@ -61,11 +65,7 @@ const CourseDetailsRightSide = ({courseData}) => {
                     </div>
                     <div className="course__sidebar-widget-2 white-bg mb-20">
                         <div className="course__video">
-                            <div className="course__video-thumb w-img mb-25">
-                                <img
-                                    src={"/" + "assets/img/course/video/course-video.jpg"}
-                                    alt=""
-                                />
+                            <div className="course__video-thumb w-img mb-25" style={{backgroundImage: `url(${courseData?.imageUrl})`}}>
                                 <div className="course__video-play">
                                     <button
                                         onClick={onOpenModal}
@@ -110,7 +110,14 @@ const CourseDetailsRightSide = ({courseData}) => {
                                         <div className="course__video-info">
                                             <h5>
                                                 <span>Mentor :</span>
-                                                {courseData?.mentor.fullName}
+
+                                                    <a style={{
+                                                        color: '#566eda',
+                                                        fontWeight: '500',
+                                                        textDecoration: 'underline'
+                                                    }}
+                                                       href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
+
                                             </h5>
                                         </div>
                                     </li>
@@ -137,8 +144,8 @@ const CourseDetailsRightSide = ({courseData}) => {
                                         </div>
                                         <div className="course__video-info">
                                             <h5>
-                                                <span>Lectures :</span>
-                                                {`Số bài`}
+                                                <span>Lessons :</span>
+                                                {totalSessions}
                                             </h5>
                                         </div>
                                     </li>
@@ -162,8 +169,8 @@ const CourseDetailsRightSide = ({courseData}) => {
                                         </div>
                                         <div className="course__video-info">
                                             <h5>
-                                                <span>Duration :</span>
-                                                {courseData?.duration}
+                                                <span>Last updated :</span>
+                                                {moment(new Date(courseData?.updateDate)).format("DD/MM/YYYY")}
                                             </h5>
                                         </div>
                                     </li>
@@ -180,7 +187,7 @@ const CourseDetailsRightSide = ({courseData}) => {
                                         <div className="course__video-info">
                                             <h5>
                                                 <span>Enrolled :</span>
-                                                {courseData?.enrolled?.substring(0, 3)} students
+                                                {courseData?.currentNumberMentee || 0}
                                             </h5>
                                         </div>
                                     </li>

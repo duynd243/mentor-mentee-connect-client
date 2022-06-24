@@ -27,18 +27,28 @@
             }
         }
         &-pre{
+            //display: inline-block;
+            //height: 24px;
+            //line-height: 26px;
+            //font-size: 14px;
+            //color: #ffffff;
+            //font-weight: 500;
+            //background: var(--tp-theme-2);
+            //-webkit-border-radius: 4px;
+            //-moz-border-radius: 4px;
+            //border-radius: 4px;
+            //padding: 0 7px;
+            //margin-bottom: 12px;
+
+            border-left: 6px solid #00acff;
             display: inline-block;
-            height: 24px;
+            height: 26px;
             line-height: 26px;
+            padding: 0 14px;
             font-size: 14px;
-            color: #ffffff;
             font-weight: 500;
-            background: var(--tp-theme-2);
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            padding: 0 7px;
-            margin-bottom: 12px;
+            color: white;
+            background-color: #2950d3;
         }
     }
     &__list{
