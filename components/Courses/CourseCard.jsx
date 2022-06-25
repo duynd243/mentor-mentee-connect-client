@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {getCourseSlug, getMentorSlug} from "../../utils/slugUtils";
 
 const CourseCard = ({course, courseSidebar, swiperSlide}) => {
     const wrapperClass = courseSidebar ? "col-xxl-6 col-xl-6 col-lg-6 col-md-6" : "col-xxl-4 col-xl-4 col-lg-4 col-md-6";
@@ -6,7 +7,7 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
     const courseItem = <div
         className={`course__item-2 ${swiperSlide && 'swiper-slide'} transition-3 white-bg mb-30 fix`}>
         <div className="course__thumb-2 w-img fix course_thumb_height">
-            <Link href={`/course-details/${course.id}`}>
+            <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                 <a>
                     <img src={course.imageUrl} alt=""/>
                 </a>
@@ -15,7 +16,7 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
         <div className="course__content-2">
             <div className="course__top-2 d-flex align-items-center justify-content-between">
                 <div className="course__tag-2">
-                    <Link href={`/course-details/${course.id}`}>
+                    <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                         <a>{course.subject.name}</a>
                     </Link>
                 </div>
@@ -24,7 +25,7 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
                 </div>
             </div>
             <h3 className="course__title-2" title={course.name}>
-                <Link href={`/course-details/${course.id}`}>
+                <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                     <a>{course.name}</a>
                 </Link>
             </h3>
@@ -117,7 +118,7 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
                     </ul>
                 </div>
                 <div className="course__tutor-2" title={course.mentor.fullName}>
-                    <a href={`/mentor-details/${course.mentor.id}`}>
+                    <a href={`/mentor-details/${getMentorSlug(course?.mentor.fullName, course?.mentor.id)}`}>
                         <img src={course.mentor.imageUrl} alt=""/>
                     </a>
                 </div>

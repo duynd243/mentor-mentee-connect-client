@@ -3,16 +3,16 @@ import SwiperCore, {Pagination} from "swiper";
 // import {useDispatch, useSelector} from 'react-redux';
 // import {singleCourse} from '../../../redux/features/coursesSlice';
 // import {addToCart} from '../../../redux/features/cartSlice';
-import courseApi from "../../apis/course";
+import courseApi from "../../../apis/course";
 import {useQuery} from "react-query";
 import Head from "next/head";
-import Header from "../../components/Home/Header";
-import Footer from "../../components/common/Footer";
-import LoadingSkeleton from "../../components/common/LoadingSkeleton";
-import CourseDetailsArea from "../../components/CourseDetails/CourseDetailsArea";
-import React from "react";
+import Header from "../../../components/Home/Header";
+import Footer from "../../../components/common/Footer";
+import LoadingSkeleton from "../../../components/common/LoadingSkeleton";
+import CourseDetailsArea from "../../../components/CourseDetails/CourseDetailsArea";
+import React, {useEffect} from "react";
 import Link from "next/link";
-import sessionApi from "../../apis/session";
+import sessionApi from "../../../apis/session";
 
 SwiperCore.use([Pagination]);
 

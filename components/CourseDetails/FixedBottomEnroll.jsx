@@ -1,4 +1,5 @@
 import RatingStars from "../common/RatingStars";
+import {getMentorSlug} from "../../utils/slugUtils";
 
 const FixedBottomEnroll = ({courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
@@ -13,7 +14,7 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
                         <img className="rounded-circle" src={courseData?.mentor?.imageUrl} alt=""/>
                         <div className="bottom__course__teacher__name">
                             <div className="bottom__course__info__label">Mentor</div>
-                            <a href={`/mentor-details/${courseData?.mentor?.id}`}>{courseData?.mentor?.fullName}</a>
+                            <a href={`/mentor-details/${getMentorSlug(courseData?.mentor?.fullName, courseData?.mentor?.id)}`}>{courseData?.mentor?.fullName}</a>
                         </div>
                     </div>
 

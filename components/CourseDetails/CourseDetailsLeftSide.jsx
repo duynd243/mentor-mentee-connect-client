@@ -7,6 +7,7 @@ import RatingStars from "../common/RatingStars";
 import {Spinner} from "react-bootstrap";
 import moment from "moment";
 import CourseCard from "../Courses/CourseCard";
+import {getMentorSlug} from "../../utils/slugUtils";
 
 SwiperCore.use([Pagination]);
 
@@ -44,7 +45,7 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                                         fontWeight: '500',
                                         textDecoration: 'underline'
                                     }}
-                                       href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
+                                       href={`/mentor-details/${getMentorSlug(courseData?.mentor.fullName, courseData?.mentor.id)}`}>{courseData?.mentor.fullName}</a>
                                 </p>
                             </div>
                         </div>
