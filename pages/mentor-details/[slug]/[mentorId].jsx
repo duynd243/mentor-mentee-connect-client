@@ -1,12 +1,12 @@
 import {useRouter} from "next/router";
 import Head from 'next/head';
-import Header from "../../components/Home/Header";
-import BreadCrumb from "../../components/common/BreadCrumb";
-import Footer from "../../components/common/Footer";
+import Header from "../../../components/Home/Header";
+import BreadCrumb from "../../../components/common/BreadCrumb";
+import Footer from "../../../components/common/Footer";
 import {useQuery} from "react-query";
-import userApi from "../../apis/user";
+import userApi from "../../../apis/user";
 import {Spinner} from "react-bootstrap";
-import MentorDetailsArea from "../../components/MentorDetails/MentorDetailsArea";
+import MentorDetailsArea from "../../../components/MentorDetails/MentorDetailsArea";
 
 const MentorDetails = () => {
     const router = useRouter();

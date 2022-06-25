@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {getCourseSlug, getMentorSlug} from "../../utils/slugUtils";
 
 const CourseCardList = ({course}) => {
     return (<div key={course.id} className="course__item course__item-list white-bg mb-30 fix">
@@ -6,7 +7,7 @@ const CourseCardList = ({course}) => {
             <div className="col-xxl-4 col-xl-4 col-lg-4">
                 <div className="course__thumb w-img p-relative fix"
                      style={{height: '100%'}}>
-                    <Link href={`/course-details/${course.id}`}>
+                    <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                         <a>
                             <img src={course.imageUrl} alt="" style={{objectFit: 'cover'}}/>
                         </a>
@@ -17,12 +18,12 @@ const CourseCardList = ({course}) => {
                 <div className="course__right p-relative">
                     <div className="course__content p-relative">
                         <div className="course__tag">
-                            <Link href={`/course-details/${course.id}`}>
+                            <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                                 <a>{course.subject.name}</a>
                             </Link>
                         </div>
                         <h3 className="course__title" title={course.name}>
-                            <Link href={`/course-details/${course.id}`}>
+                            <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                                 <a>{course.name}</a>
                             </Link>
                         </h3>
@@ -32,7 +33,7 @@ const CourseCardList = ({course}) => {
 
                         <div className="course__bottom d-sm-flex align-items-center justify-content-between">
                             <div className="course__tutor" title={course.mentor.fullName}>
-                                <Link href={`/mentor-details/${course.mentor.id}`}>
+                                <Link href={`/mentor-details/${getMentorSlug(course?.mentor.fullName, course?.mentor.id)}`}>
                                     <a>
                                         <img src={course.mentor.imageUrl} alt=""/>{course.mentor.fullName}
                                     </a>
@@ -63,7 +64,7 @@ const CourseCardList = ({course}) => {
                             <span>${course.price}</span>
                         </div>
                         <div className="course__btn">
-                            <Link href={`/course-details/${course.id}`}>
+                            <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                                 <a className="link-btn-2">
                                     More Details
                                     <i className="far fa-arrow-right"></i>

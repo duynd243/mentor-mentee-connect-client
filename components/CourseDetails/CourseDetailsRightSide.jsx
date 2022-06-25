@@ -7,6 +7,7 @@ import ReactPlayer from "react-player";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
 import moment from "moment";
+import {getMentorSlug} from "../../utils/slugUtils";
 // import { addToCart } from "../../redux/features/cartSlice";
 
 const CourseDetailsRightSide = ({courseData, totalSessions}) => {
@@ -116,7 +117,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                                         fontWeight: '500',
                                                         textDecoration: 'underline'
                                                     }}
-                                                       href={`/mentor-details/${courseData.mentor.id}`}>{courseData?.mentor.fullName}</a>
+                                                       href={`/mentor-details/${getMentorSlug(courseData?.mentor.fullName, courseData?.mentor.id)}`}>{courseData?.mentor.fullName}</a>
 
                                             </h5>
                                         </div>
