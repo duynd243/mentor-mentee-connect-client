@@ -8,13 +8,36 @@
       background-color: rgb(43 58 89 / 97%);
     }
 
-    &__title {
-      color: white;
+    &__subject{
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      background-color: #0ea466;
+      font-weight: 500;
+      width: 110px;
+      text-align: center;
     }
 
-    &__teacher img {
-      width: 38px;
-      height: 38px;
+    &__title {
+      color: white;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &__teacher {
+      &__name a{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      img {
+        width: 38px;
+        height: 38px;
+      }
     }
 
     &__info__label {
