@@ -34,9 +34,9 @@ const CourseDetails = () => {
     );
 
     // courseSessions
-    const {data: courseSessions, isLoading: courseSessionsLoading} = useQuery(
+    const {data: courseSessions} = useQuery(
         ["courseSessions", courseId],
-        () => sessionApi.getSessions({"course-id": courseId}),
+        () => sessionApi.getSessionsByCourseId(courseId, {size: 100}),
     );
 
 
