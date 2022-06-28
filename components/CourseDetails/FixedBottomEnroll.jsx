@@ -7,12 +7,12 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
         <div className="row">
             <div className="col-8">
-                <div className="d-flex align-items-center gap-3 mb-3">
-                    <div className="bottom__course__subject px-2">{courseData?.subject?.name}</div>
+                <div className="d-flex flex-column flex-md-row align-items-md-center-center gap-2 gap-md-3 mb-3">
+                    <div className="bottom__course__subject px-2 rounded">{courseData?.subject?.name}</div>
                     <h5 className="bottom__course__title m-0">{courseData?.name}</h5>
                 </div>
-                <div className="bottom__course__info d-flex align-items-center">
-                    <div className="bottom__course__teacher d-flex align-items-center gap-3 mr-20">
+                <div className="bottom__course__info d-flex align-items-start gap-4 gap-md-5">
+                    <div className="bottom__course__teacher d-flex align-items-center gap-3">
                         <img className="rounded-circle" src={courseData?.mentor?.imageUrl} alt=""/>
                         <div className="bottom__course__teacher__name">
                             <div className="bottom__course__info__label">Mentor</div>
@@ -20,7 +20,7 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
                         </div>
                     </div>
 
-                    <div className="d-flex align-items-center gap-2 mr-20">
+                    <div className="d-flex align-items-center gap-2">
                         <div className="bottom__course__rating">
                             <div className="bottom__course__info__label">Rating</div>
                             <div className="bottom__course__rating__stars d-none d-md-flex align-items-center">

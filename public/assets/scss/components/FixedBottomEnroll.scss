@@ -5,7 +5,7 @@
     &__wrapper {
       transition: all 0.3s ease-in-out;
       animation: __slideInUp 0.5s ease-in-out;
-      background-color: rgb(43 58 89 / 97%);
+      background-color: rgb(6 20 48 / 97%);
     }
 
     &__subject{
@@ -14,8 +14,10 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       background-color: #0ea466;
+      font-size: 0.75rem;
       font-weight: 500;
-      width: 110px;
+      max-width: 110px;
+      height: 100%;
       text-align: center;
     }
 
@@ -30,7 +32,7 @@
     &__teacher {
       &__name a{
         display: -webkit-box;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }

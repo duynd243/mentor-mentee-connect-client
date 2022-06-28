@@ -3,6 +3,7 @@ import useAuth from '../../hooks/useAuth';
 import EditModal from './EditModal';
 import Link from 'next/link';
 import moment from "moment";
+import constants from "../../data/constants";
 
 const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
 
@@ -82,6 +83,13 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                                                     <p>Name</p>
                                                     <h4>{userData?.fullName}</h4>
                                                 </div>
+                                                {
+                                                    userData?.roleId === constants.roles.mentor.id &&
+                                                    <div className="profile__info-item">
+                                                        <p>Bio</p>
+                                                        <h4 style={{lineHeight: "32px"}}>{userData?.bio || notSetYet}</h4>
+                                                    </div>
+                                                }
                                                 <div className="profile__info-item">
                                                     <p>Gender</p>
                                                     <h4>{Gender[userData?.gender] || notSetYet} </h4>
@@ -95,11 +103,11 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Phone</p>
-                                                    <h4>{userData?.phone.trim() || notSetYet}</h4>
+                                                    <h4>{userData?.phone?.trim() || notSetYet}</h4>
                                                 </div>
                                                 <div className="profile__info-item">
                                                     <p>Address</p>
-                                                    <h4>{userData?.address.trim() || notSetYet}</h4>
+                                                    <h4>{userData?.address?.trim() || notSetYet}</h4>
                                                 </div>
                                             </div>
                                         </div>

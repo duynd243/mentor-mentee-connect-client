@@ -4,6 +4,7 @@ import moment from "moment";
 import {toast} from "react-toastify";
 import userApi from "../../apis/user";
 import Select from "react-dropdown-select";
+import constants from "../../data/constants";
 
 const EditModal = ({show, handleClose, userData, onChange}) => {
 
@@ -24,6 +25,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
     }
 
     const [enteredName, setEnteredName] = useState(userData?.fullName || "");
+    const [enteredBio, setEnteredBio] = useState(userData?.bio || "");
     const [enteredPhone, setEnteredPhone] = useState(userData?.phone || "");
     const [enteredAddress, setEnteredAddress] = useState(userData?.address || "");
     const [selectedGender, setSelectedGender] = useState(userData?.gender || 1);
@@ -44,6 +46,10 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
 
     const handleEnterPhone = (event) => {
         setEnteredPhone(event.target.value);
+    };
+
+    const handleEnterBio = (event) => {
+        setEnteredBio(event.target.value);
     };
 
     const handleEnterName = (event) => {
@@ -74,10 +80,11 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
             return;
         }
         const payload = {
-            fullName: enteredName.trim(),
+            fullName: enteredName?.trim(),
+            bio: enteredBio?.trim(),
             gender: selectedGender,
-            phone: enteredPhone.trim(),
-            address: enteredAddress.trim(),
+            phone: enteredPhone?.trim(),
+            address: enteredAddress?.trim(),
             dayOfBirth: selectedDOB,
         }
         userApi.updateUserInfo(payload)
@@ -110,6 +117,14 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
                             <input value={enteredName} onChange={handleEnterName} type="text"
                                    placeholder="Your Name"/>
                         </div>
+                        {
+                            userData?.roleId === constants.roles.mentor.id &&
+                            <div className="profile__edit-input">
+                                <p>Bio</p>
+                                <textarea className="p-3" value={enteredBio} onChange={handleEnterBio} type="text"
+                                       placeholder="Your Bio"/>
+                            </div>
+                        }
                         <div style={{marginBottom: '25px'}}>
                             <p style={{
                                 "fontSize": "16px",
