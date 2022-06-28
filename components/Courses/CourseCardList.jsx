@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {getCourseSlug, getMentorSlug} from "../../utils/slugUtils";
+import BeanIcon from "../common/BeanIcon";
 
 const CourseCardList = ({course}) => {
     return (<div key={course.id} className="course__item course__item-list white-bg mb-30 fix">
@@ -61,7 +62,7 @@ const CourseCardList = ({course}) => {
                     </div>
                     <div className="course__content-bottom d-flex justify-content-between align-items-center">
                         <div className="course__price-2">
-                            <span>${course.price}</span>
+                            <span><BeanIcon/>{course.price}</span>
                         </div>
                         <div className="course__btn">
                             <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>

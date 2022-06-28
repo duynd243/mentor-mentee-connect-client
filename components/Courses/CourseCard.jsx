@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {getCourseSlug, getMentorSlug} from "../../utils/slugUtils";
+import BeanIcon from "../common/BeanIcon";
 
 const CourseCard = ({course, courseSidebar, swiperSlide}) => {
     const wrapperClass = courseSidebar ? "col-xxl-6 col-xl-6 col-lg-6 col-md-6" : "col-xxl-4 col-xl-4 col-lg-4 col-md-6";
@@ -21,7 +22,7 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
                     </Link>
                 </div>
                 <div className="course__price-2">
-                    <span>${course.price}</span>
+                    <span><BeanIcon/>{course.price}</span>
                 </div>
             </div>
             <h3 className="course__title-2" title={course.name}>

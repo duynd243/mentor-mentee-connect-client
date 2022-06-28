@@ -1,5 +1,6 @@
 import RatingStars from "../common/RatingStars";
 import {getMentorSlug} from "../../utils/slugUtils";
+import BeanIcon from "../common/BeanIcon";
 
 const FixedBottomEnroll = ({courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
@@ -40,7 +41,7 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
             </div>
             <div className="col-4">
                 <div className="d-flex justify-content-end align-items-center gap-4 h-100">
-                    <h3 className="bottom__course__price">${courseData?.price}</h3>
+                    <h3 className="bottom__course__price"><BeanIcon fillColor="white"/>{courseData?.price}</h3>
                     <button type="button" className="bottom__course__enroll btn btn-primary py-3 px-4">Enroll Now
                     </button>
                 </div>
