@@ -213,7 +213,8 @@
                 margin-bottom: 0;
                 color: var(--tp-text-5);
             }
-            & input, select{
+
+            & input, select, textarea{
                 font-weight: 500;
                 width: 100%;
                 height: 60px;
@@ -232,6 +233,12 @@
                     border-color: var(--tp-theme-1);
                     background-color: var(--tp-common-white);
                 }
+            }
+            & textarea{
+                height: 140px;
+                min-height: 120px;
+                max-height: 200px;
+                line-height: 30px;
             }
         }
         &-close{

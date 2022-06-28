@@ -32,9 +32,9 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                         <h5 className="breadcrumb__title-2">{courseData?.name}</h5>
                     </div>
 
-                    <div className="course__meta-2 d-sm-flex align-items-center mt-40 mb-60">
-                        <div className="course__teacher-3 d-flex align-items-center mr-60">
-                            <div className="course__teacher-thumb-3 mr-15">
+                    <div className="course__meta-2 d-flex flex-column flex-sm-row align-items-sm-center gap-3 gap-md-5 mt-40 mb-60">
+                        <div className="course__teacher-3 d-flex align-items-center gap-3">
+                            <div className="course__teacher-thumb-3">
                                 <img src={courseData?.mentor.imageUrl} alt=""/>
                             </div>
                             <div className="course__teacher-info-3">
@@ -49,11 +49,11 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                                 </p>
                             </div>
                         </div>
-                        <div className="course__update mr-50">
+                        <div className="course__update">
                             <h5>Create Date:</h5>
                             <p>{moment(new Date(courseData?.createDate)).format("DD/MM/YYYY")}</p>
                         </div>
-                        <div className="course__update mr-50">
+                        <div className="course__update">
                             <h5>Start Date:</h5>
                             <p>{moment(new Date(courseData?.startDate)).format("DD/MM/YYYY")}</p>
                         </div>

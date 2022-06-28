@@ -9,6 +9,7 @@ import {Spinner} from "react-bootstrap";
 import MentorDetailsArea from "../../../components/MentorDetails/MentorDetailsArea";
 import Link from "next/link";
 import React from "react";
+import constants from "../../../data/constants";
 
 const MentorDetails = () => {
     const router = useRouter();
@@ -34,8 +35,7 @@ const MentorDetails = () => {
                 <Spinner style={{color: "#ace0fa"}} animation="grow"/>
             </div>
         }
-        {
-            !mentorLoading && !mentorData &&
+        {!mentorLoading && mentorData?.roleId !== constants.roles.mentor.id &&
             <div className="col-12 pb-40" style={{margin: "0 auto"}}>
                 <div className="error__content text-center">
                     <div className="error__thumb m-img">
@@ -55,7 +55,7 @@ const MentorDetails = () => {
             </div>
         }
         {
-            !mentorLoading && mentorData &&
+            !mentorLoading && mentorData?.roleId === constants.roles.mentor.id &&
             <MentorDetailsArea mentorData={mentorData}/>
         }
 
