@@ -3,6 +3,7 @@ import Link from "next/link";
 import RatingStars from "../common/RatingStars";
 import {Spinner} from "react-bootstrap";
 import {getCourseSlug} from "../../utils/slugUtils";
+import BeanIcon from "../common/BeanIcon";
 
 const SmallCourseSidebar = ({title, courses, loading}) => {
     return (
@@ -38,7 +39,7 @@ const SmallCourseSidebar = ({title, courses, loading}) => {
                                                 <RatingStars rating={course?.totalRating || 0}/>
                                             </div>
                                             <div className="course__sm-price">
-                                                <span>${course?.price}</span>
+                                                <span><BeanIcon smallIcon={true}/>{course?.price}</span>
                                             </div>
                                         </div>
                                     </div>

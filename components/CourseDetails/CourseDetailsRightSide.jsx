@@ -8,6 +8,7 @@ import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
 import moment from "moment";
 import {getMentorSlug} from "../../utils/slugUtils";
+import BeanIcon from "../common/BeanIcon";
 // import { addToCart } from "../../redux/features/cartSlice";
 
 const CourseDetailsRightSide = ({courseData, totalSessions}) => {
@@ -79,7 +80,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                             <div
                                 className="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                                 <div className="course__video-price">
-                                    <h5>${courseData?.price}</h5>
+                                    <h5><BeanIcon/>{courseData?.price}</h5>
                                 </div>
                                 <div className="course__video-discount">
                                     <span>On Sale</span>
