@@ -47,7 +47,7 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
                 </div>
             </div>
             <div className="col-4">
-                <div className="d-flex justify-content-end align-items-center gap-4 h-100">
+                <div className="d-flex flex-column flex-md-row justify-content-end align-items-center gap-4 h-100">
                     <h3 className="bottom__course__price"><BeanIcon fillColor="white"/>{courseData?.price}</h3>
                     <button type="button"
                             className="bottom__course__enroll btn btn-primary py-2 px-3 py-md-3 px-md-4">Enroll Now
