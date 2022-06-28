@@ -1,0 +1,78 @@
+@use '../utils' as *;
+
+.profile__wrapper {
+  cursor: pointer;
+  position: relative;
+
+  .profile {
+    &__photo {
+      background: #eff8ff;
+      padding: 0.5rem 1rem;
+      border-radius: 26px;
+      span{
+        font-weight: 500;
+        font-size: 1rem;
+        margin-right: 8px;
+      }
+      img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    &__dropdown {
+      position: absolute;
+      padding: 15px;
+      margin-top: 6px;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      background: rgb(255, 255, 255);
+      box-shadow: 0 0.125rem 6rem 2px rgb(0 0 0 / 20%);
+      z-index: 950;
+
+      .user_info {
+        img {
+          width: 35px;
+          height: 35px;
+        }
+
+        .user_name {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        .user_email {
+          font-size: 0.9rem;
+        }
+      }
+
+      .separator {
+        margin: 12px 0;
+        height: 1px;
+        background: #edeff4;
+      }
+
+      .link {
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 11px;
+        text-decoration: none;
+        color: rgb(90, 88, 88);
+        opacity: 0.9;
+
+        &:hover {
+          background: #e7edf8;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}

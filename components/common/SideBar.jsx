@@ -38,13 +38,13 @@ const Sidebar = ({ show, handleClose, dynammicPageHeader = false }) => {
               {dynammicPageHeader ? (
                 <Link href="/">
                   <a>
-                    <img src={"/" + "assets/img/logo/logo.png"} alt="logo" />
+                    <img src={"/assets/img/logo/logo.png"} alt="logo" />
                   </a>
                 </Link>
               ) : (
                 <Link href="/">
                   <a>
-                    <img src="assets/img/logo/logo.png" alt="logo" />
+                    <img src="/assets/img/logo/logo.png" alt="logo" />
                   </a>
                 </Link>
               )}
