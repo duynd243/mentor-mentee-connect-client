@@ -1,11 +1,11 @@
 import request from "./utils";
 
-const getSessions = async (params?: any) => {
-    const {data} = await request.get(`/sessions`, {params});
+const getSessionsByCourseId = async (courseId?: any, params?: any) => {
+    const {data} = await request.get(`/sessions/${courseId}`, {params});
     return data;
 }
 const sessionApi = {
-    getSessions
+    getSessionsByCourseId
 };
 
 export default sessionApi;

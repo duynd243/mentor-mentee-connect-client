@@ -17,7 +17,7 @@ const CourseCardList = ({course}) => {
             <div className="col-xxl-8 col-xl-8 col-lg-8">
                 <div className="course__right p-relative">
                     <div className="course__content p-relative">
-                        <div className="course__tag">
+                        <div className="course__tag-2">
                             <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
                                 <a>{course.subject.name}</a>
                             </Link>
