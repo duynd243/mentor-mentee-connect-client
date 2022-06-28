@@ -2,12 +2,53 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
 import subjectApi from "apis/subject";
+import courseApi from "apis/course";
 import { useQuery } from "react-query";
 import request from "apis/utils";
 import RHFEditor from "components/hook-form/RHFEditor";
+import { get } from "lodash";
 
 const CreateCourse = () => {
-  const methods = useForm();
+  const schema = yup.object().shape({
+    name: yup.string().required("Name is required"),
+    subjectId: yup.string().required("Subject is required"),
+    type: yup.string().required("Type is required"),
+    description: yup.string(),
+    location: yup.string().required("Location is required"),
+    slug: yup.string(),
+    minQuantity: yup.number().required("Min quantity is required."),
+    maxQuantity: yup
+      .number()
+      .required("Max quantity is required.")
+      .when("minQuantity", (minQuantity, maxQuantity): any => {
+        if (Number(maxQuantity) < Number(minQuantity)) {
+          return yup.string().required("Max must be larger than Min");
+        }
+      }),
+    startDate: yup.date().required("Start date is required"),
+    finishDate: yup.date().required("Finish date is required"),
+    // description: yup.string().required('Description is required'),
+    // images: yup.array().min(1, 'Images is required'),
+    // price: yup.number().moreThan(0, 'Price should not be $0.00'),
+  });
+
+  const methods = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      name: "",
+      subjectId: {},
+      type: {},
+      description: "",
+      location: "",
+      slug: "",
+      minQuantity: {},
+      maxQuantity: {},
+      startDate: {},
+      finishDate: {},
+      price: 0,
+      mentorId: {},
+    },
+  });
   const {
     reset,
     register,
@@ -19,12 +60,33 @@ const CreateCourse = () => {
     formState: { isSubmitting, errors },
   } = methods;
 
-  function onSubmit(data: any) {
+  const onSubmit = async (data: any) => {
     // display form data on success
 
-    alert("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
-    return false;
-  }
+    // alert("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
+    // return false;
+    try {
+      await courseApi
+        .add(data!)
+        .then(() =>
+          enqueueSnackbar(`Cập nhât thành công`, {
+            variant: "success",
+          })
+        )
+        .catch((err: any) => {
+          const errMsg = get(
+            err.response,
+            ["data", "message"],
+            `Có lỗi xảy ra. Vui lòng thử lại`
+          );
+          enqueueSnackbar(errMsg, {
+            variant: "error",
+          });
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const { data: subjects } = useQuery("subjectForCourse", () =>
     request.get("/subjects").then((res) => res?.data.data)
@@ -64,12 +126,13 @@ const CreateCourse = () => {
                             placeholder="Tên khoá học"
                             {...register("name")}
                             className={`form-control ${
-                              errors.firstName ? "is-invalid" : ""
+                              errors.name ? "is-invalid" : ""
                             }`}
                           />
+                          <p>{errors.name?.message}</p>
                         </div>
                         <div className="invalid-feedback">
-                          {errors.firstName?.message}
+                          <p>{errors.name?.message}</p>
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -79,22 +142,19 @@ const CreateCourse = () => {
                             {...register("subjectId")}
                             placeholder="Chọn môn học"
                             className={`form-control ${
-                              errors.title ? "is-invalid" : ""
+                              errors.name ? "is-invalid" : ""
                             }`}
                           >
+                            <option value="" selected></option>
                             {subjects?.map((subject: any) => (
-                              <option
-                                key={subject.id}
-                                value={subject.id}
-                                selected
-                              >
+                              <option key={subject.id} value={subject.id}>
                                 {subject.name}
                               </option>
                             ))}
                           </select>
                         </div>
                         <div className="invalid-feedback">
-                          {errors.title?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -103,21 +163,25 @@ const CreateCourse = () => {
                           {...register("type")}
                           placeholder="Hình thức giảng dạy"
                           className={`form-control ${
-                            errors.title ? "is-invalid" : ""
+                            errors.name ? "is-invalid" : ""
                           }`}
                         >
                           <option value=""></option>
-                          <option value="1">Ngắn hạn</option>
-                          <option value="2">Dài hạn</option>
+                          <option value={1}>Ngắn hạn</option>
+                          <option value={2}>Dài hạn</option>
                         </select>
                         <div className="invalid-feedback">
-                          {errors.title?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="contact__form-input">
                         <label>Mô tả</label>
                         {/* <RHFEditor simple name="description" /> */}
-                        <textarea required placeholder="Mô tả"></textarea>
+                        <textarea
+                          {...register("description")}
+                          required
+                          placeholder="Mô tả"
+                        ></textarea>
                       </div>
                       <div className="form-group col-5">
                         <div className="contact__form-input">
@@ -128,12 +192,12 @@ const CreateCourse = () => {
                             placeholder="Địa chỉ"
                             {...register("location")}
                             className={`form-control ${
-                              errors.firstName ? "is-invalid" : ""
+                              errors.name ? "is-invalid" : ""
                             }`}
                           />
                         </div>
                         <div className="invalid-feedback">
-                          {errors.firstName?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -145,12 +209,12 @@ const CreateCourse = () => {
                             placeholder="Slug"
                             {...register("slug")}
                             className={`form-control ${
-                              errors.firstName ? "is-invalid" : ""
+                              errors.name ? "is-invalid" : ""
                             }`}
                           />
                         </div>
                         <div className="invalid-feedback">
-                          {errors.firstName?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -159,7 +223,7 @@ const CreateCourse = () => {
                           {...register("minQuantity")}
                           placeholder="Số học viên tối thiểu"
                           className={`form-control ${
-                            errors.title ? "is-invalid" : ""
+                            errors.name ? "is-invalid" : ""
                           }`}
                         >
                           {Array.from(
@@ -172,7 +236,7 @@ const CreateCourse = () => {
                           ))}
                         </select>
                         <div className="invalid-feedback">
-                          {errors.title?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -181,7 +245,7 @@ const CreateCourse = () => {
                           {...register("maxQuantity")}
                           placeholder="Số học viên tối đa"
                           className={`form-control ${
-                            errors.title ? "is-invalid" : ""
+                            errors.name ? "is-invalid" : ""
                           }`}
                         >
                           {Array.from(
@@ -194,7 +258,7 @@ const CreateCourse = () => {
                           ))}
                         </select>
                         <div className="invalid-feedback">
-                          {errors.title?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                     </div>
@@ -202,27 +266,27 @@ const CreateCourse = () => {
                       <div className="form-group col">
                         <label>Ngày bắt đầu</label>
                         <input
-                          type="date"
+                          type="datetime-local"
                           {...register("startDate")}
                           className={`form-control ${
-                            errors.dob ? "is-invalid" : ""
+                            errors.name ? "is-invalid" : ""
                           }`}
                         />
                         <div className="invalid-feedback">
-                          {errors.dob?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col">
                         <label>Ngày kết thúc</label>
                         <input
-                          type="date"
+                          type="datetime-local"
                           {...register("finishDate")}
                           className={`form-control ${
-                            errors.dob ? "is-invalid" : ""
+                            errors.name ? "is-invalid" : ""
                           }`}
                         />
                         <div className="invalid-feedback">
-                          {errors.dob?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                       <div className="form-group col-5">
@@ -234,14 +298,14 @@ const CreateCourse = () => {
                             step="any"
                             required
                             placeholder="Giá khoá học"
-                            {...register("name")}
+                            {...register("price")}
                             className={`form-control ${
-                              errors.firstName ? "is-invalid" : ""
+                              errors.name ? "is-invalid" : ""
                             }`}
                           />
                         </div>
                         <div className="invalid-feedback">
-                          {errors.firstName?.message}
+                          {errors.name?.message}
                         </div>
                       </div>
                     </div>
@@ -396,3 +460,6 @@ const CreateCourse = () => {
 };
 
 export default CreateCourse;
+function enqueueSnackbar(arg0: string, arg1: { variant: string }): any {
+  throw new Error("Function not implemented.");
+}
