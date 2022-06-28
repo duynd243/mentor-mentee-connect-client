@@ -1,6 +1,7 @@
 import RatingStars from "../common/RatingStars";
 import {getMentorSlug} from "../../utils/slugUtils";
 import BeanIcon from "../common/BeanIcon";
+import {Star} from "react-ionicons";
 
 const FixedBottomEnroll = ({courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
@@ -22,17 +23,23 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
                     <div className="d-flex align-items-center gap-2 mr-20">
                         <div className="bottom__course__rating">
                             <div className="bottom__course__info__label">Rating</div>
-                            <div className="bottom__course__rating__stars d-flex align-items-center">
+                            <div className="bottom__course__rating__stars d-none d-md-flex align-items-center">
                                 <RatingStars rating={courseData?.totalRating || 0}/>
+                            </div>
+                            <div className="bottom__course__rating__stars d-flex d-md-none align-items-center">
+                                <Star
+                                    width="18px"
+                                    color={'#f5b455'}
+                                    style={{marginRight: '5px'}}
+                                /> {courseData?.totalRating || 0}
                             </div>
                         </div>
                     </div>
 
-                    <div className="d-none d-md-flex align-items-center gap-2">
+                    <div className="d-flex align-items-center gap-2">
                         <div className="bottom__course__students">
                             <div className="bottom__course__info__label">Enrolled</div>
-                            <div className="bottom__course__students__enrolled d-flex align-items-center gap-2">
-                                <i className="fa-solid fa-graduation-cap"></i>
+                            <div className="bottom__course__students__enrolled text-center">
                                 {courseData?.currentNumberMentee || 0} {courseData?.currentNumberMentee > 1 ? 'students' : 'student'}
                             </div>
                         </div>
@@ -42,7 +49,8 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
             <div className="col-4">
                 <div className="d-flex justify-content-end align-items-center gap-4 h-100">
                     <h3 className="bottom__course__price"><BeanIcon fillColor="white"/>{courseData?.price}</h3>
-                    <button type="button" className="bottom__course__enroll btn btn-primary py-3 px-4">Enroll Now
+                    <button type="button"
+                            className="bottom__course__enroll btn btn-primary py-2 px-3 py-md-3 px-md-4">Enroll Now
                     </button>
                 </div>
             </div>
