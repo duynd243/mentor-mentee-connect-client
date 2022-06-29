@@ -15,7 +15,7 @@ const NewCourse = () => {
       <Header />
       <BreadCrumb title="Tạo khoá học" subtitle="Tạo khoá học" />
       <CreateCourse />
-      <ContactInfoArea />
+      {/* <ContactInfoArea /> */}
 
       <Footer theme="dark" />
     </>

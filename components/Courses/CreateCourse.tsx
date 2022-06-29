@@ -100,7 +100,7 @@ const CreateCourse = () => {
           <div className="row">
             <div className="col-xxl-7 col-xl-7 col-lg-6">
               <div className="contact__wrapper">
-                <div className="section__title-wrapper mb-40">
+                {/* <div className="section__title-wrapper mb-40">
                   <h2 className="section__title">
                     Get in
                     <span className="yellow-bg yellow-bg-big">
@@ -113,7 +113,7 @@ const CreateCourse = () => {
                     Have a question or just want to say hi? Wed love to hear
                     from you.
                   </p>
-                </div>
+                </div> */}
                 <div className="contact__form">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-row">
@@ -329,7 +329,7 @@ const CreateCourse = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1">
+            {/* <div className="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1">
               <div className="contact__info white-bg p-relative z-index-1">
                 <div className="contact__shape">
                   <img
@@ -451,7 +451,7 @@ const CreateCourse = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
