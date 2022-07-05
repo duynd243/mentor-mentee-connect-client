@@ -14,10 +14,16 @@ const getMentorInfo = async (_id: string) => {
     return data;
 }
 
+const getMentors = async (params?: any) => {
+    const {data} = await request.get(`/users/mentors`, {params});
+    return data;
+}
+
 const userApi = {
     getUserInfo,
     updateUserInfo,
-    getMentorInfo
+    getMentorInfo,
+    getMentors,
 }
 
 export default userApi;
