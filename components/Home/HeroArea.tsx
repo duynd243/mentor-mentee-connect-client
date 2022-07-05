@@ -12,7 +12,7 @@ const HeroArea = () => {
             <div className="hero__content-wrapper mt-90">
                 <div className="row align-items-center">
                     <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                        <div className="hero__content p-relative z-index-1">
+                        <div className="hero__content p-relative">
                             <h3 className="hero__title">
                                 <span>Access 2700+</span>
                                 <span className="yellow-shape">Online
