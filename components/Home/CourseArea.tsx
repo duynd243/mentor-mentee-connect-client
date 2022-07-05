@@ -5,7 +5,6 @@ import CourseAreaTab from "../../components/Home/CourseAreaTab";
 
 const CourseArea = () => {
     // all courses
-    //   const allCoursesItems = useSelector(state => state.courses.allCourses);
     const {data: allCourses, isLoading: loading1} = useQuery(
         "allCourses",
         () => courseApi.getAllCourses({page: 1, size: 6}),
@@ -16,10 +15,9 @@ const CourseArea = () => {
         () => courseApi.getAllCourses({page: 1, size: 6, sort: "createDate desc"}),
     );
 
-    // Sort by number of students enrolled (đang sort tạm field khác trong lúc chờ API).
     const {data: allPopularCourses, isLoading: loading3} = useQuery(
         "allPopularCourses",
-        () => courseApi.getAllCourses({page: 1, size: 6, sort: "name desc"}),
+        () => courseApi.getAllCourses({page: 1, size: 6, sort: "currentNumberMentee desc"}),
     );
 
     const {data: allMostRatedCourses, isLoading: loading4} = useQuery(

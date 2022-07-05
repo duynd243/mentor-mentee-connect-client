@@ -27,7 +27,7 @@ const MyProfile = () => {
                     title: "You are not logged in",
                     allowOutsideClick: false,
                 }).then(() => {
-                    router.push("/sign-in");
+                    router.push("/login");
                 });
             }
         }
@@ -46,7 +46,7 @@ const MyProfile = () => {
     //             title: "You are not logged in",
     //             timer: 2000,
     //         });
-    //         router.push("/sign-in");
+    //         router.push("/login");
     //     }
     // }, [userData, router]);
     return (

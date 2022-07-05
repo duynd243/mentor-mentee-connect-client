@@ -97,7 +97,7 @@ const DynamicPageHeader = () => {
                                 strokeLinejoin="round"/>
                           </svg>
                           Logout
-                        </a> : <Link href="/sign-in">
+                        </a> : <Link href="/login">
                           <a>
                             <svg viewBox="0 0 12 14" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">

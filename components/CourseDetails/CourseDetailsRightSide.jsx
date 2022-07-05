@@ -255,7 +255,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                         Already Enrolled{" "}
                                     </button>
                                 ) : (
-                                    <Link href="/sign-in">
+                                    <Link href="/login">
                                         <a>
                                             <button
                                                 type="button"
