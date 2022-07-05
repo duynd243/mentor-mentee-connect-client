@@ -7,11 +7,11 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
         <div className="row">
             <div className="col-8">
-                <div className="d-flex flex-column flex-md-row align-items-md-center-center gap-2 gap-md-3 mb-3">
+                <div className="d-flex flex-column flex-md-row align-items-md-center-center gap-2 gap-md-3">
                     <div className="bottom__course__subject px-2 rounded">{courseData?.subject?.name}</div>
                     <h5 className="bottom__course__title m-0">{courseData?.name}</h5>
                 </div>
-                <div className="bottom__course__info d-flex align-items-start gap-4 gap-md-5">
+                <div className="bottom__course__info d-flex align-items-start gap-4 gap-md-5 mt-3">
                     <div className="bottom__course__teacher d-flex align-items-center gap-3">
                         <img className="rounded-circle" src={courseData?.mentor?.imageUrl} alt=""/>
                         <div className="bottom__course__teacher__name">
@@ -37,10 +37,10 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
                     </div>
 
                     <div className="d-flex align-items-center gap-2">
-                        <div className="bottom__course__students">
+                        <div className="d-none d-sm-block bottom__course__students">
                             <div className="bottom__course__info__label">Enrolled</div>
                             <div className="bottom__course__students__enrolled text-center">
-                                {courseData?.currentNumberMentee || 0} {courseData?.currentNumberMentee > 1 ? 'students' : 'student'}
+                                {courseData?.currentNumberMentee || 0} {courseData?.currentNumberMentee > 1 ? 'Students' : 'Student'}
                             </div>
                         </div>
                     </div>

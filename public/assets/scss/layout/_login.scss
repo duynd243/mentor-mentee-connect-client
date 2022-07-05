@@ -246,6 +246,57 @@
             }
         }
     }
+    &__in{
+        .login-with-google-btn {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 350px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: #4285f4;
+            color: white;
+
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 -1px 0 rgb(0 0 0 / 4%), 0 1px 1px rgb(0 0 0 / 25%);
+            font-size: 14px;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+            &:hover {
+                box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow:
+                        0 -1px 0 rgba(0, 0, 0, .04),
+                        0 2px 4px rgba(0, 0, 0, .25),
+                        0 0 0 3px #c8dafc;
+            }
+
+            &:disabled {
+                filter: grayscale(100%);
+                background-color: #ebebeb;
+                box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+                cursor: not-allowed;
+            }
+            .google-logo{
+                background-color: white;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            span{
+                flex: 1;
+            }
+        }
+    }
     &__social{
         display: block;
         height: 50px;

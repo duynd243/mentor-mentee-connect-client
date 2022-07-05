@@ -109,6 +109,30 @@
         }
     }
     &__login{
+        .login_btn{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+
+            border-radius: 4px;
+            border: none;
+            border-bottom: 3px solid darkblue;
+            outline: none;
+
+            font-size: 1rem;
+            font-weight: 400;
+
+            background: #2b4eff;
+            padding: 8px 20px;
+            color: white;
+
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                background: #3a5aff;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            }
+        }
         & a{
             color: var(--tp-common-black);
 

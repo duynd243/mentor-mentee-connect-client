@@ -125,15 +125,14 @@ const Header = (props) => {
                                             </Link>
                                         </div>
                                         <div className="header__login fw-bold">
-                                            {!user?.email && <Link href="/sign-in">
-                                                <button type="button"
-                                                        className="btn btn-primary d-flex align-items-center justify-content-center gap-2">
-                                                  <i className="fa-regular fa-user"></i>Login
+                                            {!user?.email && props?.currentRoute !== '/login' && <Link href="/login">
+                                                <button type="button" className="login_btn">
+                                                    <i className="fa-solid fa-right-to-bracket"></i>Login
                                                 </button>
                                             </Link>}
                                         </div>
                                         {user?.email && userData &&
-                                            <ProfileDropdown userData={userData}/>
+                                            <ProfileDropdown userData={userData} isInViewPort={!headerSticky}/>
                                         }
                                     </div>
                                 </div>

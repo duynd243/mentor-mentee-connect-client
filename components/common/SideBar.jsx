@@ -175,7 +175,7 @@ const Sidebar = ({ show, handleClose, dynammicPageHeader = false }) => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/sign-in">
+                              <Link href="/login">
                                 <a>Sign In</a>
                               </Link>
                             </li>

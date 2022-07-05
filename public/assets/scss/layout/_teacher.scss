@@ -184,18 +184,17 @@
     }
     &__details{
         &-thumb{
-            background-color: #E5E5E5;
             text-align: center;
             @include border-radius(6px);
             & .team-thumb{
                 @media #{$lg, $md, $sm, $xs}{
                     width: 100%;
-                    @include border-radius(6px);
+                    @include border-radius(20px);
                 }
             }
             & img{
-                @include border-radius(6px);
-                max-width: 100%;
+                width: 80%;
+                @include border-radius(20px);
             }
             @media #{$md}{
                 margin-bottom: 50px;

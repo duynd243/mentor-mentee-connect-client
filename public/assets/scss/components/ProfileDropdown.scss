@@ -6,9 +6,10 @@
 
   .profile {
     &__photo {
-      background: #eff8ff;
+      background: white;
       padding: 0.5rem 1rem;
-      border-radius: 26px;
+      border-radius: 30px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
       span{
         font-weight: 500;
         font-size: 1rem;
@@ -30,8 +31,9 @@
       background: rgb(255, 255, 255);
       box-shadow: 0 0.125rem 6rem 2px rgb(0 0 0 / 20%);
       z-index: 99999999999;
-
+      animation: dropdown 0.3s ease-in-out;
       .user_info {
+        cursor: default;
         img {
           width: 35px;
           height: 35px;
@@ -72,7 +74,30 @@
           opacity: 1;
         }
       }
+      .link.balance{
+        gap: 0;
+        justify-content: space-between;
+        .balance_label{
+          display: flex;
+          align-items: center;
+          gap: 11px;
+        }
+        .balance_value{
+        }
+      }
     }
   }
 
+}
+
+@keyframes dropdown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
+  }
 }

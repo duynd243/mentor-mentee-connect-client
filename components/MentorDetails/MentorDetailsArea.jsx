@@ -36,13 +36,13 @@ const MentorDetailsArea = ({mentorData}) => {
                         <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                             <div className="teacher__details-thumb p-relative mr-15 ml-15">
                                 <img className="team-thumb"
-                                     src="https://themepure.net/html/eduker-prv/eduker/assets/img/team/details/teacer-details-1.jpg"
+                                     src={mentorData?.imageUrl}
                                      alt=""/>
                                 <div className="teacher__details-shape">
                                     <img className="teacher-details-shape-1"
-                                         src="../assets/img/team/details/shape/shape-1.png" alt=""/>
+                                         src="/assets/img/team/details/shape/shape-1.png" alt=""/>
                                     <img className="teacher-details-shape-2"
-                                         src="../assets/img/team/details/shape/shape-2.png" alt=""/>
+                                         src="/assets/img/team/details/shape/shape-2.png" alt=""/>
                                 </div>
                             </div>
                         </div>

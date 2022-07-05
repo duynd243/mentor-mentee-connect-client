@@ -1,7 +1,9 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth";
+import BeanIcon from "../common/BeanIcon";
+import {useDetectClickOutside} from "react-detect-click-outside";
 
-const ProfileDropdown = ({userData}) => {
+const ProfileDropdown = ({userData, isInViewPort}) => {
 
     const {logout} = useAuth();
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +12,15 @@ const ProfileDropdown = ({userData}) => {
         setIsOpen(false);
     }
 
-    return <div className="profile__wrapper">
+    useEffect(()=>{
+        if(!isInViewPort){
+            closeDropdown();
+        }
+    }, [isInViewPort]);
+
+    const ref = useDetectClickOutside({onTriggered: closeDropdown});
+
+    return <div className="profile__wrapper" ref={ref}>
         <div className="profile__photo" onClick={() => setIsOpen((prevState) => !prevState)}>
             <span>Hi, {userData?.fullName.split(' ')[0]}</span>
             <img className="rounded-circle" src={userData?.imageUrl}/>
@@ -29,12 +39,19 @@ const ProfileDropdown = ({userData}) => {
             <a className="link" href="/my-profile" onClick={closeDropdown}>
                 <i className="fa-solid fa-user"></i>
                 Profile</a>
-            <a className="link" onClick={closeDropdown}>
+            <a className="link">
                 <i className="fa-solid fa-book"></i>
                 My Courses</a>
-            <a className="link" onClick={closeDropdown}>
-                <i className="fa-solid fa-coins"></i>
-                Balance</a>
+            <a className="link balance">
+                <div className="balance_label">
+                    <i className="fa-solid fa-coins"></i>
+                    <span>Balance</span>
+                </div>
+                <div className="balance_value">
+                    200
+                    <BeanIcon position="right" fillColor="rgb(90, 88, 88)"/>
+                </div>
+            </a>
             <div className="separator"></div>
             <a className="link" onClick={() => {
                 closeDropdown();
