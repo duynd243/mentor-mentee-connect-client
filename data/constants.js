@@ -1,11 +1,11 @@
 const roles = {
-    "mentor": {
-        id: 1,
-        name: "Mentor",
-    },
     "mentee": {
-        id: 2,
+        id: 1,
         name: "Mentee",
+    },
+    "mentor": {
+        id: 2,
+        name: "Mentor",
     },
     "admin": {
         id: 3,

@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import BeanIcon from "../common/BeanIcon";
 import {useDetectClickOutside} from "react-detect-click-outside";
+import constants from "../../data/constants";
+import {getMentorSlug} from "../../utils/slugUtils";
 
 const ProfileDropdown = ({userData, isInViewPort}) => {
 
@@ -12,8 +14,8 @@ const ProfileDropdown = ({userData, isInViewPort}) => {
         setIsOpen(false);
     }
 
-    useEffect(()=>{
-        if(!isInViewPort){
+    useEffect(() => {
+        if (!isInViewPort) {
             closeDropdown();
         }
     }, [isInViewPort]);
@@ -39,7 +41,12 @@ const ProfileDropdown = ({userData, isInViewPort}) => {
             <a className="link" href="/my-profile" onClick={closeDropdown}>
                 <i className="fa-solid fa-user"></i>
                 Profile</a>
-            <a className="link">
+            <a className="link"
+               href={userData?.roleId === constants.roles.mentor.id
+                   ?
+                   `/mentor-details/${getMentorSlug(userData?.fullName, userData?.id)}`
+                   :
+                   `my-course`}>
                 <i className="fa-solid fa-book"></i>
                 My Courses</a>
             <a className="link balance">

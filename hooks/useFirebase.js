@@ -52,6 +52,17 @@ const useFirebase = () => {
                     )
                     .then((res) => {
                         if (res.status === 200) {
+                            if (res.data.data.role === 'Admin') {
+                                Swal.fire({
+                                    position: "top-center",
+                                    icon: "error",
+                                    title: "Your account is not allowed to login on this page.",
+                                }).then(() => {
+                                    setUser({});
+                                    signOut(auth);
+                                });
+                                return;
+                            }
                             localStorage.setItem("accessToken", res.data.data.accessToken);
                             Swal.fire({
                                 position: "top-center",

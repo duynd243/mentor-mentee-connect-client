@@ -105,19 +105,7 @@ const links = [
   {
     id: 5,
     url: "/blog",
-    name: "Blog",
-    submenu: [
-      {
-        id: 1,
-        url: "/blog",
-        name: "Blog",
-      },
-      {
-        id: 2,
-        url: "/blog-details",
-        name: "Blog Details",
-      },
-    ],
+    name: "Become a mentor",
   },
 
   {
