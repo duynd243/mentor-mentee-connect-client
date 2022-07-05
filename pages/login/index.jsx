@@ -6,7 +6,6 @@ import LoginArea from "components/Login/LoginArea";
 import useAuth from "../../hooks/useAuth";
 import React from "react";
 import Link from "next/link";
-import {router} from "next/client";
 import {useRouter} from "next/router";
 
 const SignIn = () => {
