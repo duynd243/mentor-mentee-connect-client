@@ -5,7 +5,7 @@ import Link from 'next/link';
 import moment from "moment";
 import constants from "../../data/constants";
 
-const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated, onUserUpdating}) => {
+const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
 
     const Gender = {
         1: 'Male',
@@ -26,9 +26,6 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated, onUserUpdating}
 
     const onChange = (updatedUser) => {
         onUserUpdated(updatedUser);
-    }
-    const onUpdating = (value) => {
-        onUserUpdating(value);
     }
 
     return (

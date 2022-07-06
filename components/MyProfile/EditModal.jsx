@@ -8,7 +8,7 @@ import constants from "../../data/constants";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../firebase/initFirebase";
 
-const EditModal = ({show, handleClose, userData, onChange, onUpdating}) => {
+const EditModal = ({show, handleClose, userData, onChange}) => {
 
     const Gender = [
         {value: 1, text: 'Male'},
@@ -143,7 +143,6 @@ const EditModal = ({show, handleClose, userData, onChange, onUpdating}) => {
                         autoClose: 2000,
                     });
                     onChange(payload);
-                    onUpdating(false);
                     closeModal();
                 }
             })
@@ -154,7 +153,6 @@ const EditModal = ({show, handleClose, userData, onChange, onUpdating}) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        onUpdating(true);
         let imageUrl = userData?.imageUrl;
         if (chosenFile) {
             uploadImageToFirebase(chosenFile)

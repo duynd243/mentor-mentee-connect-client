@@ -17,7 +17,6 @@ const MyProfile = () => {
     // User from Firebase Auth
     const firebaseUser = useAuth().user;
 
-    const [updating, setUpdating] = useState(false);
     const [updatedUser, setUpdatedUser] = useState({});
     const {data: userData, isLoading} = useQuery(['userData', updatedUser],
         () => userApi.getUserInfo(), {
@@ -37,10 +36,6 @@ const MyProfile = () => {
     const onUserUpdated = (user) => {
         setUpdatedUser(() => user)
     }
-    const onUserUpdating = (value) => {
-        setUpdating(value);
-    }
-
     return (
         <>
             <Head>
@@ -49,14 +44,14 @@ const MyProfile = () => {
 
             <Header/>
             <BreadCrumb title="My Profile" subtitle="My Profile"/>
-            {(isLoading || updating) &&
+            {isLoading &&
                 <LoadingSkeleton/>
             }
 
             {!isLoading && userData &&
                 <>
                     <ProfileArea userData={userData} firebaseUser={firebaseUser}/>
-                    <ProfileMenuArea userData={userData} firebaseUser={firebaseUser} onUserUpdating={onUserUpdating} onUserUpdated={onUserUpdated}/>
+                    <ProfileMenuArea userData={userData} firebaseUser={firebaseUser} onUserUpdated={onUserUpdated}/>
                 </>
             }
             <Footer/>

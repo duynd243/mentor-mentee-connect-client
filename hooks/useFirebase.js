@@ -11,7 +11,6 @@ import {
     signOut,
     updateProfile,
 } from "firebase/auth";
-import {getStorage} from "firebase/storage";
 import Swal from "sweetalert2";
 // import { useDispatch } from "react-redux";
 // import { MyOrder } from "../redux/features/myOrderSlice";
@@ -19,7 +18,6 @@ import {useRouter} from "next/router";
 import axios from "axios";
 
 const useFirebase = () => {
-    const storage = getStorage();
 
     const [user, setUser] = useState({});
     //   const dispatch = useDispatch();
@@ -221,7 +219,6 @@ const useFirebase = () => {
         loginUser,
         passwordResetEmail,
         logout,
-        storage
     };
 };
 
