@@ -168,7 +168,7 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                 </div>
             </section>
 
-            <EditModal show={show} handleClose={handleClose} userData={userData} onChange={onChange} onUpdating={onUpdating}/>
+            <EditModal show={show} handleClose={handleClose} userData={userData} onChange={onChange}/>
         </>
     );
 };
