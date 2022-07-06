@@ -5,7 +5,7 @@ import Link from 'next/link';
 import moment from "moment";
 import constants from "../../data/constants";
 
-const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
+const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated, onUserUpdating}) => {
 
     const Gender = {
         1: 'Male',
@@ -26,6 +26,9 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
 
     const onChange = (updatedUser) => {
         onUserUpdated(updatedUser);
+    }
+    const onUpdating = (value) => {
+        onUserUpdating(value);
     }
 
     return (
@@ -168,7 +171,7 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                 </div>
             </section>
 
-            <EditModal show={show} handleClose={handleClose} userData={userData} onChange={onChange}/>
+            <EditModal show={show} handleClose={handleClose} userData={userData} onChange={onChange} onUpdating={onUpdating}/>
         </>
     );
 };

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BeanIcon from "../common/BeanIcon";
 
 
 const ProfileArea = ({userData, firebaseUser}) => {
@@ -30,19 +31,12 @@ const ProfileArea = ({userData, firebaseUser}) => {
                             </div>
                         </div>
                         <div className="col-xxl-6 col-md-6">
-                            <div className="profile__basic-cart d-flex align-items-center justify-content-md-end">
-                                <div className="cart-info mr-10">
-                                    <Link href="/cart">
-                                        <a>View cart</a>
-                                    </Link>
+                            <div className="profile__basic-balance d-flex align-items-center justify-content-md-end">
+                                <div className="balance-info mr-10">
+                                    Your Balance
                                 </div>
-                                <div className="cart-item">
-                                    <Link href="/cart">
-                                        <a>
-                                            <i className="fa-regular fa-basket-shopping"></i>
-                                            <span className="cart-quantity">{quantity}</span>
-                                        </a>
-                                    </Link>
+                                <div className="balance-item">
+                                    200 <BeanIcon position="right" fillColor="white"/>
                                 </div>
                             </div>
                         </div>

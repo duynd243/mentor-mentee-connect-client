@@ -17,6 +17,7 @@ const MyProfile = () => {
     // User from Firebase Auth
     const firebaseUser = useAuth().user;
 
+    const [updating, setUpdating] = useState(false);
     const [updatedUser, setUpdatedUser] = useState({});
     const {data: userData, isLoading} = useQuery(['userData', updatedUser],
         () => userApi.getUserInfo(), {
@@ -36,19 +37,10 @@ const MyProfile = () => {
     const onUserUpdated = (user) => {
         setUpdatedUser(() => user)
     }
+    const onUserUpdating = (value) => {
+        setUpdating(value);
+    }
 
-    // useEffect(() => {
-    //
-    //     if (Object.keys(firebaseUser).length === 0) {
-    //         Swal.fire({
-    //             position: "top-center",
-    //             icon: "error",
-    //             title: "You are not logged in",
-    //             timer: 2000,
-    //         });
-    //         router.push("/login");
-    //     }
-    // }, [userData, router]);
     return (
         <>
             <Head>
@@ -57,14 +49,14 @@ const MyProfile = () => {
 
             <Header/>
             <BreadCrumb title="My Profile" subtitle="My Profile"/>
-            {isLoading &&
+            {(isLoading || updating) &&
                 <LoadingSkeleton/>
             }
 
             {!isLoading && userData &&
                 <>
                     <ProfileArea userData={userData} firebaseUser={firebaseUser}/>
-                    <ProfileMenuArea userData={userData} firebaseUser={firebaseUser} onUserUpdated={onUserUpdated}/>
+                    <ProfileMenuArea userData={userData} firebaseUser={firebaseUser} onUserUpdating={onUserUpdating} onUserUpdated={onUserUpdated}/>
                 </>
             }
             <Footer/>

@@ -16,9 +16,9 @@ const CourseCard = ({course, courseSidebar, swiperSlide}) => {
         </div>
         <div className="course__content-2">
             <div className="course__top-2 d-flex align-items-center justify-content-between">
-                <div className="course__tag-2">
+                <div className="course__tag-2" style={{width: '60%'}} title={course.subject.name}>
                     <Link href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}>
-                        <a>{course.subject.name}</a>
+                        <a style={{width: 'fit-content'}}>{course.subject.name}</a>
                     </Link>
                 </div>
                 <div className="course__price-2">

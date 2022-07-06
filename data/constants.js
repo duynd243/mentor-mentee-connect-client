@@ -12,8 +12,10 @@ const roles = {
         name: "Admin",
     }
 }
+const MAX_PROFILE_IMAGE_SIZE = 1024 * 1024;
 const constants = {
     roles,
+    MAX_PROFILE_IMAGE_SIZE,
 }
 
 export default constants;

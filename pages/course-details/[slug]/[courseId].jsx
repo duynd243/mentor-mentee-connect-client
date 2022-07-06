@@ -10,7 +10,7 @@ import Header from "../../../components/Home/Header";
 import Footer from "../../../components/common/Footer";
 import LoadingSkeleton from "../../../components/common/LoadingSkeleton";
 import CourseDetailsArea from "../../../components/CourseDetails/CourseDetailsArea";
-import React, {useEffect} from "react";
+import React from "react";
 import Link from "next/link";
 import sessionApi from "../../../apis/session";
 
