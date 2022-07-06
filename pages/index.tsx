@@ -5,10 +5,10 @@ import Header from "components/Home/Header";
 import HeroArea from "components/Home/HeroArea";
 import ResearchArea from "components/Home/ResearchArea";
 import Footer from "components/common/Footer";
-import TeamArea from "components/Home/TeamArea";
 import Faq from "components/Home/Faq";
 import BrandArea from "components/Home/BrandArea";
 import CourseArea from "../components/Home/CourseArea";
+import TeamArea from "../components/Home/TeamArea";
 
 export default function Home() {
     return (
