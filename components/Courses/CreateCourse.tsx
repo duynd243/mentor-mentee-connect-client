@@ -1,12 +1,10 @@
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Controller, useForm } from "react-hook-form";
-import subjectApi from "apis/subject";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {useForm} from "react-hook-form";
 import courseApi from "apis/course";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import request from "apis/utils";
-import RHFEditor from "components/hook-form/RHFEditor";
-import { get } from "lodash";
+import {get} from "lodash";
 
 const CreateCourse = () => {
   const schema = yup.object().shape({

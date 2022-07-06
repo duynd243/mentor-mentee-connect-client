@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 // import {useDispatch, useSelector} from 'react-redux';
 import Link from "next/link";
-import SmallCourseSidebar from "../Courses/SmallCourseSidebar";
 import {Modal} from "react-responsive-modal";
 import ReactPlayer from "react-player";
 import useAuth from "../../hooks/useAuth";
@@ -57,7 +56,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
             </Modal>
 
             <div className="course__detail-right col-xxl-4 col-xl-4 col-lg-4">
-                <div className={`course__sidebar course__sidebar__sticky pl-70 ${behindHeader?'z-index-0': ''}`}>
+                <div className={`course__sidebar course__sidebar__sticky pl-70 ${behindHeader ? 'z-index-0' : ''}`}>
                     <div className="course__shape">
                         <img
                             className="course-dot"
@@ -67,7 +66,8 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                     </div>
                     <div className="course__sidebar-widget-2 white-bg mb-20">
                         <div className="course__video">
-                            <div className="course__video-thumb w-img mb-25" style={{backgroundImage: `url(${courseData?.imageUrl})`}}>
+                            <div className="course__video-thumb w-img mb-25"
+                                 style={{backgroundImage: `url(${courseData?.imageUrl})`}}>
                                 <div className="course__video-play">
                                     <button
                                         onClick={onOpenModal}
@@ -113,12 +113,12 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                             <h5>
                                                 <span>Mentor :</span>
 
-                                                    <a style={{
-                                                        color: '#566eda',
-                                                        fontWeight: '500',
-                                                        textDecoration: 'underline'
-                                                    }}
-                                                       href={`/mentor-details/${getMentorSlug(courseData?.mentor.fullName, courseData?.mentor.id)}`}>{courseData?.mentor.fullName}</a>
+                                                <a style={{
+                                                    color: '#566eda',
+                                                    fontWeight: '500',
+                                                    textDecoration: 'underline'
+                                                }}
+                                                   href={`/mentor-details/${getMentorSlug(courseData?.mentor.fullName, courseData?.mentor.id)}`}>{courseData?.mentor.fullName}</a>
 
                                             </h5>
                                         </div>
@@ -227,15 +227,6 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                     />
                                 </a>
                             </div>
-
-                            {/* <button onClick={() => dispatch(addToCart(courseData))} type="button" className="tp-btn w-100 text-center my-3">Add To Cart <i className="fa-solid fa-cart-shopping ms-3"></i> </button> */}
-                            <button
-                                type="button"
-                                className="tp-btn w-100 text-center my-3"
-                            >
-                                Add To Cart{" "}
-                                <i className="fa-solid fa-cart-shopping ms-3"></i>{" "}
-                            </button>
 
                             <div className="course__enroll-btn">
                                 {user?.email && !paymentInformation?.payment ? (

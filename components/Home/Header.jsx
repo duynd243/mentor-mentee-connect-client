@@ -1,10 +1,8 @@
 import Link from "next/link";
 import {useState} from "react";
-// import {useDispatch} from "react-redux";
 import links from "../../data/linkData";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
-// import {searchText} from "../../redux/features/coursesSlice";
 import {useRouter} from "next/router";
 import LoginData from "../../data/LoginMenuData";
 import Sidebar from "../common/SideBar";
@@ -12,6 +10,7 @@ import {toast} from "react-toastify";
 import ProfileDropdown from "./ProfileDropdown";
 import {useQuery} from "react-query";
 import userApi from "../../apis/user";
+import constants from "../../data/constants";
 
 const Header = (props) => {
     // sticky
@@ -119,18 +118,26 @@ const Header = (props) => {
                                 <div className="col-md-6 col-12">
                                     <div
                                         className="header__top-right d-flex justify-content-end align-items-center gap-3">
-                                        <div className="header__btn">
-                                            <Link href="/new-course">
-                                                <a>Tạo khoá học</a>
-                                            </Link>
-                                        </div>
-                                        <div className="header__login fw-bold">
-                                            {!user?.email && props?.currentRoute !== '/login' && <Link href="/login">
-                                                <button type="button" className="login_btn">
-                                                    <i className="fa-solid fa-right-to-bracket"></i>Login
-                                                </button>
-                                            </Link>}
-                                        </div>
+
+                                        {user?.email && userData?.roleId === constants.roles.mentor.id &&
+                                            <div className="header__new-course">
+                                                <Link href="/new-course">
+                                                    <a style={{fontSize: '1rem'}}
+                                                       className="d-flex align-items-center justify-content-center px-3 gap-2">
+                                                        <span>Tạo khoá học</span>
+                                                        <div><i className="fa-solid fa-circle-plus"></i></div>
+                                                    </a>
+                                                </Link>
+                                            </div>
+                                        }
+                                        {!user?.email && props?.currentRoute !== '/login' &&
+                                            <div className="header__login fw-bold">
+                                                <Link href="/login">
+                                                    <button type="button" className="login_btn">
+                                                        <i className="fa-solid fa-right-to-bracket"></i>Login
+                                                    </button>
+                                                </Link>
+                                            </div>}
                                         {user?.email && userData &&
                                             <ProfileDropdown userData={userData} isInViewPort={!headerSticky}/>
                                         }

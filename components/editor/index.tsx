@@ -1,14 +1,10 @@
-import { ReactNode } from "react";
-import ReactQuill, { ReactQuillProps } from "react-quill";
+import {ReactNode} from "react";
+import ReactQuill, {ReactQuillProps} from "react-quill";
 // @mui
-import { styled } from "@mui/material/styles";
-import { Box, BoxProps } from "@mui/material";
+import {styled} from "@mui/material/styles";
+import {Box, BoxProps} from "@mui/material";
 //
-import EditorToolbar, {
-  formats,
-  redoChange,
-  undoChange,
-} from "./EditorToolbar";
+import EditorToolbar, {formats, redoChange, undoChange,} from "./EditorToolbar";
 
 // ----------------------------------------------------------------------
 

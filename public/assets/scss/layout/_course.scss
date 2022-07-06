@@ -173,10 +173,11 @@
         }
         &-2{
             & a{
-
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
                 border-left: 6px solid #00acff;
-                display: inline-block;
-                height: 26px;
                 line-height: 26px;
                 padding: 0 14px;
                 font-size: 13px;

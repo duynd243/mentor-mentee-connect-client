@@ -1,9 +1,9 @@
 // form
-import { useFormContext, Controller } from "react-hook-form";
+import {Controller, useFormContext} from "react-hook-form";
 // @mui
-import { FormHelperText } from "@mui/material";
+import {FormHelperText} from "@mui/material";
 //
-import Editor, { Props as EditorProps } from "../editor";
+import Editor, {Props as EditorProps} from "../editor";
 
 // ----------------------------------------------------------------------
 
