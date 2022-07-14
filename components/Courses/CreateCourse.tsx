@@ -1,10 +1,10 @@
 import * as yup from "yup";
-import {yupResolver} from "@hookform/resolvers/yup";
-import {useForm} from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import courseApi from "apis/course";
-import {useQuery} from "react-query";
+import { useQuery } from "react-query";
 import request from "apis/utils";
-import {get} from "lodash";
+import { get } from "lodash";
 
 const CreateCourse = () => {
   const schema = yup.object().shape({
@@ -133,45 +133,48 @@ const CreateCourse = () => {
                           <p>{errors.name?.message}</p>
                         </div>
                       </div>
-                      <div className="form-group col-5">
-                        <div className="contact__form-input">
-                          <label>Chọn môn học</label>
+                      <div className="d-flex justify-content-between">
+                        <div className="form-group col-5">
+                          <label>Hình thức giảng dạy</label>
                           <select
-                            {...register("subjectId")}
-                            placeholder="Chọn môn học"
+                            {...register("type")}
+                            placeholder="Hình thức giảng dạy"
                             className={`form-control ${
                               errors.name ? "is-invalid" : ""
                             }`}
                           >
-                            <option value="" selected></option>
-                            {subjects?.map((subject: any) => (
-                              <option key={subject.id} value={subject.id}>
-                                {subject.name}
-                              </option>
-                            ))}
+                            <option value=""></option>
+                            <option value={1}>Ngắn hạn</option>
+                            <option value={2}>Dài hạn</option>
                           </select>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
                         </div>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
+                        <div className="form-group col-5">
+                          <div className="contact__form-input">
+                            <label>Chọn môn học</label>
+                            <select
+                              {...register("subjectId")}
+                              placeholder="Chọn môn học"
+                              className={`form-control ${
+                                errors.name ? "is-invalid" : ""
+                              }`}
+                            >
+                              <option value="" selected></option>
+                              {subjects?.map((subject: any) => (
+                                <option key={subject.id} value={subject.id}>
+                                  {subject.name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
                         </div>
                       </div>
-                      <div className="form-group col-5">
-                        <label>Hình thức giảng dạy</label>
-                        <select
-                          {...register("type")}
-                          placeholder="Hình thức giảng dạy"
-                          className={`form-control ${
-                            errors.name ? "is-invalid" : ""
-                          }`}
-                        >
-                          <option value=""></option>
-                          <option value={1}>Ngắn hạn</option>
-                          <option value={2}>Dài hạn</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
-                        </div>
-                      </div>
+
                       <div className="contact__form-input">
                         <label>Mô tả</label>
                         {/* <RHFEditor simple name="description" /> */}
@@ -181,112 +184,122 @@ const CreateCourse = () => {
                           placeholder="Mô tả"
                         ></textarea>
                       </div>
-                      <div className="form-group col-5">
-                        <div className="contact__form-input">
-                          <label>Địa chỉ</label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Địa chỉ"
-                            {...register("location")}
+
+                      <div className="d-flex justify-content-between">
+                        <div className="form-group col-5">
+                          <div className="contact__form-input">
+                            <label>Địa chỉ</label>
+                            <input
+                              type="text"
+                              required
+                              placeholder="Địa chỉ"
+                              {...register("location")}
+                              className={`form-control ${
+                                errors.name ? "is-invalid" : ""
+                              }`}
+                            />
+                          </div>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
+                        </div>
+                        <div className="form-group col-5">
+                          <div className="contact__form-input">
+                            <label>Slug</label>
+                            <input
+                              type="text"
+                              required
+                              placeholder="Slug"
+                              {...register("slug")}
+                              className={`form-control ${
+                                errors.name ? "is-invalid" : ""
+                              }`}
+                            />
+                          </div>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-between">
+                        <div className="form-group col-5">
+                          <label>Số học viên tối thiểu</label>
+                          <select
+                            {...register("minQuantity")}
+                            placeholder="Số học viên tối thiểu"
                             className={`form-control ${
                               errors.name ? "is-invalid" : ""
                             }`}
-                          />
+                          >
+                            {Array.from(
+                              { length: 100 },
+                              (_, index) => index + 1
+                            ).map((value, index) => (
+                              <option key={index} value={value}>
+                                {value}
+                              </option>
+                            ))}
+                          </select>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
                         </div>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
-                        </div>
-                      </div>
-                      <div className="form-group col-5">
-                        <div className="contact__form-input">
-                          <label>Slug</label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Slug"
-                            {...register("slug")}
+                        <div className="form-group col-5">
+                          <label>Số học viên tối đa</label>
+                          <select
+                            {...register("maxQuantity")}
+                            placeholder="Số học viên tối đa"
                             className={`form-control ${
                               errors.name ? "is-invalid" : ""
                             }`}
-                          />
-                        </div>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
-                        </div>
-                      </div>
-                      <div className="form-group col-5">
-                        <label>Số học viên tối thiểu</label>
-                        <select
-                          {...register("minQuantity")}
-                          placeholder="Số học viên tối thiểu"
-                          className={`form-control ${
-                            errors.name ? "is-invalid" : ""
-                          }`}
-                        >
-                          {Array.from(
-                            { length: 100 },
-                            (_, index) => index + 1
-                          ).map((value, index) => (
-                            <option key={index} value={value}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
-                        </div>
-                      </div>
-                      <div className="form-group col-5">
-                        <label>Số học viên tối đa</label>
-                        <select
-                          {...register("maxQuantity")}
-                          placeholder="Số học viên tối đa"
-                          className={`form-control ${
-                            errors.name ? "is-invalid" : ""
-                          }`}
-                        >
-                          {Array.from(
-                            { length: 100 },
-                            (_, index) => index + 1
-                          ).map((value, index) => (
-                            <option key={index} value={value}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
+                          >
+                            {Array.from(
+                              { length: 100 },
+                              (_, index) => index + 1
+                            ).map((value, index) => (
+                              <option key={index} value={value}>
+                                {value}
+                              </option>
+                            ))}
+                          </select>
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
                         </div>
                       </div>
                     </div>
+
                     <div className="form-row">
-                      <div className="form-group col">
-                        <label>Ngày bắt đầu</label>
-                        <input
-                          type="datetime-local"
-                          {...register("startDate")}
-                          className={`form-control ${
-                            errors.name ? "is-invalid" : ""
-                          }`}
-                        />
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
+                      <div className="d-flex justify-content-between">
+                        <div className="form-group col">
+                          <label>Ngày bắt đầu</label>
+                          <input
+                            type="datetime-local"
+                            {...register("startDate")}
+                            className={`form-control ${
+                              errors.name ? "is-invalid" : ""
+                            }`}
+                          />
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
+                        </div>
+                        <div className="form-group col">
+                          <label>Ngày kết thúc</label>
+                          <input
+                            type="datetime-local"
+                            {...register("finishDate")}
+                            className={`form-control ${
+                              errors.name ? "is-invalid" : ""
+                            }`}
+                          />
+                          <div className="invalid-feedback">
+                            {errors.name?.message}
+                          </div>
                         </div>
                       </div>
-                      <div className="form-group col">
-                        <label>Ngày kết thúc</label>
-                        <input
-                          type="datetime-local"
-                          {...register("finishDate")}
-                          className={`form-control ${
-                            errors.name ? "is-invalid" : ""
-                          }`}
-                        />
-                        <div className="invalid-feedback">
-                          {errors.name?.message}
-                        </div>
-                      </div>
+
                       <div className="form-group col-5">
                         <div className="contact__form-input">
                           <label>Giá khoá học</label>
@@ -315,13 +328,13 @@ const CreateCourse = () => {
                       >
                         Tạo khoá học
                       </button>
-                      <button
+                      {/* <button
                         type="button"
                         onClick={() => reset()}
                         className="btn btn-secondary"
                       >
                         Reset
-                      </button>
+                      </button> */}
                     </div>
                   </form>
                 </div>
