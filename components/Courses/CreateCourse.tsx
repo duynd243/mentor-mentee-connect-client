@@ -11,6 +11,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { storage } from "../../firebase/initFirebase";
 
 const CreateCourse = () => {
   const schema = yup.object().shape({
@@ -93,28 +94,33 @@ const CreateCourse = () => {
     }
   };
 
-  // const handleDrop = (acceptedFiles: any) => {
-  //     const file = acceptedFiles[0];
-  //     const storageRef = ref(firebase, `/files/${file.name}`);
-  //     const uploadTask = uploadBytesResumable(storageRef, file);
-  //     uploadTask.on(
-  //       'state_changed',
-  //       (snapshot) => {
-  //         const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+  const handleDrop = (e: any) => {
+    const file = e.target[0]?.files[0];
+    // const file = e[0];
+    console.log(e?.name);
+    console.log(file);
+    const storageRef = ref(storage, `/files/${file?.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
 
-  //         // update progress
-  //         // setPercent(percent);
-  //       },
-  //       (err) => console.log(err),
-  //       () => {
-  //         // download url
-  //         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-  //           console.log(url);
-  //           setValue('imageUrl', url);
-  //         });
-  //       }
-  //     );
-  //   };
+        // update progress
+        // setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log(url);
+          setValue("imageUrl", url);
+        });
+      }
+    );
+  };
 
   const { data: subjects } = useQuery("subjectForCourse", () =>
     request.get("/subjects").then((res) => res?.data.data)
@@ -166,8 +172,10 @@ const CreateCourse = () => {
                               type="file"
                               {...register("imageUrl")}
                               id="imageUpload"
-                              // onClick={handleDrop}
-                              accept=".png, .jpg, .jpeg"
+                              onChange={(e) =>
+                                handleDrop(e)
+                              }
+                              accept="image/png, image/gif, image/jpeg"
                             />
                             <label htmlFor="imageUpload"></label>
                           </div>

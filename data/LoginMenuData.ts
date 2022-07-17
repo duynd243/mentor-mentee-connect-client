@@ -9,16 +9,16 @@ const LoginData = [
     url: "/courses",
     name: "Courses",
   },
-  {
-    id: 3,
-    url: "/my-courses",
-    name: "My Courses",
-  },
-  {
-    id: 4,
-    url: "/my-profile",
-    name: "My Profile",
-  },
+  // {
+  //   id: 3,
+  //   url: "/my-courses",
+  //   name: "My Courses",
+  // },
+  // {
+  //   id: 3,
+  //   url: "/my-profile",
+  //   name: "My Profile",
+  // },
 ];
 
 export default LoginData;

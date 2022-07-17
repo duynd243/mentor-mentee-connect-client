@@ -24,6 +24,18 @@ const MentorDetailsArea = ({mentorData}) => {
         )
     );
 
+    const {data: drafts, isLoading: draftsLoading} = useQuery(
+        ["draftCourses", currentPage, coursePerPage],
+        () => courseApi.getAllCourses(
+            {
+                page: currentPage,
+                size: coursePerPage,
+                "mentor-id": mentorData?.id,
+                "status": 1
+            }
+        )
+    );
+
     const paginate = (number) => {
         setCurrentPage(number);
     };
@@ -110,7 +122,7 @@ const MentorDetailsArea = ({mentorData}) => {
                                             {
                                                 !coursesLoading && (!mentorCourses || mentorCourses?.metadata?.total === 0)
                                                 &&
-                                                <span style={{fontSize: "16px"}}>{mentorData?.fullName} doesn't have any courses.</span>
+                                                <span style={{fontSize: "16px"}}>{mentorData?.fullName} doesn't have any drafts.</span>
                                             }
                                             {/*Has courses*/}
                                             {
@@ -127,6 +139,49 @@ const MentorDetailsArea = ({mentorData}) => {
                                                         <Pagination
                                                             coursePerPage={coursePerPage}
                                                             totalCourse={mentorCourses?.metadata.total}
+                                                            paginate={paginate}
+                                                            currentPage={currentPage}
+                                                        />
+                                                    </div>
+                                                </>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="teacher__courses pt-55">
+                                    <div className="section__title-wrapper mb-30">
+                                        <h2 className="section__title">Drafts {drafts?.metadata?.total > 0 && `(${drafts?.metadata?.total})`}</h2>
+                                    </div>
+                                    <div className="teacher__course-wrapper">
+                                        <div className="row">
+
+                                            {/*Loading*/}
+                                            {draftsLoading &&
+                                                <div className="text-center">
+                                                    <Spinner style={{color: "#ace0fa"}} animation="grow"/>
+                                                </div>
+                                            }
+                                            {/*No course found*/}
+                                            {
+                                                !draftsLoading && (!drafts || drafts?.metadata?.total === 0)
+                                                &&
+                                                <span style={{fontSize: "16px"}}>{mentorData?.fullName} doesn't have any courses.</span>
+                                            }
+                                            {/*Has courses*/}
+                                            {
+                                                !draftsLoading && drafts && drafts?.metadata?.total > 0
+                                                &&
+                                                <>
+                                                    {(drafts?.data.map((courseItem) =>
+                                                        <CourseCard
+                                                            key={courseItem?.id}
+                                                            courseSidebar={true}
+                                                            course={courseItem}/>))
+                                                    }
+                                                    <div className="row">
+                                                        <Pagination
+                                                            coursePerPage={coursePerPage}
+                                                            totalCourse={drafts?.metadata.total}
                                                             paginate={paginate}
                                                             currentPage={currentPage}
                                                         />
