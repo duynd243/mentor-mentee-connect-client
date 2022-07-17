@@ -5,6 +5,12 @@ import courseApi from "apis/course";
 import { useQuery } from "react-query";
 import request from "apis/utils";
 import { get } from "lodash";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const CreateCourse = () => {
   const schema = yup.object().shape({
@@ -34,6 +40,7 @@ const CreateCourse = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       name: "",
+      imageUrl: "",
       subjectId: {},
       type: {},
       description: "",
@@ -86,10 +93,32 @@ const CreateCourse = () => {
     }
   };
 
+  // const handleDrop = (acceptedFiles: any) => {
+  //     const file = acceptedFiles[0];
+  //     const storageRef = ref(firebase, `/files/${file.name}`);
+  //     const uploadTask = uploadBytesResumable(storageRef, file);
+  //     uploadTask.on(
+  //       'state_changed',
+  //       (snapshot) => {
+  //         const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+
+  //         // update progress
+  //         // setPercent(percent);
+  //       },
+  //       (err) => console.log(err),
+  //       () => {
+  //         // download url
+  //         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+  //           console.log(url);
+  //           setValue('imageUrl', url);
+  //         });
+  //       }
+  //     );
+  //   };
+
   const { data: subjects } = useQuery("subjectForCourse", () =>
     request.get("/subjects").then((res) => res?.data.data)
   );
-  console.log(subjects);
 
   return (
     <>
@@ -115,24 +144,64 @@ const CreateCourse = () => {
                 <div className="contact__form">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-row">
-                      <div className="form-group col-5">
-                        <div className="contact__form-input">
-                          <label>Tên khoá học</label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Tên khoá học"
-                            {...register("name")}
-                            className={`form-control ${
-                              errors.name ? "is-invalid" : ""
-                            }`}
-                          />
-                          <p>{errors.name?.message}</p>
+                      <div className="d-flex justify-content-between">
+                        <div
+                          className="avatar-upload"
+                          // style={{ display: "none" }}
+                        >
+                          <div
+                            className="avatar-edit"
+                            style={{
+                              display: "inline-block",
+                              width: "34px",
+                              height: "34px",
+                              marginBottom: 0,
+                              borderRadius: "100%",
+                              background: "#FFFFFF",
+                              border: "1px solid transparent",
+                              boxShadow: "2px 2px 4px 0px rgba(0, 0, 0, 0.12",
+                            }}
+                          >
+                            <input
+                              type="file"
+                              {...register("imageUrl")}
+                              id="imageUpload"
+                              // onClick={handleDrop}
+                              accept=".png, .jpg, .jpeg"
+                            />
+                            <label htmlFor="imageUpload"></label>
+                          </div>
+                          <div className="avatar-preview">
+                            <div
+                              id="imagePreview"
+                              style={{
+                                backgroundImage:
+                                  "url(http://i.pravatar.cc/500?img=7);",
+                              }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="invalid-feedback">
-                          <p>{errors.name?.message}</p>
+                        <div className="form-group col-5">
+                          <div className="contact__form-input">
+                            <label>Tên khoá học</label>
+                            <input
+                              type="text"
+                              required
+                              size={20}
+                              placeholder="Tên khoá học"
+                              {...register("name")}
+                              className={`form-control ${
+                                errors.name ? "is-invalid" : ""
+                              }`}
+                            />
+                            <p>{errors.name?.message}</p>
+                          </div>
+                          <div className="invalid-feedback">
+                            <p>{errors.name?.message}</p>
+                          </div>
                         </div>
                       </div>
+
                       <div className="d-flex justify-content-between">
                         <div className="form-group col-5">
                           <label>Hình thức giảng dạy</label>
@@ -142,6 +211,7 @@ const CreateCourse = () => {
                             className={`form-control ${
                               errors.name ? "is-invalid" : ""
                             }`}
+                            style={{ backgroundColor: "#f5f6f8" }}
                           >
                             <option value=""></option>
                             <option value={1}>Ngắn hạn</option>
@@ -155,6 +225,7 @@ const CreateCourse = () => {
                           <div className="contact__form-input">
                             <label>Chọn môn học</label>
                             <select
+                              style={{ backgroundColor: "#f5f6f8" }}
                               {...register("subjectId")}
                               placeholder="Chọn môn học"
                               className={`form-control ${
@@ -226,6 +297,7 @@ const CreateCourse = () => {
                         <div className="form-group col-5">
                           <label>Số học viên tối thiểu</label>
                           <select
+                            style={{ backgroundColor: "#f5f6f8" }}
                             {...register("minQuantity")}
                             placeholder="Số học viên tối thiểu"
                             className={`form-control ${
@@ -248,6 +320,7 @@ const CreateCourse = () => {
                         <div className="form-group col-5">
                           <label>Số học viên tối đa</label>
                           <select
+                            style={{ backgroundColor: "#f5f6f8" }}
                             {...register("maxQuantity")}
                             placeholder="Số học viên tối đa"
                             className={`form-control ${
@@ -275,6 +348,7 @@ const CreateCourse = () => {
                         <div className="form-group col">
                           <label>Ngày bắt đầu</label>
                           <input
+                            style={{ backgroundColor: "#f5f6f8" }}
                             type="datetime-local"
                             {...register("startDate")}
                             className={`form-control ${
@@ -288,6 +362,7 @@ const CreateCourse = () => {
                         <div className="form-group col">
                           <label>Ngày kết thúc</label>
                           <input
+                            style={{ backgroundColor: "#f5f6f8" }}
                             type="datetime-local"
                             {...register("finishDate")}
                             className={`form-control ${
@@ -340,7 +415,7 @@ const CreateCourse = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1">
+            <div className="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1">
               <div className="contact__info white-bg p-relative z-index-1">
                 <div className="contact__shape">
                   <img
@@ -363,7 +438,7 @@ const CreateCourse = () => {
                   <ul>
                     <li>
                       <div className="contact__info-item d-flex align-items-start mb-35">
-                        <div className="contact__info-icon mr-15">
+                        {/* <div className="contact__info-icon mr-15">
                           <svg className="map" viewBox="0 0 24 24">
                             <path
                               className="st0"
@@ -371,16 +446,17 @@ const CreateCourse = () => {
                             />
                             <circle className="st0" cx="12" cy="10" r="3" />
                           </svg>
-                        </div>
+                        </div> */}
                         <div className="contact__info-text">
-                          <h4>New York Office</h4>
+                          <h4>Create courses that suit you</h4>
                           <p>
                             <a
                               target="_blank"
                               rel="noreferrer"
                               href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873"
                             >
-                              Maypole Crescent 70-80 Upper St Norwich NR2 1LT
+                              Publish the course you want, however you want, and
+                              always have control over your own content.
                             </a>
                           </p>
                         </div>
@@ -388,7 +464,7 @@ const CreateCourse = () => {
                     </li>
                     <li>
                       <div className="contact__info-item d-flex align-items-start mb-35">
-                        <div className="contact__info-icon mr-15">
+                        {/* <div className="contact__info-icon mr-15">
                           <svg className="mail" viewBox="0 0 24 24">
                             <path
                               className="st0"
@@ -399,42 +475,32 @@ const CreateCourse = () => {
                               points="22,6 12,13 2,6 "
                             />
                           </svg>
-                        </div>
+                        </div> */}
                         <div className="contact__info-text">
-                          <h4>Email us directly</h4>
+                          <h4>Inspire attendees</h4>
                           <p>
-                            <a href="mailto:support@educal.com">
-                              support@educal.com
-                            </a>
-                          </p>
-                          <p>
-                            <a href="mailto:info@educal.com">
-                              {" "}
-                              info@educal.com
-                            </a>
+                            Teach what you know and help participants explore
+                            their interests, learn new skills and advance their
+                            careers.
                           </p>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div className="contact__info-item d-flex align-items-start mb-35">
-                        <div className="contact__info-icon mr-15">
+                        {/* <div className="contact__info-icon mr-15">
                           <svg className="call" viewBox="0 0 24 24">
                             <path
                               className="st0"
                               d="M22,16.9v3c0,1.1-0.9,2-2,2c-0.1,0-0.1,0-0.2,0c-3.1-0.3-6-1.4-8.6-3.1c-2.4-1.5-4.5-3.6-6-6  c-1.7-2.6-2.7-5.6-3.1-8.7C2,3.1,2.8,2.1,3.9,2C4,2,4.1,2,4.1,2h3c1,0,1.9,0.7,2,1.7c0.1,1,0.4,1.9,0.7,2.8c0.3,0.7,0.1,1.6-0.4,2.1  L8.1,9.9c1.4,2.5,3.5,4.6,6,6l1.3-1.3c0.6-0.5,1.4-0.7,2.1-0.4c0.9,0.3,1.8,0.6,2.8,0.7C21.3,15,22,15.9,22,16.9z"
                             />
                           </svg>
-                        </div>
+                        </div> */}
                         <div className="contact__info-text">
-                          <h4>Phone</h4>
+                          <h4>Get rewarded</h4>
                           <p>
-                            <a href="tel:+(426)-742-26-44">+(426) 742 26 44</a>
-                          </p>
-                          <p>
-                            <a href="tel:+(224)-762-442-32">
-                              +(224) 762 442 32
-                            </a>
+                            Expand your professional network and expertise, and
+                            earn money for every paid signup.
                           </p>
                         </div>
                       </div>
@@ -462,7 +528,7 @@ const CreateCourse = () => {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
