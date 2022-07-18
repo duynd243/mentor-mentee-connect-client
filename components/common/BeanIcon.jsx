@@ -1,13 +1,15 @@
-const BeanIcon = ({fillColor, position, smallIcon}) => {
+const BeanIcon = ({fillColor, position, smallIcon, customStyles}) => {
 
     const iconSize = smallIcon ? "0.8rem" : "1rem";
 
     const style = position === 'right' ? {
         display: 'inline',
         marginLeft: '5px',
+        ...customStyles
     } : {
         display: 'inline',
         marginRight: '5px',
+        ...customStyles
     };
 
     const fillColorStyle = fillColor || "#279b61";
