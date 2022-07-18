@@ -30,7 +30,7 @@ const CourseCard = ({ course, courseSidebar, swiperSlide }) => {
             <a>{course.name}</a>
           </Link>
         </h3>
-        <p className="course__title-2" style={{ fontSize: "12px" }}>
+        <p className="course__title-2" style={{ fontSize: "0.9rem", fontWeight: 500 }}>
           <Link
             href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}
           >

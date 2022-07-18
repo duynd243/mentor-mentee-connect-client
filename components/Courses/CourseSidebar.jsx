@@ -44,9 +44,14 @@ const CourseSidebar = () => {
     // Selected subject (category)
     const [currentSubjectId, setCurrentSubjectId] = useState(""); // Default subject-id="" -> All Categories
 
+    const {data: subjectFirstLoad} = useQuery(
+        "subjectFirstLoad",
+        () => subjectApi.getAllSubjects({size: 1}),
+    );
+
     const {data: subjects, isLoading: subjectsLoading} = useQuery(
-        "subjects",
-        () => subjectApi.getAllSubjects({size: 100}),
+        ["subjects", subjectFirstLoad?.metadata?.total],
+        () => subjectApi.getAllSubjects({size: subjectFirstLoad?.metadata?.total}),
     );
 
     const {data: courseItems, isLoading: courseItemsLoading} = useQuery(

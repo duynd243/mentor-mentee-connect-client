@@ -229,6 +229,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
                                 paddingLeft: '30px',
                                 paddingRight: '30px'
                             }}
+                                    searchable={false}
                                     placeholder="Select you gender ..."
                                     values={Gender.filter(g => g.value === userData?.gender) || []}
                                     options={Gender} valueField="value" labelField="text"

@@ -1,0 +1,101 @@
+@use '../utils' as *;
+
+
+.create-course {
+  &__wrapper {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 25px;
+      margin-right: 10px;
+      color: #00BA34;
+      background: #E5F8EB;
+      padding: 14px;
+      border-radius: 50%;
+    }
+  }
+
+  &__form {
+    margin: 20px 0;
+
+    .form-group {
+      label {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .react-dropdown-select{
+        background: #fafafa;
+        color: #292929;
+        font-size: 1rem;
+        font-weight: 500;
+        outline: none;
+        border: 2px solid #ebeef1;
+        border-radius: 4px;
+        padding: 10px 14px;
+        background: #fafafa;
+        color: #292929;
+        &:focus, &:focus-within{
+          box-shadow: none;
+          border: 2px solid #003bba;
+          background: #f9f9ff;
+        }
+      }
+      .react-dropdown-select:has(input:focus){
+        border: 2px solid #003bba;
+        background: #f9f9ff;
+      }
+      .react-dropdown-select-input{
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .react-dropdown-select-content span{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    .form-group:not(.dropdown){
+      input, textarea {
+        font-weight: 500;
+        width: 100%;
+        outline: none;
+        border: 2px solid #ebeef1;
+        border-radius: 4px;
+        padding: 10px 14px;
+        background: #fafafa;
+        color: #292929;
+        font-size: 1rem;
+        &:focus {
+          border: 2px solid #003bba;
+          background: #f9f9ff;
+        }
+        &::placeholder{
+          opacity: 0.8;
+        }
+      }
+      textarea{
+        height: 200px;
+        min-height: 200px;
+        max-height: 300px;
+      }
+    }
+
+    .form-group:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .form-group.dropdown {
+      margin-bottom: 20px;
+    }
+  }
+}
