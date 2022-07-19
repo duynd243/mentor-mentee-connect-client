@@ -1,7 +1,11 @@
 import Select from "react-dropdown-select";
 import BeanIcon from "../common/BeanIcon";
+import {useState} from "react";
 
 const CreateCourseStaging = ({subjectList, courseTypes}) => {
+
+    const [selectedSubject, setSelectedSubject] = useState();
+    const [selectedCourseType, setSelectedCourseType] = useState();
 
     return (
         <section className="contact__area pt-115 pb-120">
@@ -83,6 +87,16 @@ const CreateCourseStaging = ({subjectList, courseTypes}) => {
                                         <label>Ngày kết thúc</label>
                                         <input type="date" placeholder="" required/>
                                     </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Ảnh cover</label>
+                                    <input type="file" placeholder="" required/>
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Chứng chỉ</label>
+                                    <input type="file" placeholder="" required/>
                                 </div>
                                 <button className="btn btn-primary mt-3">Tạo khoá học</button>
                             </form>
