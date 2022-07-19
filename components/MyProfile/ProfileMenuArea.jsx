@@ -4,6 +4,10 @@ import EditModal from "./EditModal";
 import Link from "next/link";
 import moment from "moment";
 import constants from "../../data/constants";
+import { useQuery } from "react-query";
+import certificateApi from "apis/certificates";
+import AddCertificates from "./AddCertificates";
+import Image from "next/image";
 
 const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const Gender = {
@@ -13,14 +17,35 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const notSetYet = <span style={{ opacity: 0.7 }}>Not set yet</span>;
   // setShow
   const [show, setShow] = useState(false);
+  //showAddCertificate
+  const [addCertificate, setAddCertificate] = useState(false);
   // handleClose
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setAddCertificate(false);
+  };
   // handleShow
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+  };
+  const handleShowAddCertificate = () => {
+    setAddCertificate(true);
+  };
   // useAuth
   const { logout } = useAuth();
   // myOrders
   const myOrders = [];
+
+  //Certificates
+  const { data: certificates } = useQuery("certificates", () =>
+    certificateApi.getAllCertificatesLoginUser()
+  );
+  console.log(certificates);
+
+  // const { data: certificates } = useQuery("certificates", () => {
+  //   certificateApi.getAllCertificatesLoginUser();
+  // });
+  // console.log(certificates);
 
   const onChange = (updatedUser) => {
     onUserUpdated(updatedUser);
@@ -58,7 +83,7 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                       className="nav-link"
                       id="nav-order-tab"
                       data-bs-toggle="tab"
-                      data-bs-target="#nav-order"
+                      data-bs-target="#nav-certificates"
                       type="button"
                       role="tab"
                       aria-controls="nav-order"
@@ -210,6 +235,7 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                     </div>
                   </div>
 
+                  {/*Certifiactes*/}
                   <div
                     className="tab-pane fade"
                     id="nav-certificates"
@@ -219,8 +245,13 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                     <div className="order__info">
                       <div className="order__info-top d-flex justify-content-between align-items-center">
                         <h3 className="order__info-title">My Certificates</h3>
-                        <button type="button" className="order__info-btn">
-                          <i className="fa-regular fa-trash-can"></i> Clear
+                        <button
+                          onClick={handleShowAddCertificate}
+                          className="profile__info-btn"
+                          type="button"
+                        >
+                          <i className="fa-regular fa-pen-to-square"></i> Thêm
+                          Chứng Chỉ
                         </button>
                       </div>
 
@@ -228,36 +259,42 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                         <table className="table">
                           <thead>
                             <tr>
+                              <th scope="col">Chứng chỉ</th>
                               <th scope="col">Môn học</th>
                               <th scope="col">Trạng thái</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Details</th>
                             </tr>
                           </thead>
                           <tbody>
-                            {myOrders.map((order) => {
+                            {certificates?.data?.map((certificate) => {
                               return (
-                                <tr key={order?._id}>
+                                <tr key={certificate?._id}>
                                   <td className="order__id">
-                                    #{order?.payment?.created}
+                                    <img
+                                      src={`${certificate?.imageUrl}`}
+                                      alt={`${certificate?.name}`}
+                                      style={{ width: "50px", height: "50px" }}
+                                      className="mr-10"
+                                    />
+                                    {certificate?.name}
+                                  </td>
+                                  <td className="order__id">
+                                    {certificate?.subject?.name}
                                   </td>
                                   <td>
-                                    <Link
-                                      href={`/course-details/${order?._id}`}
-                                    >
-                                      <a className="order__title">
-                                        {order?.title}
-                                      </a>
-                                    </Link>
+                                    {certificate?.status == 1
+                                      ? "Chờ duyệt"
+                                      : certificate?.status == 2
+                                      ? "Đã duyệt"
+                                      : "Không đủ tiêu chuẩn"}
                                   </td>
-                                  <td>${order?.price}</td>
+                                  {/* <td>${order?.price}</td>
                                   <td>
                                     <Link
                                       href={`/course-details/${order?._id}`}
                                     >
                                       <a className="order__view-btn">View</a>
                                     </Link>
-                                  </td>
+                                  </td> */}
                                 </tr>
                               );
                             })}
@@ -277,6 +314,11 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
         show={show}
         handleClose={handleClose}
         userData={userData}
+        onChange={onChange}
+      />
+      <AddCertificates
+        show={addCertificate}
+        handleClose={handleClose}
         onChange={onChange}
       />
     </>
