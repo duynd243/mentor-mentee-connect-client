@@ -89,7 +89,7 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                       aria-controls="nav-order"
                       aria-selected="false"
                     >
-                      <i className="fa-regular fa-file-lines"></i>Certificates
+                      <i className="fa-regular fa-file-certificate"></i>Certificates
                     </button>
                     <button
                       className="nav-link"
@@ -281,9 +281,9 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                                     {certificate?.subject?.name}
                                   </td>
                                   <td>
-                                    {certificate?.status == 1
+                                    {certificate?.status == constants.certificateStatus.pending
                                       ? "Chờ duyệt"
-                                      : certificate?.status == 2
+                                      : certificate?.status == constants.certificateStatus.approved
                                       ? "Đã duyệt"
                                       : "Không đủ tiêu chuẩn"}
                                   </td>

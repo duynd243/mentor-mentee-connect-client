@@ -8,9 +8,10 @@ import useSticky from "../../hooks/useSticky";
 import moment from "moment";
 import {getMentorSlug} from "../../utils/slugUtils";
 import BeanIcon from "../common/BeanIcon";
+import constants from "../../data/constants";
 // import { addToCart } from "../../redux/features/cartSlice";
 
-const CourseDetailsRightSide = ({courseData, totalSessions}) => {
+const CourseDetailsRightSide = ({courseData, totalSessions, userData}) => {
     const {user} = useAuth();
     //sidebar show
     const [show, setShow] = useState(false);
@@ -227,7 +228,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                     />
                                 </a>
                             </div>
-
+                            {userData?.roleId !== constants.roles.mentor.id &&
                             <div className="course__enroll-btn">
                                 {user?.email && !paymentInformation?.payment ? (
                                     <button
@@ -259,6 +260,7 @@ const CourseDetailsRightSide = ({courseData, totalSessions}) => {
                                     </Link>
                                 )}
                             </div>
+                            }
                         </div>
                     </div>
                 </div>

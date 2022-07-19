@@ -2,7 +2,7 @@ import slugify from "slugify";
 
 const options = {
     lower: true,
-    remove: /[*+~.()'"!:@]/g
+    remove: /[*+~.()'"!:@?]/g
 }
 
 const getCourseSlug = (courseName, courseId) => {

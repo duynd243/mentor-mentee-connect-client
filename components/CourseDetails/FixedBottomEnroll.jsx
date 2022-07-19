@@ -2,8 +2,9 @@ import RatingStars from "../common/RatingStars";
 import {getMentorSlug} from "../../utils/slugUtils";
 import BeanIcon from "../common/BeanIcon";
 import {Star} from "react-ionicons";
+import constants from "../../data/constants";
 
-const FixedBottomEnroll = ({courseData, totalSessions}) => {
+const FixedBottomEnroll = ({userData, courseData, totalSessions}) => {
     return <div className="bottom__course__wrapper d-lg-none fixed-bottom px-4 py-3 text-white">
         <div className="row">
             <div className="col-8">
@@ -49,9 +50,12 @@ const FixedBottomEnroll = ({courseData, totalSessions}) => {
             <div className="col-4">
                 <div className="d-flex flex-column flex-md-row justify-content-end align-items-center gap-4 h-100">
                     <h3 className="bottom__course__price"><BeanIcon fillColor="white"/>{courseData?.price}</h3>
-                    <button type="button"
-                            className="bottom__course__enroll btn btn-primary py-2 px-3 py-md-3 px-md-4">Enroll Now
-                    </button>
+                    {userData?.roleId !== constants.roles.mentor.id
+                        &&
+                        <button type="button"
+                                className="bottom__course__enroll btn btn-primary py-2 px-3 py-md-3 px-md-4">Enroll Now
+                        </button>
+                    }
                 </div>
             </div>
         </div>

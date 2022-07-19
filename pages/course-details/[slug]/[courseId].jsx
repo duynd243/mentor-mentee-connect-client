@@ -13,6 +13,7 @@ import CourseDetailsArea from "../../../components/CourseDetails/CourseDetailsAr
 import React from "react";
 import Link from "next/link";
 import sessionApi from "../../../apis/session";
+import userApi from "../../../apis/user";
 
 SwiperCore.use([Pagination]);
 
@@ -48,6 +49,11 @@ const CourseDetails = () => {
         "subject-id": courseData?.subject.id,
         size: 6
     }),);
+
+    // Get data of logging user
+    const {data: userData} = useQuery('userData',
+        () => userApi.getUserInfo()
+    );
     return (
         <>
             <Head>
@@ -83,7 +89,9 @@ const CourseDetails = () => {
                         }
                         {(!courseDataLoading && courseData && courseSessions) &&
                             <>
-                                <CourseDetailsArea courseData={courseData} courseSessions={courseSessions?.data}
+                                <CourseDetailsArea
+                                    userData={userData}
+                                    courseData={courseData} courseSessions={courseSessions?.data}
                                                    relatedCourses={relatedCourses}
                                                    relatedCoursesLoading={relatedCoursesLoading}/>
                             </>

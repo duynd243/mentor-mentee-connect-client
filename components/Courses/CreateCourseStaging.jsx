@@ -210,6 +210,7 @@ const CreateCourseStaging = ({subjectList, courseTypes, mentorData}) => {
 
     const handleCreateSubmit = (e) => {
         e.preventDefault();
+        handleInputs("");
         if (chosenImageFile) {
             uploadImageToFirebase(chosenImageFile).then((imageUrl) => {
                 handleInputs(imageUrl);
