@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import ProfileArea from "../../components/MyProfile/ProfileArea";
 import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
+import certificateApi from "apis/certificates";
 
 const MyProfile = () => {
   const router = useRouter();
@@ -34,7 +35,6 @@ const MyProfile = () => {
       },
     }
   );
-  console.log(userData);
 
   const onUserUpdated = (user) => {
     setUpdatedUser(() => user);
