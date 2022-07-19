@@ -1,7 +1,7 @@
 import request from "./utils";
 
-const getAllCertificatesLoginUser = async () => {
-  const { data } = await request.get(`/certificates`);
+const getAllCertificatesLoginUser = async (params?: any) => {
+  const { data } = await request.get(`/certificates`, { params });
   return data;
 };
 
