@@ -54,8 +54,8 @@ const CourseCard = ({ course, courseSidebar, swiperSlide }) => {
           </div>
           <div className="course__price-2">
             <span>
-              <BeanIcon />
               {course.price}
+              <BeanIcon position="right"/>
             </span>
           </div>
         </div>

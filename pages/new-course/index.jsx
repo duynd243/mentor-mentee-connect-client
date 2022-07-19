@@ -6,7 +6,7 @@ import Footer from "../../components/common/Footer";
 import CreateCourseStaging from "../../components/Courses/CreateCourseStaging";
 import {useQuery} from "react-query";
 import subjectApi from "../../apis/subject";
-import {useEffect} from "react";
+import userApi from "../../apis/user";
 
 const NewCourse = () => {
 
@@ -32,6 +32,10 @@ const NewCourse = () => {
     //     subjectList = subjects?.data?.map(subject => ({value: subject.id, text: subject.name}));
     // }, [subjects])
 
+    // Get data of logging mentor
+    const {data: mentorData} = useQuery('mentorData',
+        () => userApi.getUserInfo()
+    );
 
     return (
         <>
@@ -41,7 +45,10 @@ const NewCourse = () => {
 
             <Header/>
             <BreadCrumb title="Tạo khoá học" subtitle="Tạo khoá học"/>
-            <CreateCourseStaging courseTypes={courseTypes} subjectList={subjectList}/>
+            {subjectList
+                && courseTypes && mentorData &&
+                <CreateCourseStaging courseTypes={courseTypes} subjectList={subjectList} mentorData={mentorData}/>
+            }
             <CreateCourse/>
 
             {/* <ContactInfoArea /> */}

@@ -88,7 +88,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
         return new Promise((resolve, reject) => {
             const fileExtension = file.name.split(".").pop();
             const fileName = `${userData?.fullName}_${Date.now()}.${fileExtension}`;
-            const storageRef = ref(storage, `photos/${fileName}`);
+            const storageRef = ref(storage, `photos/user/${fileName}`);
             const uploadTask = uploadBytesResumable(storageRef, file);
             uploadTask.on("state_changed",
                 (snapshot) => {

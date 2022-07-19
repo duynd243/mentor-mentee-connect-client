@@ -5,36 +5,49 @@ import courseApi from "../../apis/course";
 import React, { useState } from "react";
 import CourseCard from "../Courses/CourseCard";
 import Pagination from "../common/Pagination";
+import constants from "../../data/constants";
 
 const MentorDetailsArea = ({ mentorData }) => {
   // currentPage
   const [currentPage, setCurrentPage] = useState(1);
+
+  // currentPage
+  const [currentPageDraft, setCurrentPageDraft] = useState(1);
+
   // coursePerPage
-  const [coursePerPage, setCoursePerPage] = useState(4);
+  const [coursePerPage] = useState(4);
+
+  const paginate = (number) => {
+    setCurrentPage(number);
+  };
+
+  const paginateDraft = (number) => {
+    setCurrentPageDraft(number);
+  };
 
   const { data: mentorCourses, isLoading: coursesLoading } = useQuery(
     ["mentorCourses", currentPage, coursePerPage],
     () =>
-      courseApi.getUserAllCourses({
+      courseApi.getAllCourses({
         page: currentPage,
         size: coursePerPage,
-        status: 5,
+        status: constants.courseStatus.started,
+        "mentor-id": mentorData.id,
       })
   );
 
   const { data: drafts, isLoading: draftsLoading } = useQuery(
     ["draftCourses", currentPage, coursePerPage],
     () =>
-      courseApi.getUserAllCourses({
+      courseApi.getAllCourses({
         page: currentPage,
         size: coursePerPage,
-        status: 1,
+        status: constants.courseStatus.draft,
+        "mentor-id": mentorData.id,
       })
   );
 
-  const paginate = (number) => {
-    setCurrentPage(number);
-  };
+
 
   return (
     <>
@@ -202,8 +215,8 @@ const MentorDetailsArea = ({ mentorData }) => {
                             <Pagination
                               coursePerPage={coursePerPage}
                               totalCourse={drafts?.metadata.total}
-                              paginate={paginate}
-                              currentPage={currentPage}
+                              paginate={paginateDraft}
+                              currentPage={currentPageDraft}
                             />
                           </div>
                         </>
