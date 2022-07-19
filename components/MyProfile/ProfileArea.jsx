@@ -1,11 +1,16 @@
 import Link from "next/link";
 import BeanIcon from "../common/BeanIcon";
+import { useQuery } from "react-query";
+import walletApi from "apis/wallet";
 
 const ProfileArea = ({ userData, firebaseUser }) => {
   // quantity
   const quantity = 0;
   // myOrders
   const myOrders = [];
+  const { data: userBean, isLoading } = useQuery(["userBean", userData], () =>
+    walletApi.getUserBean(userData?.phone)
+  );
 
   return (
     <section className="profile__area pt-120 pb-50 grey-bg-2">
@@ -37,7 +42,8 @@ const ProfileArea = ({ userData, firebaseUser }) => {
               <div className="profile__basic-balance d-flex align-items-center justify-content-md-end">
                 <div className="balance-info mr-10">Your Balance</div>
                 <div className="balance-item">
-                  200 <BeanIcon position="right" fillColor="white" />
+                  {userBean?.point ?? 0}{" "}
+                  <BeanIcon position="right" fillColor="white" />
                 </div>
               </div>
             </div>
