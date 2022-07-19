@@ -15,20 +15,19 @@ const MentorDetailsArea = ({ mentorData }) => {
   const { data: mentorCourses, isLoading: coursesLoading } = useQuery(
     ["mentorCourses", currentPage, coursePerPage],
     () =>
-      courseApi.getAllCourses({
+      courseApi.getUserAllCourses({
         page: currentPage,
         size: coursePerPage,
-        "mentor-id": mentorData?.id,
+        status: 5,
       })
   );
 
   const { data: drafts, isLoading: draftsLoading } = useQuery(
     ["draftCourses", currentPage, coursePerPage],
     () =>
-      courseApi.getAllCourses({
+      courseApi.getUserAllCourses({
         page: currentPage,
         size: coursePerPage,
-        "mentor-id": mentorData?.id,
         status: 1,
       })
   );
