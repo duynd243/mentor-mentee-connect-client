@@ -13,11 +13,17 @@ const getCourseById = async (_id: string) => {
 
 const add = (data: any) => request.post("/courses", data);
 
+const getUserAllCourses = async (params?: any) => {
+  const { data } = await request.get(`/users/courses`, { params });
+  return data;
+};
+
 const courseApi = {
   // ...generateAPIWithPaging<TCourse>('courses'),
   getAllCourses,
   getCourseById,
   add,
+  getUserAllCourses,
 };
 
 export default courseApi;
