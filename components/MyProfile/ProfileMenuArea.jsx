@@ -8,6 +8,8 @@ import { useQuery } from "react-query";
 import certificateApi from "apis/certificates";
 import AddCertificates from "./AddCertificates";
 import Image from "next/image";
+import walletApi from "apis/wallet";
+import { toast } from "react-toastify";
 
 const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const Gender = {
@@ -40,12 +42,34 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const { data: certificates } = useQuery("certificates", () =>
     certificateApi.getAllCertificatesLoginUser()
   );
-  console.log(certificates);
 
-  // const { data: certificates } = useQuery("certificates", () => {
-  //   certificateApi.getAllCertificatesLoginUser();
-  // });
-  // console.log(certificates);
+  const { data: connectBean } = useQuery("connectBean", () =>
+    walletApi.getUserBean(userData?.phone)
+  );
+
+  const handleConnectBean = async () => {
+    if (userData?.phone == undefined) {
+      toast.error("Vui lòng cập nhật số điện thoại", {
+        autoClose: 2000,
+      });
+    }
+    try {
+      await walletApi
+        .linkAccountBean(userData?.phone)
+        .then((res) => {
+          if (res.status === 200) {
+            toast.success("Liên kết thành công", {
+              autoClose: 2000,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error("Kiểm tra lại số điện thoại");
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onChange = (updatedUser) => {
     onUserUpdated(updatedUser);
@@ -89,7 +113,8 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                       aria-controls="nav-order"
                       aria-selected="false"
                     >
-                      <i className="fa-regular fa-file-certificate"></i>Certificates
+                      <i className="fa-regular fa-file-certificate"></i>
+                      Certificates
                     </button>
                     <button
                       className="nav-link"
@@ -169,7 +194,20 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                         </div>
                         <div className="profile__info-item">
                           <p>Phone</p>
-                          <h4>{userData?.phone?.trim() || notSetYet}</h4>
+                          <div className="d-flex justify-content-between">
+                            <h4>{userData?.phone?.trim() || notSetYet}</h4>
+                            {connectBean ? (
+                              "Đã kết nối"
+                            ) : (
+                              <button
+                                type="submit"
+                                className="tp-btn"
+                                onClick={handleConnectBean}
+                              >
+                                Kết nối BeanOi
+                              </button>
+                            )}
+                          </div>
                         </div>
                         <div className="profile__info-item">
                           <p>Address</p>
@@ -281,9 +319,11 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                                     {certificate?.subject?.name}
                                   </td>
                                   <td>
-                                    {certificate?.status == constants.certificateStatus.pending
+                                    {certificate?.status ==
+                                    constants.certificateStatus.pending
                                       ? "Chờ duyệt"
-                                      : certificate?.status == constants.certificateStatus.approved
+                                      : certificate?.status ==
+                                        constants.certificateStatus.approved
                                       ? "Đã duyệt"
                                       : "Không đủ tiêu chuẩn"}
                                   </td>

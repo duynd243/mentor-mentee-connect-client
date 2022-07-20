@@ -5,8 +5,8 @@ const getUserBean = async (phoneNumber: string) => {
   return data;
 };
 
-const linkAccountBean = async (datas: any) => {
-  const { data } = await request.post(`/wallet`, { datas });
+const linkAccountBean = async (phoneNumber: string) => {
+  const { data } = await request.post(`/wallet`, { phoneNumber });
   return data;
 };
 
