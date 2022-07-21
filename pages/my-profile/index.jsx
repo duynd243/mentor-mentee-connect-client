@@ -2,16 +2,15 @@ import Head from "next/head";
 import Footer from "../../components/common/Footer";
 import Header from "../../components/Home/Header";
 import BreadCrumb from "../../components/common/BreadCrumb";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import userApi from "../../apis/user";
 import Swal from "sweetalert2";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import ProfileArea from "../../components/MyProfile/ProfileArea";
 import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
-import certificateApi from "apis/certificates";
 
 const MyProfile = () => {
   const router = useRouter();

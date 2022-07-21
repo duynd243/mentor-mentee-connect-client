@@ -1,12 +1,14 @@
 import Head from "next/head";
 import BreadCrumb from "components/common/BreadCrumb";
-import CreateCourse from "components/Courses/CreateCourse";
 import Header from "components/Home/Header";
 import Footer from "../../components/common/Footer";
-import CreateCourseStaging from "../../components/Courses/CreateCourseStaging";
+import CreateCourse from "../../components/Courses/CreateCourse";
 import {useQuery} from "react-query";
 import subjectApi from "../../apis/subject";
 import userApi from "../../apis/user";
+import CreateCourseBanner from "../../components/Courses/CreateCourseBanner";
+import {useState} from "react";
+import CreateSession from "../../components/Courses/CreateSession";
 
 const NewCourse = () => {
 
@@ -15,8 +17,6 @@ const NewCourse = () => {
         {value: 2, text: 'Dài hạn'},
     ]
 
-
-    // Lần đầu load để lấy totalItems
     const {data: subjectFirstLoad} = useQuery(
         "subjectFirstLoad",
         () => subjectApi.getAllSubjects({size: 1}),
@@ -37,6 +37,15 @@ const NewCourse = () => {
         () => userApi.getUserInfo()
     );
 
+    const [createCourseSuccess, setCreateCourseSuccess] = useState(false);
+
+    const [createdCourse, setCreatedCourse] = useState();
+
+    const onCreateCourseSuccess = (createCourse) => {
+        setCreateCourseSuccess(true);
+        setCreatedCourse(createCourse);
+    }
+
     return (
         <>
             <Head>
@@ -45,13 +54,34 @@ const NewCourse = () => {
 
             <Header/>
             <BreadCrumb title="Tạo khoá học" subtitle="Tạo khoá học"/>
-            {subjectList
-                && courseTypes && mentorData &&
-                <CreateCourseStaging courseTypes={courseTypes} subjectList={subjectList} mentorData={mentorData}/>
-            }
-            <CreateCourse/>
 
-            {/* <ContactInfoArea /> */}
+
+            <section className="contact__area pt-115 pb-120">
+                <div className="container">
+                    <div className="row">
+                        {subjectList
+                            && courseTypes && mentorData && !createCourseSuccess &&
+                            <CreateCourse
+                                courseTypes={courseTypes}
+                                subjectList={subjectList}
+                                mentorData={mentorData}
+                                onCreateSuccess={onCreateCourseSuccess}
+                            />
+                        }
+
+                        {subjectList
+                            && courseTypes && mentorData && createCourseSuccess && createdCourse &&
+                            <CreateSession
+                                courseData={createdCourse}
+                            />
+                        }
+
+                        {/*<CreateSession*/}
+                        {/*    courseData={createdCourse}/>*/}
+                        <CreateCourseBanner/>
+                    </div>
+                </div>
+            </section>
 
             <Footer theme="dark"/>
         </>

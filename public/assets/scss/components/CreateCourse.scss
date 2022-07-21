@@ -13,12 +13,17 @@
     display: flex;
     align-items: center;
     i {
-      font-size: 25px;
+      font-size: 22px;
       margin-right: 10px;
       color: #00BA34;
       background: #E5F8EB;
       padding: 14px;
       border-radius: 50%;
+      height: 52px;
+      width: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 

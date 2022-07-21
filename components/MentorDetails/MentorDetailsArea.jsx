@@ -1,8 +1,8 @@
 import RatingStars from "../common/RatingStars";
-import { Spinner } from "react-bootstrap";
-import { useQuery } from "react-query";
+import {Spinner} from "react-bootstrap";
+import {useQuery} from "react-query";
 import courseApi from "../../apis/course";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import CourseCard from "../Courses/CourseCard";
 import Pagination from "../common/Pagination";
 import constants from "../../data/constants";
@@ -31,7 +31,7 @@ const MentorDetailsArea = ({ mentorData }) => {
       courseApi.getAllCourses({
         page: currentPage,
         size: coursePerPage,
-        status: constants.courseStatus.started,
+        status: constants.courseStatus.waiting,
         "mentor-id": mentorData.id,
       })
   );

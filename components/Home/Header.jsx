@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { useState } from "react";
+import {useState} from "react";
 import links from "../../data/linkData";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import LoginData from "../../data/LoginMenuData";
 import Sidebar from "../common/SideBar";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import ProfileDropdown from "./ProfileDropdown";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import userApi from "../../apis/user";
 import constants from "../../data/constants";
 

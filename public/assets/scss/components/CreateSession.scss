@@ -1,0 +1,71 @@
+form.sessions {
+  .session-item {
+
+    &__wrapper {
+      padding: 20px;
+      border: 2px solid #f3f3f3;
+      margin-top: 20px;
+      border-radius: 6px;
+      animation: session-item-animation 0.5s ease-in-out;
+    }
+
+    &__input {
+      label {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      input, textarea {
+        font-weight: 500;
+        width: 100%;
+        outline: none;
+        border: 2px solid #ebeef1;
+        border-radius: 4px;
+        padding: 10px 14px;
+        background: #fafafa;
+        color: #292929;
+        font-size: 1rem;
+
+        &:focus {
+          border: 2px solid #003bba;
+          background: #f9f9ff;
+        }
+
+        &::placeholder {
+          opacity: 0.8;
+        }
+      }
+
+      textarea {
+        height: 120px;
+        min-height: 120px;
+        max-height: 300px;
+      }
+    }
+
+    &__input:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &__remove {
+      cursor: pointer;
+      font-size: 1.2rem;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+@keyframes session-item-animation {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

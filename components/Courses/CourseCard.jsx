@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCourseSlug, getMentorSlug } from "../../utils/slugUtils";
+import {getCourseSlug, getMentorSlug} from "../../utils/slugUtils";
 import BeanIcon from "../common/BeanIcon";
 
 const CourseCard = ({ course, courseSidebar, swiperSlide }) => {

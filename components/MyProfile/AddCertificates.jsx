@@ -1,17 +1,15 @@
-import { Modal } from "react-bootstrap";
-import { useState } from "react";
-import moment from "moment";
-import { toast } from "react-toastify";
-import userApi from "../../apis/user";
+import {Modal} from "react-bootstrap";
+import {useState} from "react";
+import {toast} from "react-toastify";
 import Select from "react-dropdown-select";
 import constants from "../../data/constants";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { storage } from "../../firebase/initFirebase";
-import { useQuery } from "react-query";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import {storage} from "../../firebase/initFirebase";
+import {useQuery} from "react-query";
 import subjectApi from "apis/subject";
-import { set, useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import certificateApi from "apis/certificates";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
 const AddCertificates = ({ show, handleClose, onChange }) => {
   const router = useRouter();

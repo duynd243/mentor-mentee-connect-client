@@ -1,13 +1,12 @@
-import { useState } from "react";
+import {useState} from "react";
 import useAuth from "../../hooks/useAuth";
 import EditModal from "./EditModal";
 import Link from "next/link";
 import moment from "moment";
 import constants from "../../data/constants";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import certificateApi from "apis/certificates";
 import AddCertificates from "./AddCertificates";
-import Image from "next/image";
 
 const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const Gender = {
