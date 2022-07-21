@@ -14,7 +14,8 @@ const getLoggedInMentorSessionsByDate = async (params?: any) => {
 }
 
 const getMenteesOfSession = async (_sessionId: any, params: any) => {
-    return await request.get(`/sessions/detail/${_sessionId}`, {params});
+    const {data} = await request.get(`/sessions/detail/${_sessionId}`, {params});
+    return data;
 }
 
 const checkAttendance = async (params: any) => {

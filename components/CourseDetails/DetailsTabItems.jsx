@@ -76,7 +76,7 @@ const DetailsTabItems = ({userData, dynamicPage, courseData, courseSessions}) =>
                     </li>
                     {userData?.roleId === constants.roles.mentor.id
                         && courseData?.mentor.id === userData?.id
-                        && courseData?.status === constants.courseStatus.waiting
+                        && courseData?.status === constants.courseStatus.started
                         &&
                         <li className="nav-item" role="presentation">
                             <button
