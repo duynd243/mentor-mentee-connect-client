@@ -320,12 +320,20 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
                                   </td>
                                   <td>
                                     {certificate?.status ==
-                                    constants.certificateStatus.pending
-                                      ? "Chờ duyệt"
-                                      : certificate?.status ==
-                                        constants.certificateStatus.approved
-                                      ? "Đã duyệt"
-                                      : "Không đủ tiêu chuẩn"}
+                                    constants.certificateStatus.pending ? (
+                                      <div className="course__video-discount">
+                                        <span>Chờ duyệt</span>
+                                      </div>
+                                    ) : certificate?.status ==
+                                      constants.certificateStatus.approved ? (
+                                      <div className="course__video-discount">
+                                        <span>Đã duyệt</span>
+                                      </div>
+                                    ) : (
+                                      <div className="course__video-discount">
+                                        <span>Không đủ tiêu chuẩn</span>
+                                      </div>
+                                    )}
                                   </td>
                                   {/* <td>${order?.price}</td>
                                   <td>

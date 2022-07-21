@@ -5,6 +5,11 @@ const getUserInfo = async () => {
   return data;
 };
 
+const getUserOrder = async () => {
+  const { data } = await request.get<any>(`/users/orders`);
+  return data;
+};
+
 const updateUserInfo = async (payload: any) => {
   return await request.put(`/users/me`, payload);
 };
@@ -24,6 +29,7 @@ const userApi = {
   updateUserInfo,
   getMentorInfo,
   getMentors,
+  getUserOrder,
 };
 
 export default userApi;
