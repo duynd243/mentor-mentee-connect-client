@@ -34,7 +34,7 @@ const CourseCard = ({ course, courseSidebar, swiperSlide }) => {
           <Link
             href={`/course-details/${getCourseSlug(course?.name, course?.id)}`}
           >
-            <a>{course.description}</a>
+            {course.description}
           </Link>
         </p>
         <div className="course__top-2 d-flex align-items-center justify-content-between">

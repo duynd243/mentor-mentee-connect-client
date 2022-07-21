@@ -38,7 +38,7 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                                 <img src={courseData?.mentor.imageUrl} alt=""/>
                             </div>
                             <div className="course__teacher-info-3">
-                                <h5>Mentor</h5>
+                                <h5>Giảng viên</h5>
                                 <p>
                                     <a style={{
                                         color: '#566eda',
@@ -50,15 +50,15 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                             </div>
                         </div>
                         <div className="course__update">
-                            <h5>Create Date:</h5>
+                            <h5>Ngày tạo:</h5>
                             <p>{moment(new Date(courseData?.createDate)).format("DD/MM/YYYY")}</p>
                         </div>
                         <div className="course__update">
-                            <h5>Start Date:</h5>
+                            <h5>Bắt đầu:</h5>
                             <p>{moment(new Date(courseData?.startDate)).format("DD/MM/YYYY")}</p>
                         </div>
                         <div className="course__rating-2">
-                            <h5>Review:</h5>
+                            <h5>Đánh giá:</h5>
                             <div className="course__rating-inner d-flex align-items-center">
                                 <RatingStars rating={courseData?.totalRating || 0}/>
                                 <p>{courseData?.totalRating || 0}</p>
@@ -74,7 +74,7 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                         <div className="row">
                             <div className="col-xxl-12">
                                 <div className="section__title-wrapper mb-40">
-                                    <h2 className="section__title">Related Course</h2>
+                                    <h2 className="section__title">Các khoá liên quan</h2>
                                     <p>
                                         You dont have to struggle alone, you have got our
                                         assistance and help.

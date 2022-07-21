@@ -233,6 +233,7 @@ const CreateCourse = ({subjectList, courseTypes, mentorData, onCreateSuccess}) =
     const handleCreateSubmit = (e) => {
         e.preventDefault();
         const payload = handleInputs();
+        console.log(payload);
         if (chosenImageFile) {
             uploadImageToFirebase(chosenImageFile).then((imageUrl) => {
                 createCourse({...payload, imageUrl});

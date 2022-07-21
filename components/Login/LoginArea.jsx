@@ -82,7 +82,7 @@ const LoginArea = () => {
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <span>Sign in with Google</span>
+                                            <span>Đăng nhập với Google</span>
                                         </button>
                                     </div>
                                 </div>

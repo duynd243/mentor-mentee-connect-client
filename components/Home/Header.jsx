@@ -136,7 +136,7 @@ const Header = (props) => {
                         <Link href="/login">
                           <button type="button" className="login_btn">
                             <i className="fa-solid fa-right-to-bracket"></i>
-                            Login
+                            Đăng nhập
                           </button>
                         </Link>
                       </div>
@@ -235,7 +235,7 @@ const Header = (props) => {
                             defaultValue={props.defaultSearchValue}
                             onChange={(e) => setSearchValue(e.target.value)}
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Tìm kiếm khoá học..."
                           />
                           <button className="header__search-btn">
                             <svg

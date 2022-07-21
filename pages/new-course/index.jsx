@@ -2,13 +2,14 @@ import Head from "next/head";
 import BreadCrumb from "components/common/BreadCrumb";
 import Header from "components/Home/Header";
 import Footer from "../../components/common/Footer";
-import CreateCourse from "../../components/Courses/CreateCourse";
+
 import {useQuery} from "react-query";
 import subjectApi from "../../apis/subject";
 import userApi from "../../apis/user";
 import CreateCourseBanner from "../../components/Courses/CreateCourseBanner";
 import {useState} from "react";
 import CreateSession from "../../components/Courses/CreateSession";
+import CreateCourse from "../../components/Courses/CreateCourse";
 
 const NewCourse = () => {
 

@@ -95,7 +95,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                 <div className="course__video-price">
                   <h5>
                     {courseData?.price}
-                    <BeanIcon />
+                    <BeanIcon position="right"/>
                   </h5>
                 </div>
                 <div className="course__video-discount">
@@ -127,7 +127,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                     </div>
                     <div className="course__video-info">
                       <h5>
-                        <span>Mentor :</span>
+                        <span>Giảng viên :</span>
 
                         <a
                           style={{
@@ -168,7 +168,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                     </div>
                     <div className="course__video-info">
                       <h5>
-                        <span>Lessons :</span>
+                        <span>Số tiết học :</span>
                         {totalSessions}
                       </h5>
                     </div>
@@ -190,7 +190,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                     </div>
                     <div className="course__video-info">
                       <h5>
-                        <span>Last updated :</span>
+                        <span>Cập nhật lần cuối :</span>
                         {moment(new Date(courseData?.updateDate)).format(
                           "DD/MM/YYYY"
                         )}
@@ -209,7 +209,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                     </div>
                     <div className="course__video-info">
                       <h5>
-                        <span>Enrolled :</span>
+                        <span>Đã tham gia :</span>
                         {courseData?.currentNumberMentee || 0}
                       </h5>
                     </div>
@@ -241,14 +241,8 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
               </div>
               <div className="course__payment mb-35">
                 <h3>
-                  Payment: <BeanIcon />
+                  Thanh toán<BeanIcon customStyles={{marginLeft:"12px"}}/>
                 </h3>
-                {/* <a href="#">
-                  <img
-                    src={"/" + "assets/img/course/payment/payment-1.png"}
-                    alt=""
-                  />
-                </a> */}
               </div>
               {userData?.roleId !== constants.roles.mentor.id && (
                 <div className="course__enroll-btn">
@@ -272,7 +266,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                           type="button"
                           className="tp-btn w-100 text-center"
                         >
-                          Login To Buy
+                          Đăng nhập để mua
                           <i className="far fa-arrow-right ms-3"></i>
                         </button>
                       </a>

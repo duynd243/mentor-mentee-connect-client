@@ -27,7 +27,7 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
         className="profile__photo"
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
-        <span>Hi, {userData?.fullName.split(" ")[0]}</span>
+        <span>Chào, {userData?.fullName.split(" ")[0]}</span>
         <img className="rounded-circle" src={userData?.imageUrl} />
       </div>
       <div
@@ -46,7 +46,7 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
         <div className="separator"></div>
         <a className="link" href="/my-profile" onClick={closeDropdown}>
           <i className="fa-solid fa-user"></i>
-          Profile
+          Hồ sơ
         </a>
         <a
           className="link"
@@ -60,12 +60,12 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
           }
         >
           <i className="fa-solid fa-book"></i>
-          My Courses
+          Khoá học của tôi
         </a>
         <a className="link balance">
           <div className="balance_label">
             <i className="fa-solid fa-coins"></i>
-            <span>Balance</span>
+            <span>Số dư</span>
           </div>
           <div className="balance_value">
             200
@@ -81,7 +81,7 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
           }}
         >
           <i className="fa-solid fa-right-from-bracket"></i>
-          Logout
+          Đăng xuất
         </a>
       </div>
     </div>
