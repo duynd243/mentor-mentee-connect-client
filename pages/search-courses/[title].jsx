@@ -174,8 +174,8 @@ const SearchCourses = () => {
                                     <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                         <div className="course__view text-end">
                                             {!isLoading && searchedCourses && searchedCourses?.data.length > 0 &&
-                                                <h4 style={{fontWeight: 400}}>Found <span
-                                                    className="fw-bold">{`${searchedCourses?.metadata.total} ${searchedCourses?.metadata.total > 1 ? 'matches' : 'match'}`}</span> for <span
+                                                <h4 style={{fontWeight: 400}}>Tìm thấy <span
+                                                    className="fw-bold">{`${searchedCourses?.metadata.total} kết quả`}</span> cho từ khoá <span
                                                     className="fw-bold">{title}</span></h4>
                                             }
                                         </div>

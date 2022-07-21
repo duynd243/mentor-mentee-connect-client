@@ -6,7 +6,7 @@ import FixedBottomEnroll from "./FixedBottomEnroll";
 const CourseDetailsArea = ({userData, courseData, courseSessions, relatedCourses, relatedCoursesLoading}) => {
     return (
         <>
-            <CourseDetailsLeftSide courseData={courseData} courseSessions={courseSessions} relatedCourses={relatedCourses}
+            <CourseDetailsLeftSide userData={userData} courseData={courseData} courseSessions={courseSessions} relatedCourses={relatedCourses}
                                    relatedCoursesLoading={relatedCoursesLoading}/>
             <CourseDetailsRightSide userData={userData} courseData={courseData} totalSessions={courseSessions?.length}/>
 

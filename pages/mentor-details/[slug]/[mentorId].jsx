@@ -22,14 +22,19 @@ const MentorDetails = () => {
             refetchOnWindowFocus: false,
         }
     );
+
+    const {data: userData, isLoading: userLoading} = useQuery(
+        ["userData"],
+        () => userApi.getUserInfo(),
+    );
     return (<>
         <Head>
             <title>{(mentorData?.fullName) ? `Mentor - ${mentorData?.fullName}` : `Mentor Details`}</title>
         </Head>
 
         <Header/>
-        <BreadCrumb title="Mentor Details"
-                    subtitle="Mentor Details"/>
+        <BreadCrumb title="Chi Tiết Giảng Viên"
+                    subtitle="Chi Tiết Giảng Viên"/>
         {mentorLoading &&
             <div className="d-flex align-items-center justify-content-center" style={{height: `450px`}}>
                 <Spinner style={{color: "#ace0fa"}} animation="grow"/>
@@ -56,7 +61,7 @@ const MentorDetails = () => {
         }
         {
             !mentorLoading && mentorData?.roleId === constants.roles.mentor.id &&
-            <MentorDetailsArea mentorData={mentorData}/>
+            <MentorDetailsArea mentorData={mentorData} userData={userData}/>
         }
 
         <Footer/>

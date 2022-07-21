@@ -27,7 +27,7 @@ const ProfileArea = ({ userData, firebaseUser }) => {
                 </div>
                 <div className="profile__basic-content">
                   <h3 className="profile__basic-title">
-                    Welcome Back <span>{userData?.fullName}</span>
+                    Chào, <span>{userData?.fullName}</span>
                   </h3>
                   <p>
                     {myOrders?.length} Running Courses
@@ -40,7 +40,7 @@ const ProfileArea = ({ userData, firebaseUser }) => {
             </div>
             <div className="col-xxl-6 col-md-6">
               <div className="profile__basic-balance d-flex align-items-center justify-content-md-end">
-                <div className="balance-info mr-10">Your Balance</div>
+                <div className="balance-info mr-10">Số dư ví BeanOi</div>
                 <div className="balance-item">
                   {userBean?.point ?? 0}{" "}
                   <BeanIcon position="right" fillColor="white" />

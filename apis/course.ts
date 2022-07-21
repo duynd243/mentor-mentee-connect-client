@@ -17,7 +17,7 @@ const createCourse = async (payload: any) => {
     return await request.post(`/courses`, payload);
 }
 
-const getUserAllCourses = async (params?: any) => {
+const getUserCreatedCourses = async (params?: any) => {
   const { data } = await request.get(`/users/courses`, { params });
   return data;
 };
@@ -28,7 +28,7 @@ const courseApi = {
   getCourseById,
   createCourse,
   add,
-  getUserAllCourses,
+  getUserCreatedCourses,
 };
 
 export default courseApi;

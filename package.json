@@ -44,7 +44,7 @@
     "slugify": "^1.6.5",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.17",
-    "swiper": "^8.2.2",
+      "swiper": "^8.2.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

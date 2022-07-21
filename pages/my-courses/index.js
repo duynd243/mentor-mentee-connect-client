@@ -22,7 +22,7 @@ const MyCourses = () =>{
 
     const {data: courses, isLoading: coursesLoading} = useQuery(
         "courses",
-        () => courseApi.getUserAllCourses({
+        () => courseApi.getUserCreatedCourses({
             page: currentPage,
             size: coursePerPage
         }),
@@ -35,7 +35,7 @@ const MyCourses = () =>{
             </Head>
 
             <Header/>
-            <BreadCrumb title="Search Course" subtitle="Search Course"/>
+            <BreadCrumb title="Khoá Học Của Tôi" subtitle="Search Course"/>
             {coursesLoading &&
                 <LoadingSkeleton/>
             }

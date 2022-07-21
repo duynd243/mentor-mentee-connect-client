@@ -8,6 +8,7 @@
 @forward 'components/ProfileDropdown';
 @forward 'components/CreateCourse';
 @forward 'components/CreateSession';
+@forward 'components/AttendanceSession';
 @forward 'components/section-title';
 @forward 'components/breadcrumb';
 @forward 'components/animation';
@@ -59,6 +60,32 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555
+}
+
+.status-tag{
+  display: inline-block;
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 12px;
+  font-weight: 600;
+  @include border-radius(4px);
+  &__active{
+    color: rgb(34, 154, 22);
+    background: rgba(84, 214, 44, 0.16);
+  }
+  &__inactive{
+    color: var(--tp-common-pink-2);
+    background: rgba($color: #FC4C56, $alpha: .08);
+  }
+  &__pending{
+    background: rgba(255, 193, 7, 0.16);
+    color: rgb(183, 129, 3);
+  }
+}
+
+.nav-item{
+  flex: 1 !important;
 }
 
 .z-index-0{
