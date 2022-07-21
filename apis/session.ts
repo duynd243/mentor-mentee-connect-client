@@ -19,7 +19,7 @@ const getMenteesOfSession = async (_sessionId: any, params: any) => {
 }
 
 const checkAttendance = async (params: any) => {
-    return await request.put(`/sessions/update-attendance`, {params});
+    return await request.put(`/sessions/update-attendance`, params);
 }
 
 const sessionApi = {
