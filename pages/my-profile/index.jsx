@@ -68,7 +68,7 @@ const MyProfile = () => {
         <>
           {userData?.roleId == 1 && (
             <div className="profile__edit-input d-flex justify-content-end mt-20 mr-30">
-              <button type="submit" className="tp-btn">
+              <button type="submit" className="tp-btn" onClick={handleShow}>
                 Đăng ký làm mentor
               </button>
             </div>

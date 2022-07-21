@@ -4,6 +4,8 @@ import BeanIcon from "../common/BeanIcon";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import constants from "../../data/constants";
 import { getMentorSlug } from "../../utils/slugUtils";
+import { useQuery } from "react-query";
+import walletApi from "apis/wallet";
 
 const ProfileDropdown = ({ userData, isInViewPort }) => {
   const { logout } = useAuth();
@@ -12,6 +14,10 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
   const closeDropdown = () => {
     setIsOpen(false);
   };
+
+  const { data: userBean } = useQuery("bean", () => {
+    walletApi.getUserBean(userData?.phone);
+  });
 
   useEffect(() => {
     if (!isInViewPort) {
@@ -68,7 +74,7 @@ const ProfileDropdown = ({ userData, isInViewPort }) => {
             <span>Balance</span>
           </div>
           <div className="balance_value">
-            200
+            {userBean?.point || 0}
             <BeanIcon position="right" fillColor="rgb(90, 88, 88)" />
           </div>
         </a>
