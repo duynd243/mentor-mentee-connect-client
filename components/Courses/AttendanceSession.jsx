@@ -20,6 +20,8 @@ const AttendanceSession = ({totalMentees, session}) => {
         ["menteesOfSession", session?.id, totalMentees],
         () => sessionApi.getMenteesOfSession(session?.id, {size: totalMentees}),
     )
+
+    console.log(menteesOfSession)
     return (
         <>
             <div className="attendance-session__wrapper mt-30">

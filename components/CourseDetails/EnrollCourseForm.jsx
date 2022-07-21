@@ -120,14 +120,17 @@ const EnrollCourseForm = ({
                 </div>
               </div>
             </div> */}
-                        <div className="d-flex bg-light text-white">
-                            <div className="course__video-thumb w-img mb-25 mr-10">
+                        <div className="d-flex flex-column bg-light text-white mt-20">
+                            <div className="course__img w-img">
                                 <img src={courseData?.imageUrl} alt=""/>
                             </div>
-                            <div>
-                                <h6 className="">{courseData?.name}</h6>
-                                <p className="">{courseData?.mentor?.fullName}</p>
-                                <div className="d-flex justify-content-end mr-25">
+                            <div className="mt-10 px-3 py-2">
+                                <h4 className="">{courseData?.name}</h4>
+                                <p style={{
+                                    fontSize: "1rem",
+                                    fontWeight: 500
+                                }}>{courseData?.mentor?.fullName}</p>
+                                <div className="d-flex justify-content-end">
                                     <h6>
                                         {" "}
                                         {courseData?.price ?? 0} <BeanIcon position="right"/>

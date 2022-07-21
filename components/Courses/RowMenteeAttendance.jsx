@@ -31,31 +31,7 @@ const RowMenteeAttendance = ({session, menteeSession}) => {
         }
     }
 
-    let menteeTest = {
-        "id": 0,
-        "menteeId": 0,
-        "mentee": {
-            "id": 0,
-            "fullName": "Nguyen Dinh Duy",
-            "gender": 0,
-            "imageUrl": "https://firebasestorage.googleapis.com/v0/b/mentor-mentee-connecting.appspot.com/o/photos%2FDuy%20Nguy%E1%BB%85n_1657117440649.jpeg?alt=media&token=9153a22d-0bbc-4b2f-967c-877df82d0774",
-            "phone": "string",
-            "email": "duy@gmail.com",
-            "address": "string",
-            "dayOfBirth": "2022-07-22T21:32:38.724Z",
-            "bio": "string",
-            "status": 0,
-            "badge": 0,
-            "roleId": 0,
-            "isPending": true,
-            "isSubscribed": true
-        },
-        "sessionId": 0,
-        "isAttended": 1,
-        "reportId": 0,
-        "rating": 0,
-    }
-    console.log(menteeTest)
+
     return (
         <div
             className="mt-20 py-2 mentee-row__wrapper d-flex flex-column flex-sm-row gap-3 gap-sm-0 align-items-sm-center justify-content-between">
@@ -72,10 +48,11 @@ const RowMenteeAttendance = ({session, menteeSession}) => {
                     <div>{menteeSession?.mentee?.email}</div>
                 </div>
             </div>
-            {isAttended ?
-                <button className="btn-check-attendance" onClick={handleCheckAttendance}>Điểm danh</button> :
-                <button style={{backgroundColor: "rgb(57 193 63)"}} className="btn-check-attendance">Đã điểm
-                    danh</button>}
+            {isAttended ? <button style={{backgroundColor: "rgb(57 193 63)"}} className="btn-check-attendance">Đã điểm
+                    danh</button> :
+                <button className="btn-check-attendance" onClick={handleCheckAttendance}>Điểm danh</button>
+            }
+
 
         </div>
     )
