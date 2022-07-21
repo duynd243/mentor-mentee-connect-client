@@ -42,6 +42,7 @@ const ProfileMenuArea = ({ userData, firebaseUser, onUserUpdated }) => {
   const { data: certificates } = useQuery("certificates", () =>
     certificateApi.getAllCertificatesLoginUser()
   );
+  console.log(certificates);
 
   const { data: connectBean } = useQuery("connectBean", () =>
     walletApi.getUserBean(userData?.phone)

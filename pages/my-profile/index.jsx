@@ -44,7 +44,6 @@ const MyProfile = () => {
       },
     }
   );
-  console.log(userData);
 
   const onUserUpdated = (user) => {
     setUpdatedUser(() => user);
@@ -69,7 +68,7 @@ const MyProfile = () => {
         <>
           {userData?.roleId == 1 && (
             <div className="profile__edit-input d-flex justify-content-end mt-20 mr-30">
-              <button type="submit" className="tp-btn" onClick={handleShow}>
+              <button type="submit" className="tp-btn">
                 Đăng ký làm mentor
               </button>
             </div>
