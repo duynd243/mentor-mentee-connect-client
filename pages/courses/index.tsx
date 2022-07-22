@@ -12,7 +12,7 @@ const Courses = () => {
             </Head>
 
             <Header/>
-            <BreadCrumb title="Courses" subtitle="Courses"/>
+            <BreadCrumb title="Khoá Học" subtitle="Khoá Học"/>
             <CourseSidebar/>
             <Footer/>
         </>

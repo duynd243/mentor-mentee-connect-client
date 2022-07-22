@@ -13,6 +13,7 @@ import ProfileArea from "../../components/MyProfile/ProfileArea";
 import ProfileMenuArea from "../../components/MyProfile/ProfileMenuArea";
 import certificateApi from "apis/certificates";
 import MentorRegister from "components/MyProfile/MentorRegister";
+import constants from "../../data/constants";
 
 const MyProfile = () => {
   const router = useRouter();
@@ -57,16 +58,16 @@ const MyProfile = () => {
   return (
     <>
       <Head>
-        <title>My Profile</title>
+        <title>Hồ sơ của tôi</title>
       </Head>
 
       <Header />
-      <BreadCrumb title="My Profile" subtitle="My Profile" />
+      <BreadCrumb title="Hồ sơ của tôi" subtitle="Hồ sơ của tôi" />
       {isLoading && <LoadingSkeleton />}
 
       {!isLoading && userData && (
         <>
-          {userData?.roleId == 1 && (
+          {userData?.roleId == constants.roles.mentee.id && (
             <div className="profile__edit-input d-flex justify-content-end mt-20 mr-30">
               <button type="submit" className="tp-btn" onClick={handleShow}>
                 Đăng ký làm mentor

@@ -92,7 +92,7 @@ const CourseCard = ({ course, courseSidebar, swiperSlide }) => {
                     </span>
                   </div>
                   <div className="course__action-content">
-                    <span>{course?.currentNumberMentee || 0}</span>
+                    <span>{course?.currentNumberMentee || 0} / {course?.maxQuantity || 0}</span>
                   </div>
                 </div>
               </li>

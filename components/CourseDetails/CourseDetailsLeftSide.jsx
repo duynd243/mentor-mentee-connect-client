@@ -11,7 +11,7 @@ import {getMentorSlug} from "../../utils/slugUtils";
 
 SwiperCore.use([Pagination]);
 
-const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, relatedCoursesLoading}) => {
+const CourseDetailsLeftSide = ({userData,courseData, courseSessions, relatedCourses, relatedCoursesLoading}) => {
     return (
         <>
             <div className="col-xxl-8 col-xl-8 col-lg-8">
@@ -68,13 +68,13 @@ const CourseDetailsLeftSide = ({courseData, courseSessions, relatedCourses, rela
                     <div className="course__img w-img mb-30">
                         <img src={courseData?.imageUrl} alt=""/>
                     </div>
-                    <DetailsTabItems dynamicPage={true} courseData={courseData} courseSessions={courseSessions}/>
+                    <DetailsTabItems userData={userData} dynamicPage={true} courseData={courseData} courseSessions={courseSessions}/>
 
                     <div className="course__related">
                         <div className="row">
                             <div className="col-xxl-12">
                                 <div className="section__title-wrapper mb-40">
-                                    <h2 className="section__title">Các khoá liên quan</h2>
+                                    <h2 className="section__title">Khoá học liên quan</h2>
                                     <p>
                                         You dont have to struggle alone, you have got our
                                         assistance and help.

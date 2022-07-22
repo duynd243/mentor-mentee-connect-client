@@ -12,11 +12,11 @@ const CreateSessionItem = ({courseData}) => {
 
     const handleCreateSession = () => {
         if (!sessionName.trim()) {
-            toast.error("Vui lòng nhập tên bài học");
+            toast.error("Vui lòng nhập tên tiết học");
             return;
         }
         if (!sessionDescription.trim()) {
-            toast.error("Vui lòng nhập mô tả bài học");
+            toast.error("Vui lòng nhập mô tả tiết học");
             return;
         }
         if (!sessionStartTime.trim()) {
@@ -42,7 +42,7 @@ const CreateSessionItem = ({courseData}) => {
 
         console.log(JSON.stringify(payload));
         sessionApi.createASession(payload).then(r => {
-            toast.success("Thêm bài học thành công");
+            toast.success("Thêm tiết học thành công");
             setIsRemoved(true);
         }).catch(e => {
             if (e.message) {
@@ -61,12 +61,12 @@ const CreateSessionItem = ({courseData}) => {
                         ></i>
                     </div>
                     <div className="session-item__input">
-                        <label>Tên bài học</label>
+                        <label>Tên tiết học</label>
                         <input
                             value={sessionName}
                             onChange={(e) => setSessionName(e.target.value)}
                             type="text"
-                            placeholder="Tên bài học"
+                            placeholder="Tên tiết học"
                         />
                     </div>
                     <div className="session-item__input">
@@ -74,7 +74,7 @@ const CreateSessionItem = ({courseData}) => {
                         <textarea
                             value={sessionDescription}
                             onChange={(e) => setSessionDescription(e.target.value)}
-                            placeholder="Mô tả nội dung bài học"
+                            placeholder="Mô tả nội dung tiết học"
                         />
                     </div>
                     <div className="row">

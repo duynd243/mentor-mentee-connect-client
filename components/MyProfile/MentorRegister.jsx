@@ -74,7 +74,7 @@ const MentorRegister = ({
 
   return (
     <>
-      <Modal show={show} onHide={closeModal} animation={false} centered>
+      <Modal show={show} onHide={closeModal} animation={true} centered>
         <Modal.Body>
           <div className="profile__edit-close">
             <button

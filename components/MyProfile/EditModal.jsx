@@ -11,8 +11,8 @@ import {storage} from "../../firebase/initFirebase";
 const EditModal = ({show, handleClose, userData, onChange}) => {
 
     const Gender = [
-        {value: 1, text: 'Male'},
-        {value: 2, text: 'Female'},
+        {value: 1, text: 'Nam'},
+        {value: 2, text: 'Nữ'},
     ];
 
     const closeModal = () => {
@@ -169,7 +169,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
     }
     return (
         <>
-            <Modal show={show} onHide={closeModal} animation={false} centered>
+            <Modal show={show} onHide={closeModal} animation={true} centered>
 
                 <Modal.Body>
                     <div className="profile__edit-close">
@@ -179,7 +179,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
 
                     <form onSubmit={handleFormSubmit}>
                         <div className="profile__edit-input photo-edit">
-                            <p>Profile picture</p>
+                            <p>Ảnh đại diện</p>
                             <div className="row mt-3">
                                 <div className="col-4">
                                     <img src={profilePicInputURL} alt="avatar" className="profile__edit-avatar"/>
@@ -189,26 +189,26 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
                                         <label htmlFor="profilePicInput">
                                             <div className="upload-btn">
                                                 <i className="fa-solid fa-file-image"></i>
-                                                Choose a picture
+                                                Tải ảnh lên
                                             </div>
                                         </label>
                                         <input type="file" id="profilePicInput" name="avatar" accept="image/*"
                                                onChange={handleImageChange}/>
 
                                     </div>
-                                    <div className="notice">Upload file must be in image format and less than 1MB.</div>
+                                    <div className="notice">File tải lên phải là định dạng ảnh và có kích cỡ tối đa 1MB.</div>
                                 </div>
                             </div>
                         </div>
                         <div className="profile__edit-input">
-                            <p>Name</p>
+                            <p>Tên</p>
                             <input value={enteredName} onChange={handleEnterName} type="text"
                                    placeholder="Your Name"/>
                         </div>
                         {
                             userData?.roleId === constants.roles.mentor.id &&
                             <div className="profile__edit-input">
-                                <p>Bio</p>
+                                <p>Giới thiệu</p>
                                 <textarea className="p-3" value={enteredBio} onChange={handleEnterBio} type="text"
                                           placeholder="Your Bio"/>
                             </div>
@@ -219,7 +219,7 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
                                 "fontWeight": "500",
                                 "marginBottom": "0",
                                 "color": "var(--tp-text-5)"
-                            }}>Gender</p>
+                            }}>Giới tính</p>
                             <Select style={{
                                 fontWeight: '500',
                                 color: 'black',
@@ -236,22 +236,22 @@ const EditModal = ({show, handleClose, userData, onChange}) => {
                                     onChange={(genders) => handleGenderChange(genders[0])}/>
                         </div>
                         <div className="profile__edit-input">
-                            <p>Day of Birth</p>
+                            <p>Sinh nhật</p>
                             <input onChange={handleDOBChange} value={selectedDOB} type="date"
                                    max={moment().format("YYYY-MM-DD")}/>
                         </div>
                         <div className="profile__edit-input">
-                            <p>Phone</p>
+                            <p>Số điện thoại</p>
                             <input value={enteredPhone} onChange={handleEnterPhone} type="text"
                                    placeholder="Your Phone"/>
                         </div>
                         <div className="profile__edit-input">
-                            <p>Address</p>
+                            <p>Địa chỉ</p>
                             <input value={enteredAddress} onChange={handleEnterAddress} type="text"
                                    placeholder="Your Address"/>
                         </div>
                         <div className="profile__edit-input">
-                            <button type="submit" className="tp-btn w-100">Update</button>
+                            <button type="submit" className="tp-btn w-100">Cập Nhật</button>
                         </div>
                     </form>
                 </Modal.Body>

@@ -54,7 +54,7 @@ const useFirebase = () => {
                                 Swal.fire({
                                     position: "top-center",
                                     icon: "error",
-                                    title: "Your account is not allowed to login on this page.",
+                                    title: "Tài khoản của bạn không được phép đăng nhập",
                                 }).then(() => {
                                     setUser({});
                                     signOut(auth);
@@ -65,7 +65,7 @@ const useFirebase = () => {
                             Swal.fire({
                                 position: "top-center",
                                 icon: "success",
-                                title: "Login Successfully",
+                                title: "Đăng nhập thành công",
                                 timer: 1500,
                             });
                             router.push("/");
@@ -132,7 +132,7 @@ const useFirebase = () => {
                 Swal.fire({
                     position: "top-center",
                     icon: "success",
-                    title: "Login Successfully",
+                    title: "Đăng nhập thành công",
                     timer: 1500,
                 });
                 reset();
@@ -178,7 +178,7 @@ const useFirebase = () => {
                 localStorage.removeItem("accessToken");
                 Swal.fire({
                     icon: "success",
-                    title: "Logout Successfully",
+                    title: "Đăng xuất thành công",
                 });
                 router.push("/");
             })

@@ -80,7 +80,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
             <div className="course__video">
               <div
                 className="course__video-thumb w-img mb-25"
-                style={{ backgroundImage: `url(${courseData?.imageUrl})` }}
+                style={{ backgroundImage: `url("${courseData?.imageUrl}")` }}
               >
                 <div className="course__video-play">
                   <button
@@ -210,7 +210,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
                     <div className="course__video-info">
                       <h5>
                         <span>Đã tham gia :</span>
-                        {courseData?.currentNumberMentee || 0}
+                        {courseData?.currentNumberMentee || 0} / {courseData?.maxQuantity || 0}
                       </h5>
                     </div>
                   </li>
@@ -241,7 +241,7 @@ const CourseDetailsRightSide = ({ courseData, totalSessions, userData }) => {
               </div>
               <div className="course__payment mb-35">
                 <h3>
-                  Thanh toán<BeanIcon customStyles={{marginLeft:"12px"}}/>
+                  Thanh toán hỗ trợ<BeanIcon customStyles={{marginLeft:"12px"}}/>
                 </h3>
               </div>
               {userData?.roleId !== constants.roles.mentor.id && (

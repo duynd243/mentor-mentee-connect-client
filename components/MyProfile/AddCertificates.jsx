@@ -152,7 +152,7 @@ const AddCertificates = ({ show, handleClose, onChange }) => {
 
   return (
     <>
-      <Modal show={show} onHide={closeModal} animation={false} centered>
+      <Modal show={show} onHide={closeModal} animation={true} centered>
         <Modal.Body>
           <div className="profile__edit-close">
             <button
@@ -192,7 +192,7 @@ const AddCertificates = ({ show, handleClose, onChange }) => {
                     />
                   </div>
                   <div className="notice">
-                    Upload file must be in image format and less than 1MB.
+                    File tải lên phải là định dạng ảnh và có kích cỡ tối đa 1MB.
                   </div>
                 </div>
               </div>

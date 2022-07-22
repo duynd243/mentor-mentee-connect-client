@@ -191,7 +191,7 @@ const CourseSidebar = () => {
                                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                     <div className="course__view text-end">
                                         {!courseItemsLoading && courseItems && courseItems?.metadata.total > 0 &&
-                                            <h4>{`Showing ${fromIndex} - ${(fromIndex + coursePerPage - 1) < courseItems?.metadata.total ? (fromIndex + coursePerPage - 1) : courseItems?.metadata.total} of ${courseItems?.metadata.total}`}</h4>
+                                            <h4>{`Đang hiển thị ${fromIndex} - ${(fromIndex + coursePerPage - 1) < courseItems?.metadata.total ? (fromIndex + coursePerPage - 1) : courseItems?.metadata.total} trên ${courseItems?.metadata.total}`}</h4>
                                         }
                                     </div>
                                 </div>
@@ -296,7 +296,7 @@ const CourseSidebar = () => {
                                         <input
                                             onChange={(e) => setSearchValue(e.target.value)}
                                             type="text"
-                                            placeholder="Search for courses..."
+                                            placeholder="Tìm kiếm khoá học..."
                                         />
                                         <button type="submit">
                                             <svg
@@ -327,8 +327,7 @@ const CourseSidebar = () => {
                             {/* Course Subjects / Categories Filter */}
                             <div className="course__sidebar-widget white-bg">
                                 <div className="course__sidebar-info">
-                                    <h3 className="course__sidebar-title" style={{textTransform: "none"}}>Filter by
-                                        subjects</h3>
+                                    <h3 className="course__sidebar-title" style={{textTransform: "none"}}>Lọc theo môn học</h3>
                                     <ul>
                                         <li key="">
                                             <div
@@ -342,8 +341,7 @@ const CourseSidebar = () => {
                                                     checked={currentSubjectId === ""}
                                                 />
                                                 <label className="m-check-label">
-                                                    All
-                                                    subjects {!courseItemsLoading && currentSubjectId === "" && `(${courseItems?.metadata.total})`}
+                                                    Tất cả môn học {!courseItemsLoading && currentSubjectId === "" && `(${courseItems?.metadata.total})`}
                                                 </label>
                                             </div>
                                         </li>

@@ -15,7 +15,7 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
         1: "Male",
         2: "Female",
     };
-    const notSetYet = <span style={{opacity: 0.7}}>Not set yet</span>;
+    const notSetYet = <span style={{opacity: 0.7}}>Chưa cập nhật</span>;
     // setShow
     const [show, setShow] = useState(false);
     //showAddCertificate
@@ -41,7 +41,6 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
     const {data: certificates} = useQuery("certificates", () =>
         certificateApi.getAllCertificatesLoginUser()
     );
-    console.log(certificates);
 
     const {data: connectBean} = useQuery("connectBean", () =>
         walletApi.getUserBean(userData?.phone)
@@ -206,13 +205,7 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                                                         <h4>{userData?.phone?.trim() || notSetYet}</h4>
                                                         {connectBean ? (
                                                             <div
-                                                                style={{
-                                                                    background: "#dfffdf",
-                                                                    color: "green",
-                                                                    padding: "10px 20px",
-                                                                    fontWeight: 500,
-                                                                    borderRadius: "25px"
-                                                                }}
+                                                                className="status-tag status-tag__active"
                                                             >Đã kết nối ví BeanOi</div>
                                                         ) : (
                                                             <button
@@ -339,16 +332,16 @@ const ProfileMenuArea = ({userData, firebaseUser, onUserUpdated}) => {
                                                                 <td>
                                                                     {certificate?.status ==
                                                                     constants.certificateStatus.pending ? (
-                                                                        <div className="course__video-discount">
+                                                                        <div className="status-tag status-tag__pending">
                                                                             <span>Chờ duyệt</span>
                                                                         </div>
                                                                     ) : certificate?.status ==
                                                                     constants.certificateStatus.approved ? (
-                                                                        <div className="course__video-discount">
+                                                                        <div className="status-tag status-tag__active">
                                                                             <span>Đã duyệt</span>
                                                                         </div>
                                                                     ) : (
-                                                                        <div className="course__video-discount">
+                                                                        <div className="status-tag status-tag__inactive">
                                                                             <span>Không đủ tiêu chuẩn</span>
                                                                         </div>
                                                                     )}

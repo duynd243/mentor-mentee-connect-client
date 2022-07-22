@@ -32,7 +32,7 @@ const CourseArea = () => {
                         <div className="col-xxl-12">
                             <div className="section__title-wrapper-2 text-center mb-40">
                                 <span className="section__title-pre-2">Categories</span>
-                                <h3 className="section__title-2">Most Popular Courses</h3>
+                                <h3 className="section__title-2">Các Khoá Học tiêu Biểu</h3>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ const CourseArea = () => {
                                             aria-controls="nav-all"
                                             aria-selected="true"
                                         >
-                                            All Categories
+                                            Tất Cả
                                         </button>
 
                                         <button
@@ -69,7 +69,7 @@ const CourseArea = () => {
                                             aria-controls="nav-newest"
                                             aria-selected="false"
                                         >
-                                            Newest
+                                            Mới Nhất
                                         </button>
 
                                         <button
@@ -82,7 +82,7 @@ const CourseArea = () => {
                                             aria-controls="nav-popular"
                                             aria-selected="false"
                                         >
-                                            Popularity
+                                            Tham Gia Nhiều
                                         </button>
 
                                         <button
@@ -95,7 +95,7 @@ const CourseArea = () => {
                                             aria-controls="nav-most-rated"
                                             aria-selected="false"
                                         >
-                                            Most Rated
+                                            Đánh Giá Tốt
                                         </button>
                                     </div>
                                 </nav>
