@@ -30,7 +30,7 @@ const CurriculumItem = ({curriculumItem}) => {
                                 <span>Nội dung:</span> {curriculumItem?.description}
                             </h3>
                         </div>
-                        <div className="course__curriculum-meta">
+                        <div className="course__curriculum-meta mt-3">
                             <span className="question">
                               <i className="fa-solid fa-calendar-days" style={{marginRight: "5px"}}></i>
                                 {curriculumItem?.startTime ? moment(new Date(curriculumItem?.startTime)).format("DD/MM/YYYY HH:mm") : `Chưa cập nhật`} - {curriculumItem?.endTime ? moment(new Date(curriculumItem?.endTime)).format("DD/MM/YYYY HH:mm") : `Chưa cập nhật`}
